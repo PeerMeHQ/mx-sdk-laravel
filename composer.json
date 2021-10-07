@@ -1,0 +1,53 @@
+{
+    "name": "superciety/erd-laravel",
+    "description": "Elrond SDK for Laravel (written in PHP).",
+    "keywords": [
+        "superciety",
+        "erd-laravel"
+    ],
+    "homepage": "https://github.com/superciety/erd-laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Micha Vie",
+            "email": "micha@freeiam.com",
+            "homepage": "https://superciety.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.2",
+        "illuminate/contracts": "^8.0",
+        "illuminate/http": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.3",
+        "spatie/phpunit-snapshot-assertions": "^4.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Superciety\\ElrondSdk\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Superciety\\ElrondSdk\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/superciety"
+        }
+    ]
+}
