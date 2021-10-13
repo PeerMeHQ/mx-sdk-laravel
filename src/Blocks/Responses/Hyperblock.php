@@ -2,6 +2,7 @@
 
 namespace Superciety\ElrondSdk\Blocks\Responses;
 
+use Illuminate\Support\Collection;
 use Superciety\ElrondSdk\ResponseBase;
 
 final class Hyperblock extends ResponseBase
@@ -13,18 +14,23 @@ final class Hyperblock extends ResponseBase
         public string $prevBlockHash,
         public int $epoch,
         public int $numTxs,
-        /** @var ShardBlock[] $shardBlocks */
-        public array $shardBlocks,
-        /** @var Transaction[] $transactions */
-        public array $transactions,
+        /** @var Collection|\Superciety\ElrondSdk\Blocks\Responses\ShardBlock[] $shardBlocks */
+        public Collection $shardBlocks,
+        /** @var Collection|\Superciety\ElrondSdk\Blocks\Responses\Transaction[] $transactions */
+        public Collection $transactions,
+        public ?int $timestamp = null,
+        public string $developerFees,
+        public string $accumulatedFeesInEpoch,
+        public string $developerFeesInEpoch,
+        public string $status,
     ) {
     }
 
     public static function fromResponse(array $res): static
     {
-        return new static(...array_merge($res, [
+        return new static(...static::filterUnallowedProperties(array_merge($res, [
             'shardBlocks' => ShardBlock::fromResponseMany($res['shardBlocks']),
             'transactions' =>  Transaction::fromResponseMany($res['transactions']),
-        ]));
+        ])));
     }
 }

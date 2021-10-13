@@ -14,9 +14,13 @@ final class Transaction extends ResponseBase
         public string $receiver,
         public string $sender,
         public int $gasPrice,
-        public int $gasLimit,
-        public string $data,
-        public string $signature,
+        public ?int $gasLimit = null,
+        public ?string $data = null,
+        public ?string $signature = null,
+        public int $sourceShard,
+        public int $destinationShard,
+        public string $miniblockType,
+        public string $miniblockHash,
         public string $status,
     ) {
     }
