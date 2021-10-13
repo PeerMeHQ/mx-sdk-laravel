@@ -15,7 +15,7 @@ final class NetworkEndpoints extends EndpointBase
     public function getEconomics(): Economics
     {
         return Economics::fromResponse(
-            static::request('GET', "{$this->baseUrl}/economics")
+            static::request('GET', "{$this->baseUrl}/network/economics")['metrics']
         );
     }
 }

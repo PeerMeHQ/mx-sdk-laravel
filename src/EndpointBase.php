@@ -10,6 +10,6 @@ abstract class EndpointBase
     {
         return Http::send($method, $url)
             ->throw()
-            ->json();
+            ->json()['data'];
     }
 }

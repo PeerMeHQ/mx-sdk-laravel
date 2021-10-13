@@ -12,9 +12,9 @@ class NetworkTest extends TestCase
     use MatchesSnapshots;
 
     /** @test */
-    public function it_fetches_economics()
+    public function it_gets_economics()
     {
-        $this->fakeHttpWithResponse('/economics', 'network/economics.json');
+        $this->fakeHttpWithResponse('/network/economics', 'network/economics.json');
 
         $actual = ElrondApi::network()->getEconomics();
 

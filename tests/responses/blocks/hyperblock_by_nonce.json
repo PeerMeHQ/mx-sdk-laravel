@@ -1,42 +1,44 @@
 {
-    "hyperblock": {
-        "nonce": 185833,
-        "round": 186582,
-        "hash": "6a33...",
-        "prevBlockHash": "aa7e...",
-        "epoch": 12,
-        "numTxs": 1,
-        "shardBlocks": [
-            {
-                "hash": "cba4...",
-                "nonce": 186556,
-                "shard": 0
-            },
-            {
-                "hash": "50a16...",
-                "nonce": 186535,
-                "shard": 1
-            },
-            {
-                "hash": "7981...",
-                "nonce": 186536,
-                "shard": 2
-            }
-        ],
-        "transactions": [
-            {
-                "type": "normal",
-                "hash": "b035...",
-                "nonce": 3,
-                "value": "1000000000000000000",
-                "receiver": "erd1...",
-                "sender": "erd1...",
-                "gasPrice": 1000000000,
-                "gasLimit": 70000,
-                "data": "Zm9yIHRlc3Rz",
-                "signature": "1047...",
-                "status": "executed"
-            }
-        ]
+    "data": {
+        "hyperblock": {
+            "nonce": 185833,
+            "round": 186582,
+            "hash": "6a33...",
+            "prevBlockHash": "aa7e...",
+            "epoch": 12,
+            "numTxs": 1,
+            "shardBlocks": [
+                {
+                    "hash": "cba4...",
+                    "nonce": 186556,
+                    "shard": 0
+                },
+                {
+                    "hash": "50a16...",
+                    "nonce": 186535,
+                    "shard": 1
+                },
+                {
+                    "hash": "7981...",
+                    "nonce": 186536,
+                    "shard": 2
+                }
+            ],
+            "transactions": [
+                {
+                    "type": "normal",
+                    "hash": "b035...",
+                    "nonce": 3,
+                    "value": "1000000000000000000",
+                    "receiver": "erd1...",
+                    "sender": "erd1...",
+                    "gasPrice": 1000000000,
+                    "gasLimit": 70000,
+                    "data": "Zm9yIHRlc3Rz",
+                    "signature": "1047...",
+                    "status": "executed"
+                }
+            ]
+        }
     }
 }
