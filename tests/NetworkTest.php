@@ -14,7 +14,7 @@ class NetworkTest extends TestCase
     /** @test */
     public function it_fetches_economics()
     {
-        $this->fakeHttpWithResponse('/economics', 'economics.json');
+        $this->fakeHttpWithResponse('/economics', 'network/economics.json');
 
         $actual = ElrondApi::network()->getEconomics();
 

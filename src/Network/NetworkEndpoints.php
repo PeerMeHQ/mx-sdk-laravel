@@ -2,21 +2,20 @@
 
 namespace Superciety\ElrondSdk\Network;
 
-use Illuminate\Support\Facades\Http;
+use Superciety\ElrondSdk\EndpointBase;
 use Superciety\ElrondSdk\Network\Responses\Economics;
 
-class Network
+final class NetworkEndpoints extends EndpointBase
 {
     public function __construct(
         private string $baseUrl
-    ) {}
+    ) {
+    }
 
     public function getEconomics(): Economics
     {
-        $res = Http::get("{$this->baseUrl}/economics")
-            ->throw()
-            ->json();
-
-        return Economics::fromResponse($res);
+        return Economics::fromResponse(
+            static::request('GET', "{$this->baseUrl}/economics")
+        );
     }
 }

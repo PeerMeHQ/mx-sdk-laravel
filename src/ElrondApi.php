@@ -2,16 +2,22 @@
 
 namespace Superciety\ElrondSdk;
 
-use Superciety\ElrondSdk\Network\Network;
+use Superciety\ElrondSdk\Blocks\BlockEndpoints;
+use Superciety\ElrondSdk\Network\NetworkEndpoints;
 
-class ElrondApi
+final class ElrondApi
 {
     const MainnetApiBaseUrl = 'https://api.elrond.com';
     const TestnetApiBaseUrl = 'https://testnet-api.elrond.com';
     const DevnetApiBaseUrl = 'https://devnet-api.elrond.com';
 
-    public static function network(): Network
+    public static function network(): NetworkEndpoints
     {
-        return new Network(static::MainnetApiBaseUrl);
+        return new NetworkEndpoints(static::MainnetApiBaseUrl);
+    }
+
+    public static function blocks(): BlockEndpoints
+    {
+        return new BlockEndpoints(static::MainnetApiBaseUrl);
     }
 }
