@@ -20,4 +20,24 @@ class NetworkTest extends TestCase
 
         $this->assertMatchesSnapshot($actual, new ResponseSnapshotDriver);
     }
+
+    /** @test */
+    public function it_gets_network_configs()
+    {
+        $this->fakeHttpWithResponse('/network/config', 'network/config.json');
+
+        $actual = ElrondApi::network()->getNetworkConfig();
+
+        $this->assertMatchesSnapshot($actual, new ResponseSnapshotDriver);
+    }
+
+    /** @test */
+    public function it_gets_shard_status()
+    {
+        $this->fakeHttpWithResponse('/network/status/1', 'network/shard-status.json');
+
+        $actual = ElrondApi::network()->getShardStatus(1);
+
+        $this->assertMatchesSnapshot($actual, new ResponseSnapshotDriver);
+    }
 }
