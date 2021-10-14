@@ -6,10 +6,12 @@ use Illuminate\Support\Facades\Http;
 
 abstract class EndpointBase
 {
-    protected static function request(string $method, string $url): array
+    protected static function request(string $method, string $url, bool $skipDataUnwrapping = false): array
     {
-        return Http::send($method, $url)
+        $res = Http::send($method, $url)
             ->throw()
-            ->json()['data'];
+            ->json();
+
+        return $skipDataUnwrapping ? $res : $res['data'];
     }
 }
