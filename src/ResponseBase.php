@@ -8,14 +8,21 @@ abstract class ResponseBase
 {
     public static function fromResponse(array $res): static
     {
-        return new static(...static::filterUnallowedProperties($res));
+        return new static(...static::filterUnallowedProperties(
+            static::transformResponse($res)
+        ));
     }
 
     public static function fromResponseMany(array $res): Collection
     {
         return (new Collection($res))
-            ->map(fn ($nested) => new static(...static::filterUnallowedProperties($nested)))
+            ->map(fn ($nested) => static::fromResponse($nested))
             ->values();
+    }
+
+    protected static function transformResponse(array $res): array
+    {
+        return $res;
     }
 
     protected static function filterUnallowedProperties(array $res): array
