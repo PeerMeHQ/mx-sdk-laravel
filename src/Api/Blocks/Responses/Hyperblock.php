@@ -1,9 +1,9 @@
 <?php
 
-namespace Superciety\ElrondSdk\Blocks\Responses;
+namespace Superciety\ElrondSdk\Api\Blocks\Responses;
 
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\ResponseBase;
+use Superciety\ElrondSdk\Api\ResponseBase;
 
 final class Hyperblock extends ResponseBase
 {

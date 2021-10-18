@@ -1,6 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk;
+namespace Superciety\ElrondSdk\Api;
 
 use Illuminate\Support\Facades\Http;
 

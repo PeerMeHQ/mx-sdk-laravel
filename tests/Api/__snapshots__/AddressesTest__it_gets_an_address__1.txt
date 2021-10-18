@@ -1,0 +1,1 @@
+O:52:"Superciety\ElrondSdk\Api\Addresses\Responses\Address":7:{s:7:"address";s:62:"erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc";s:5:"nonce";i:404;s:7:"balance";s:20:"46931489907311278839";s:8:"rootHash";s:44:"lLXmK8ipiC9pEQaaaaaaaaaabbbbbbbbbbcccccccccc";s:7:"txCount";i:470;s:8:"username";s:13:"aabbcc.elrond";s:5:"shard";i:1;}

@@ -1,8 +1,8 @@
 <?php
 
-namespace Superciety\ElrondSdk\Network\Responses;
+namespace Superciety\ElrondSdk\Api\Network\Responses;
 
-use Superciety\ElrondSdk\ResponseBase;
+use Superciety\ElrondSdk\Api\ResponseBase;
 
 final class ShardStatus extends ResponseBase
 {

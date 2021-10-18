@@ -1,8 +1,8 @@
 <?php
 
-namespace Superciety\ElrondSdk\Blocks\Responses;
+namespace Superciety\ElrondSdk\Api\Blocks\Responses;
 
-use Superciety\ElrondSdk\ResponseBase;
+use Superciety\ElrondSdk\Api\ResponseBase;
 
 final class Transaction extends ResponseBase
 {

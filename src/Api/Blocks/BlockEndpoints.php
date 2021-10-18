@@ -1,9 +1,9 @@
 <?php
 
-namespace Superciety\ElrondSdk\Blocks;
+namespace Superciety\ElrondSdk\Api\Blocks;
 
-use Superciety\ElrondSdk\EndpointBase;
-use Superciety\ElrondSdk\Blocks\Responses\Hyperblock;
+use Superciety\ElrondSdk\Api\EndpointBase;
+use Superciety\ElrondSdk\Api\Blocks\Responses\Hyperblock;
 
 final class BlockEndpoints extends EndpointBase
 {

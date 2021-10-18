@@ -4,7 +4,7 @@ namespace Superciety\ElrondSdk\Tests;
 
 use Spatie\Snapshots\Driver;
 use PHPUnit\Framework\Assert;
-use Superciety\ElrondSdk\ResponseBase;
+use Superciety\ElrondSdk\Api\ResponseBase;
 use Spatie\Snapshots\Exceptions\CantBeSerialized;
 
 class ResponseSnapshotDriver implements Driver

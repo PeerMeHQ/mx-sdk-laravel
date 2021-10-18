@@ -2,7 +2,7 @@
 
 namespace Superciety\ElrondSdk\Tests;
 
-use Superciety\ElrondSdk\ElrondApi;
+use Superciety\ElrondSdk\Elrond;
 use Spatie\Snapshots\MatchesSnapshots;
 use Superciety\ElrondSdk\Tests\TestCase;
 use Superciety\ElrondSdk\Tests\ResponseSnapshotDriver;
@@ -14,9 +14,11 @@ class AddressesTest extends TestCase
     /** @test */
     public function it_gets_an_address()
     {
-        $this->fakeHttpWithResponse('/addresses/erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc', 'addresses/address.json');
+        $this->fakeApiRequestWithResponse('/addresses/erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc', 'addresses/address.json');
 
-        $actual = ElrondApi::addresses()->getAddress('erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc');
+        $actual = Elrond::api()
+            ->addresses()
+            ->getAddress('erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc');
 
         $this->assertMatchesSnapshot($actual, new ResponseSnapshotDriver);
     }

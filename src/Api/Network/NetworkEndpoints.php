@@ -1,11 +1,11 @@
 <?php
 
-namespace Superciety\ElrondSdk\Network;
+namespace Superciety\ElrondSdk\Api\Network;
 
-use Superciety\ElrondSdk\EndpointBase;
-use Superciety\ElrondSdk\Network\Responses\Economics;
-use Superciety\ElrondSdk\Network\Responses\ShardStatus;
-use Superciety\ElrondSdk\Network\Responses\NetworkConfig;
+use Superciety\ElrondSdk\Api\EndpointBase;
+use Superciety\ElrondSdk\Api\Network\Responses\Economics;
+use Superciety\ElrondSdk\Api\Network\Responses\ShardStatus;
+use Superciety\ElrondSdk\Api\Network\Responses\NetworkConfig;
 
 final class NetworkEndpoints extends EndpointBase
 {

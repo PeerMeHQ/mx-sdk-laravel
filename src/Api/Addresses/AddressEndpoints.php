@@ -1,9 +1,9 @@
 <?php
 
-namespace Superciety\ElrondSdk\Addresses;
+namespace Superciety\ElrondSdk\Api\Addresses;
 
-use Superciety\ElrondSdk\EndpointBase;
-use Superciety\ElrondSdk\Addresses\Responses\Address;
+use Superciety\ElrondSdk\Api\EndpointBase;
+use Superciety\ElrondSdk\Api\Addresses\Responses\Address;
 
 class AddressEndpoints extends EndpointBase
 {

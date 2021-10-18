@@ -1,8 +1,8 @@
 <?php
 
-namespace Superciety\ElrondSdk\Addresses\Responses;
+namespace Superciety\ElrondSdk\Api\Addresses\Responses;
 
-use Superciety\ElrondSdk\ResponseBase;
+use Superciety\ElrondSdk\Api\ResponseBase;
 
 class Address extends ResponseBase
 {
