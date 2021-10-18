@@ -1,11 +1,11 @@
 {
-    "name": "superciety/erd-laravel",
+    "name": "superciety/elrond-sdk-laravel",
     "description": "Elrond SDK for Laravel (written in PHP).",
     "keywords": [
         "superciety",
-        "erd-laravel"
+        "laravel"
     ],
-    "homepage": "https://github.com/superciety/erd-laravel",
+    "homepage": "https://github.com/superciety/elrond-sdk-laravel",
     "license": "MIT",
     "authors": [
         {
