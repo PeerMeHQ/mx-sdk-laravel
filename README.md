@@ -7,7 +7,7 @@ Elrond SDK for Laravel (written in PHP).
 You can install the package via composer:
 
 ```bash
-composer require superciety/erd-laravel
+composer require superciety/elrond-sdk-laravel
 ```
 
 ## Usage
