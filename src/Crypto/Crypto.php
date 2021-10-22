@@ -19,6 +19,15 @@ final class Crypto
         return $key->verify($signedMessage->message, $signedMessage->signature);
     }
 
+    public function verifyLogin(ProofableLogin $proofableLogin): bool
+    {
+        return $this->verify(new SignedMessage(
+            message: "{$proofableLogin->signer}{$proofableLogin->token}{}", // this is how elrond wallets sign logins
+            signature: $proofableLogin->signature,
+            signer: $proofableLogin->signer,
+        ));
+    }
+
     public function convertAddressBech32ToHex(string $address): string
     {
         if (strlen($address) !== 62) {
