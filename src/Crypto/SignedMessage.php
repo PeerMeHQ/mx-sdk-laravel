@@ -2,9 +2,6 @@
 
 namespace Superciety\ElrondSdk\Crypto;
 
-/**
- * all values have to be hex encoded.
- */
 final class SignedMessage
 {
     public function __construct(

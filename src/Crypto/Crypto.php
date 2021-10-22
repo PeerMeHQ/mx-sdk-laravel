@@ -11,8 +11,10 @@ final class Crypto
 {
     public function verify(SignedMessage $signedMessage): bool
     {
+        $signerHex = $this->convertAddressBech32ToHex($signedMessage->signer);
+
         $ec = new EdDSA('ed25519');
-        $key = $ec->keyFromPublic($signedMessage->signer);
+        $key = $ec->keyFromPublic($signerHex);
 
         return $key->verify($signedMessage->message, $signedMessage->signature);
     }
