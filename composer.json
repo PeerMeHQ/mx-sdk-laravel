@@ -24,6 +24,8 @@
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
+        "pestphp/pest": "^1.20",
+        "pestphp/pest-plugin-laravel": "^1.1",
         "phpunit/phpunit": "^9.3",
         "spatie/phpunit-snapshot-assertions": "^4.2"
     },
@@ -38,7 +40,7 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit --colors=always",
+        "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     },
     "config": {

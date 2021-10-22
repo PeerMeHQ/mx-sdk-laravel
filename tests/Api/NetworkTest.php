@@ -7,43 +7,32 @@ use Spatie\Snapshots\MatchesSnapshots;
 use Superciety\ElrondSdk\Tests\TestCase;
 use Superciety\ElrondSdk\Tests\ResponseSnapshotDriver;
 
-class NetworkTest extends TestCase
-{
-    use MatchesSnapshots;
+it('gets economics', function () {
+    fakeApiRequestWithResponse('/network/economics', 'network/economics.json');
 
-    /** @test */
-    public function it_gets_economics()
-    {
-        $this->fakeApiRequestWithResponse('/network/economics', 'network/economics.json');
+    $actual = Elrond::api()
+        ->network()
+        ->getEconomics();
 
-        $actual = Elrond::api()
-            ->network()
-            ->getEconomics();
+    assertMatchesResponseSnapshot($actual);
+});
 
-        $this->assertMatchesSnapshot($actual, new ResponseSnapshotDriver);
-    }
+it('gets network configs', function () {
+    fakeApiRequestWithResponse('/network/config', 'network/config.json');
 
-    /** @test */
-    public function it_gets_network_configs()
-    {
-        $this->fakeApiRequestWithResponse('/network/config', 'network/config.json');
+    $actual = Elrond::api()
+        ->network()
+        ->getNetworkConfig();
 
-        $actual = Elrond::api()
-            ->network()
-            ->getNetworkConfig();
+    assertMatchesResponseSnapshot($actual);
+});
 
-        $this->assertMatchesSnapshot($actual, new ResponseSnapshotDriver);
-    }
+it('gets shard status', function () {
+    fakeApiRequestWithResponse('/network/status/1', 'network/shard-status.json');
 
-    /** @test */
-    public function it_gets_shard_status()
-    {
-        $this->fakeApiRequestWithResponse('/network/status/1', 'network/shard-status.json');
+    $actual = Elrond::api()
+        ->network()
+        ->getShardStatus(1);
 
-        $actual = Elrond::api()
-            ->network()
-            ->getShardStatus(1);
-
-        $this->assertMatchesSnapshot($actual, new ResponseSnapshotDriver);
-    }
-}
+    assertMatchesResponseSnapshot($actual);
+});
