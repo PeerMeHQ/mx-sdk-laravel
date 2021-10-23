@@ -4,11 +4,14 @@ namespace Superciety\ElrondSdk\Crypto;
 
 use Exception;
 use Elliptic\EdDSA;
+use kornrunner\Keccak;
 use function BitWasp\Bech32\decode;
 use function BitWasp\Bech32\convertBits;
 
 final class Crypto
 {
+    const MessagePrefix = "\x17Elrond Signed Message:\n";
+
     public function verify(SignedMessage $signedMessage): bool
     {
         $signerHex = $this->convertAddressBech32ToHex($signedMessage->signer);
@@ -22,7 +25,7 @@ final class Crypto
     public function verifyLogin(ProofableLogin $proofableLogin): bool
     {
         return $this->verify(new SignedMessage(
-            message: "{$proofableLogin->signer}{$proofableLogin->token}{}", // this is how elrond wallets sign logins
+            message: $this->keccak("{$proofableLogin->signer}{$proofableLogin->token}{}"), // how elrond wallet providers sign logins
             signature: $proofableLogin->signature,
             signer: $proofableLogin->signer,
         ));
@@ -48,5 +51,10 @@ final class Crypto
         }
 
         return $resultString;
+    }
+
+    public function keccak(string $message): string
+    {
+        return Keccak::hash(static::MessagePrefix . strlen($message) . $message, 256);
     }
 }
