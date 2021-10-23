@@ -3,9 +3,6 @@
 namespace Superciety\ElrondSdk\Tests;
 
 use Superciety\ElrondSdk\Elrond;
-use Spatie\Snapshots\MatchesSnapshots;
-use Superciety\ElrondSdk\Tests\TestCase;
-use Superciety\ElrondSdk\Tests\ResponseSnapshotDriver;
 
 it('gets economics', function () {
     fakeApiRequestWithResponse('/network/economics', 'network/economics.json');
