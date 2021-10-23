@@ -14,10 +14,10 @@ final class Crypto
 
     public function verify(SignedMessage $signedMessage): bool
     {
-        $signerHex = $this->convertAddressBech32ToHex($signedMessage->signer);
+        $addressHex = $this->convertAddressBech32ToHex($signedMessage->address);
 
         $ec = new EdDSA('ed25519');
-        $key = $ec->keyFromPublic($signerHex);
+        $key = $ec->keyFromPublic($addressHex);
 
         return $key->verify($signedMessage->message, $signedMessage->signature);
     }
@@ -25,9 +25,9 @@ final class Crypto
     public function verifyLogin(ProofableLogin $proofableLogin): bool
     {
         return $this->verify(new SignedMessage(
-            message: $this->keccak("{$proofableLogin->signer}{$proofableLogin->token}{}"), // how elrond wallet providers sign logins
+            message: $this->keccak("{$proofableLogin->address}{$proofableLogin->token}{}"), // how elrond wallet providers sign logins
             signature: $proofableLogin->signature,
-            signer: $proofableLogin->signer,
+            address: $proofableLogin->address,
         ));
     }
 

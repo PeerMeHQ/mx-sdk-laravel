@@ -7,7 +7,7 @@ final class SignedMessage
     public function __construct(
         public string $message,
         public string $signature,
-        public string $signer,
+        public string $address,
     ) {
     }
 }
