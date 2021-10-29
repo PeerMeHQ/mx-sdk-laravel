@@ -2,6 +2,7 @@
 
 namespace Superciety\ElrondSdk\Api\Network;
 
+use Carbon\Carbon;
 use Superciety\ElrondSdk\Api\EndpointBase;
 use Superciety\ElrondSdk\Api\Network\Responses\Economics;
 use Superciety\ElrondSdk\Api\Network\Responses\ShardStatus;
@@ -10,28 +11,29 @@ use Superciety\ElrondSdk\Api\Network\Responses\NetworkConfig;
 final class NetworkEndpoints extends EndpointBase
 {
     public function __construct(
-        private string $baseUrl
+        private string $baseUrl,
+        private ?Carbon $cacheTtl,
     ) {
     }
 
     public function getEconomics(): Economics
     {
         return Economics::fromResponse(
-            static::request('GET', "{$this->baseUrl}/network/economics")['metrics']
+            static::request('GET', "{$this->baseUrl}/network/economics", $this->cacheTtl)['metrics']
         );
     }
 
     public function getNetworkConfig(): NetworkConfig
     {
         return NetworkConfig::fromResponse(
-            static::request('GET', "{$this->baseUrl}/network/config")['config']
+            static::request('GET', "{$this->baseUrl}/network/config", $this->cacheTtl)['config']
         );
     }
 
     public function getShardStatus(int $shardId): ShardStatus
     {
         return ShardStatus::fromResponse(
-            static::request('GET', "{$this->baseUrl}/network/status/{$shardId}")['status']
+            static::request('GET', "{$this->baseUrl}/network/status/{$shardId}", $this->cacheTtl)['status']
         );
     }
 }

@@ -3,6 +3,7 @@
 namespace Superciety\ElrondSdk\Api;
 
 use Exception;
+use Carbon\Carbon;
 use Superciety\ElrondSdk\Api\Blocks\BlockEndpoints;
 use Superciety\ElrondSdk\Api\Network\NetworkEndpoints;
 use Superciety\ElrondSdk\Api\Addresses\AddressEndpoints;
@@ -14,6 +15,7 @@ final class Api
     const DevnetApiBaseUrl = 'https://devnet-api.elrond.com';
 
     private string $apiBaseUrl;
+    private ?Carbon $cacheTtl = null;
 
     public function __construct(string $chain)
     {
@@ -25,18 +27,25 @@ final class Api
         };
     }
 
+    public function cacheFor(Carbon $ttl): self
+    {
+        $this->cacheTtl = $ttl;
+
+        return $this;
+    }
+
     public function addresses(): AddressEndpoints
     {
-        return new AddressEndpoints($this->apiBaseUrl);
+        return new AddressEndpoints($this->apiBaseUrl, $this->cacheTtl);
     }
 
     public function network(): NetworkEndpoints
     {
-        return new NetworkEndpoints($this->apiBaseUrl);
+        return new NetworkEndpoints($this->apiBaseUrl, $this->cacheTtl);
     }
 
     public function blocks(): BlockEndpoints
     {
-        return new BlockEndpoints($this->apiBaseUrl);
+        return new BlockEndpoints($this->apiBaseUrl, $this->cacheTtl);
     }
 }
