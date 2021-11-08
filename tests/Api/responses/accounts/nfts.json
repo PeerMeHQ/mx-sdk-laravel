@@ -1,0 +1,86 @@
+[
+    {
+        "identifier": "GSNNFT-165811-02",
+        "collection": "GSNNFT-165811",
+        "attributes": "ZGVzY3JpcHRpb246UE9XRVJFRCBCWSBFTFJPTkQgTkVUV09SSw==",
+        "nonce": 2,
+        "type": "NonFungibleESDT",
+        "name": "MAIAR RAINBOW",
+        "creator": "erd1t6nyfn6an0pwss3nr8yu2frj5v6dcj8ucc3gwwwnklru8a2da68sm8rwte",
+        "uris": [
+            "aHR0cHM6Ly9kd2ViLmxpbmsvaXBmcy9iYWZ5YmVpY2s3cHIzNmhpcmtlZ28yN2c1bGJkcTM3bmQzZ3NpeXp4M2J4bHpzeHUzZTR4bXVseWdoNC9BNDY1QTA4RC02RDc4LTQ2Q0QtQkNBMy1BMDZGRUEzNjY5REQuanBlZw==",
+            "aXBmczovL2JhZnlyZWlhenN3Y2lqcmE3aWplY3JrN2lqYWJmcDRqcHl0emtkZXllYmJ1NjNuYXBlcTVyemVibm40L21ldGFkYXRhLmpzb24="
+        ],
+        "url": "https://dweb.link/ipfs/bafybeick7pr36hirkego27g5lbdq37nd3gsiyzx3bxlzsxu3e4xmulygh4/A465A08D-6D78-46CD-BCA3-A06FEA3669DD.jpeg",
+        "thumbnailUrl": "https://media.elrond.com/nfts/thumbnail/GSNNFT-165811-02",
+        "royalties": 0,
+        "ticker": "GSNNFT-165811"
+    },
+    {
+        "identifier": "GSNNFT-165811-08",
+        "collection": "GSNNFT-165811",
+        "attributes": "ZGVzY3JpcHRpb246TkZUIFBvd2VyZWQgYnkgZWxyb25kIG5ldHdvcms=",
+        "nonce": 8,
+        "type": "NonFungibleESDT",
+        "name": "ELROND RAINBOW",
+        "creator": "erd1t6nyfn6an0pwss3nr8yu2frj5v6dcj8ucc3gwwwnklru8a2da68sm8rwte",
+        "uris": [
+            "aHR0cHM6Ly9kd2ViLmxpbmsvaXBmcy9iYWZ5YmVpZDRpYTd5bW5sbXR0MnhyNTNubmhoNDRkcWM0NHJxaWZ0eHU2dmRkdjdxNWZ3amgycmhvbS9FNjcwNUJCRi0yQTZFLTRCRTQtOUIxMC01Q0QwQUQ5MTk1N0MuanBlZw==",
+            "aXBmczovL2JhZnlyZWljdGFveGM0Y3pzNHFxaWtnenlyeWZtaGx6eGNzNjd6eXVrenpnaHd5b2VobzRqN2RhMmNtL21ldGFkYXRhLmpzb24="
+        ],
+        "url": "https://dweb.link/ipfs/bafybeid4ia7ymnlmtt2xr53nnhh44dqc44rqiftxu6vddv7q5fwjh2rhom/E6705BBF-2A6E-4BE4-9B10-5CD0AD91957C.jpeg",
+        "thumbnailUrl": "https://media.elrond.com/nfts/thumbnail/GSNNFT-165811-08",
+        "royalties": 10,
+        "ticker": "GSNNFT-165811"
+    },
+    {
+        "identifier": "GSNNFT-165811-0c",
+        "collection": "GSNNFT-165811",
+        "attributes": "ZGVzY3JpcHRpb246TkZUIFBvd2VyZWQgYnkgZWxyb25kIG5ldHdvcms=",
+        "nonce": 12,
+        "type": "NonFungibleESDT",
+        "name": "Elrond Tigers",
+        "creator": "erd1t6nyfn6an0pwss3nr8yu2frj5v6dcj8ucc3gwwwnklru8a2da68sm8rwte",
+        "uris": [
+            "aHR0cHM6Ly9kd2ViLmxpbmsvaXBmcy9iYWZ5YmVpZ280YnlmN2JhZzJ3cWNib2xrNTVvZzdmanRiNWk0MjV0cXlvMmhtNXFzYjd2MnVkMnd0cS8xNkY1MzQxNy03NzIxLTQ3QUYtQUJDNi1DMEVFMkY1QjcxNTkuanBlZw==",
+            "aXBmczovL2JhZnlyZWloZnRkZmN2dHF3bjVxeGZ3eXZkZTVqYjd6dHV6ejNpd3BhN210cG5iZWJzbjJpdzdoc2xxL21ldGFkYXRhLmpzb24="
+        ],
+        "url": "https://dweb.link/ipfs/bafybeigo4byf7bag2wqcbolk55og7fjtb5i425tqyo2hm5qsb7v2ud2wtq/16F53417-7721-47AF-ABC6-C0EE2F5B7159.jpeg",
+        "thumbnailUrl": "https://media.elrond.com/nfts/thumbnail/GSNNFT-165811-0c",
+        "royalties": 10,
+        "ticker": "GSNNFT-165811"
+    },
+    {
+        "identifier": "GSNNFT-165811-0d",
+        "collection": "GSNNFT-165811",
+        "attributes": "ZGVzY3JpcHRpb246TkZUIFBvd2VyZWQgYnkgZWxyb25kIG5ldHdvcms=",
+        "nonce": 13,
+        "type": "NonFungibleESDT",
+        "name": "Elrond Lions",
+        "creator": "erd1t6nyfn6an0pwss3nr8yu2frj5v6dcj8ucc3gwwwnklru8a2da68sm8rwte",
+        "uris": [
+            "aHR0cHM6Ly9kd2ViLmxpbmsvaXBmcy9iYWZ5YmVpYXFzaXhvcnR0cHF5eDRxdXNnd3R1d3B6cGUyMnQ3Z3NsM3hpcGdxcnJtZmJ6MmFncDRtNC9GQzY0MDQ0OS1GREQ5LTRGODAtQjcwNC0zRkY2NzdDNDI3QzIuanBlZw==",
+            "aXBmczovL2JhZnlyZWlhaXdpaXJkYm50Znhta3hsNGJtbXBjYTZ5c3hpczVmbHhsN2l2eW9zbWFwd25haWMzd2NtL21ldGFkYXRhLmpzb24="
+        ],
+        "url": "https://dweb.link/ipfs/bafybeiaqsixorttpqyx4qusgwtuwpzpe22t7gsl3xipgqrrmfbz2agp4m4/FC640449-FDD9-4F80-B704-3FF677C427C2.jpeg",
+        "thumbnailUrl": "https://media.elrond.com/nfts/thumbnail/GSNNFT-165811-0d",
+        "royalties": 10,
+        "ticker": "GSNNFT-165811"
+    },
+    {
+        "identifier": "PLATA-716c04-04",
+        "collection": "PLATA-716c04",
+        "attributes": "UGxhdGEgMXN0IERyaXZlciBTa2V0Y2g=",
+        "nonce": 4,
+        "type": "NonFungibleESDT",
+        "name": "DRVONE",
+        "creator": "erd1g3ufcfdlnpamunzpaa4kutg3z7y9vtuqm3twpkh57ye2ppycgenseekdcl",
+        "uris": [
+            "aHR0cHM6Ly9nYXRld2F5LnBpbmF0YS5jbG91ZC9pcGZzL1FtZEpZZTZtcTFTcWM1d25mVFVRakwyRVN6NkdkZUZ6d1ZtM3o4UFRQRXl6UUo="
+        ],
+        "url": "https://gateway.pinata.cloud/ipfs/QmdJYe6mq1Sqc5wnfTUQjL2ESz6GdeFzwVm3z8PTPEyzQJ",
+        "thumbnailUrl": "https://media.elrond.com/nfts/thumbnail/PLATA-716c04-04",
+        "royalties": 15,
+        "ticker": "PLATA-716c04"
+    }
+]
