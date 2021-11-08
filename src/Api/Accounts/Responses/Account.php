@@ -1,10 +1,10 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Addresses\Responses;
+namespace Superciety\ElrondSdk\Api\Accounts\Responses;
 
 use Superciety\ElrondSdk\Api\ResponseBase;
 
-class Address extends ResponseBase
+class Account extends ResponseBase
 {
     public function __construct(
         public string $address,

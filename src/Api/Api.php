@@ -6,7 +6,7 @@ use Exception;
 use Carbon\Carbon;
 use Superciety\ElrondSdk\Api\Blocks\BlockEndpoints;
 use Superciety\ElrondSdk\Api\Network\NetworkEndpoints;
-use Superciety\ElrondSdk\Api\Addresses\AddressEndpoints;
+use Superciety\ElrondSdk\Api\Accounts\AccountEndpoints;
 
 final class Api
 {
@@ -34,9 +34,9 @@ final class Api
         return $this;
     }
 
-    public function addresses(): AddressEndpoints
+    public function accounts(): AccountEndpoints
     {
-        return new AddressEndpoints($this->apiBaseUrl, $this->cacheTtl);
+        return new AccountEndpoints($this->apiBaseUrl, $this->cacheTtl);
     }
 
     public function network(): NetworkEndpoints
