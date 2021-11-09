@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Http;
 use Superciety\ElrondSdk\Tests\ResponseSnapshotDriver;
 
-uses(\Orchestra\Testbench\TestCase::class)->in(__DIR__);
+uses(\Superciety\ElrondSdk\Tests\TestCase::class)->in(__DIR__);
 uses(\Spatie\Snapshots\MatchesSnapshots::class)->in(__DIR__);
 
 function fakeApiRequestWithResponse(string $endpoint, string $responseFile): void
@@ -11,7 +11,7 @@ function fakeApiRequestWithResponse(string $endpoint, string $responseFile): voi
     $response = file_get_contents(__DIR__ . '/Api/responses/' . $responseFile);
 
     Http::fake([
-        'api.elrond.com/' . ltrim($endpoint, '/') => Http::response($response),
+        config('elrond.urls.api') . '/' . ltrim($endpoint, '/') => Http::response($response),
     ]);
 }
 
