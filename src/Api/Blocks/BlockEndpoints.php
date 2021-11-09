@@ -9,7 +9,6 @@ use Superciety\ElrondSdk\Api\Blocks\Responses\Hyperblock;
 final class BlockEndpoints extends EndpointBase
 {
     public function __construct(
-        private string $baseUrl,
         private ?Carbon $cacheTtl,
     ) {
     }
@@ -17,14 +16,14 @@ final class BlockEndpoints extends EndpointBase
     public function getHyperblockByNonce(string $nonce): Hyperblock
     {
         return Hyperblock::fromResponse(
-            static::request('GET', "{$this->baseUrl}/hyperblock/by-nonce/{$nonce}", $this->cacheTtl)['hyperblock']
+            static::request('GET', "{$this->getApiBaseUrl()}/hyperblock/by-nonce/{$nonce}", $this->cacheTtl)['hyperblock']
         );
     }
 
     public function getHyperblockByHash(string $nonce): Hyperblock
     {
         return Hyperblock::fromResponse(
-            static::request('GET', "{$this->baseUrl}/hyperblock/by-hash/{$nonce}", $this->cacheTtl)['hyperblock']
+            static::request('GET', "{$this->getApiBaseUrl()}/hyperblock/by-hash/{$nonce}", $this->cacheTtl)['hyperblock']
         );
     }
 }

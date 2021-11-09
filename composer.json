@@ -20,6 +20,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "illuminate/contracts": "^8.0",
         "illuminate/http": "^8.0",
+        "illuminate/support": "^8.70",
         "kornrunner/keccak": "^1.1",
         "simplito/elliptic-php": "^1.0"
     },
@@ -49,6 +50,13 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Superciety\\ElrondSdk\\ServiceProvider"
+            ]
+        }
+    },
     "funding": [
         {
             "type": "github",

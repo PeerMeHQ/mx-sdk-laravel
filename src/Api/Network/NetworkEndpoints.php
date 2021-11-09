@@ -11,7 +11,6 @@ use Superciety\ElrondSdk\Api\Network\Responses\NetworkConfig;
 final class NetworkEndpoints extends EndpointBase
 {
     public function __construct(
-        private string $baseUrl,
         private ?Carbon $cacheTtl,
     ) {
     }
@@ -19,21 +18,21 @@ final class NetworkEndpoints extends EndpointBase
     public function getEconomics(): Economics
     {
         return Economics::fromResponse(
-            static::request('GET', "{$this->baseUrl}/network/economics", $this->cacheTtl)['metrics']
+            static::request('GET', "{$this->getApiBaseUrl()}/network/economics", $this->cacheTtl)['metrics']
         );
     }
 
     public function getNetworkConfig(): NetworkConfig
     {
         return NetworkConfig::fromResponse(
-            static::request('GET', "{$this->baseUrl}/network/config", $this->cacheTtl)['config']
+            static::request('GET', "{$this->getApiBaseUrl()}/network/config", $this->cacheTtl)['config']
         );
     }
 
     public function getShardStatus(int $shardId): ShardStatus
     {
         return ShardStatus::fromResponse(
-            static::request('GET', "{$this->baseUrl}/network/status/{$shardId}", $this->cacheTtl)['status']
+            static::request('GET', "{$this->getApiBaseUrl()}/network/status/{$shardId}", $this->cacheTtl)['status']
         );
     }
 }

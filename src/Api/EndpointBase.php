@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Cache;
 
 abstract class EndpointBase
 {
+    protected function getApiBaseUrl()
+    {
+        return trim(config('elrond.urls.api'), '/');
+    }
+
     protected static function request(string $method, string $url, ?Carbon $cacheTtl, bool $skipDataUnwrapping = false): array
     {
         $cacheKey = Str::lower("{$method}-{$url}");

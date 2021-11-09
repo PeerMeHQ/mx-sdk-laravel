@@ -11,7 +11,6 @@ use Superciety\ElrondSdk\Api\Accounts\Responses\Account;
 class AccountEndpoints extends EndpointBase
 {
     public function __construct(
-        private string $baseUrl,
         private ?Carbon $cacheTtl,
     ) {
     }
@@ -19,7 +18,7 @@ class AccountEndpoints extends EndpointBase
     public function getByAddress(string $address): Account
     {
         return Account::fromResponse(
-            static::request('GET', "{$this->baseUrl}/accounts/{$address}", $this->cacheTtl, skipDataUnwrapping: true)
+            static::request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}", $this->cacheTtl, skipDataUnwrapping: true)
         );
     }
 
@@ -28,7 +27,7 @@ class AccountEndpoints extends EndpointBase
         $types = implode(',', $types);
 
         return Nft::fromResponseMany(
-            static::request('GET', "{$this->baseUrl}/accounts/{$address}/nfts?type={$types}", $this->cacheTtl, skipDataUnwrapping: true)
+            static::request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}/nfts?type={$types}", $this->cacheTtl, skipDataUnwrapping: true)
         );
     }
 }
