@@ -26,11 +26,11 @@ final class Hyperblock extends ResponseBase
     ) {
     }
 
-    public static function fromResponse(array $res): static
+    public static function fromApiResponse(array $res): static
     {
         return new static(...static::filterUnallowedProperties(array_merge($res, [
-            'shardBlocks' => ShardBlock::fromResponseMany($res['shardBlocks']),
-            'transactions' =>  Transaction::fromResponseMany($res['transactions']),
+            'shardBlocks' => ShardBlock::fromApiResponseMany($res['shardBlocks']),
+            'transactions' =>  Transaction::fromApiResponseMany($res['transactions']),
         ])));
     }
 }

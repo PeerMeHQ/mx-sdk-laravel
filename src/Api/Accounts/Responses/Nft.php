@@ -5,7 +5,7 @@ namespace Superciety\ElrondSdk\Api\Accounts\Responses;
 use Illuminate\Support\Str;
 use Superciety\ElrondSdk\Api\ResponseBase;
 
-class Nft extends ResponseBase
+final class Nft extends ResponseBase
 {
     const NonFungibleESDT = 'NonFungibleESDT';
     const SemiFungibleESDT = 'SemiFungibleESDT';

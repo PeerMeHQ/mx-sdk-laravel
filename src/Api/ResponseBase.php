@@ -6,17 +6,17 @@ use Illuminate\Support\Collection;
 
 abstract class ResponseBase
 {
-    public static function fromResponse(array $res): static
+    public static function fromApiResponse(array $res): static
     {
         return new static(...static::filterUnallowedProperties(
             static::transformResponse($res)
         ));
     }
 
-    public static function fromResponseMany(array $res): Collection
+    public static function fromApiResponseMany(array $res): Collection
     {
         return (new Collection($res))
-            ->map(fn ($nested) => static::fromResponse($nested))
+            ->map(fn ($nested) => static::fromApiResponse($nested))
             ->values();
     }
 

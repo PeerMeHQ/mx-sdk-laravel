@@ -9,7 +9,7 @@ use Superciety\ElrondSdk\Api\Accounts\Responses\Nft;
  * find the corresponding typescript representation in our frontend core package:
  * https://github.com/Superciety/pwa-core-library
  */
-class NftResponseConverter
+final class NftResponseConverter
 {
     public static function single(Nft $nft): array
     {

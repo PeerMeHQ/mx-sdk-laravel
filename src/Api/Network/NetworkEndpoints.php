@@ -17,21 +17,21 @@ final class NetworkEndpoints extends EndpointBase
 
     public function getEconomics(): Economics
     {
-        return Economics::fromResponse(
+        return Economics::fromApiResponse(
             static::request('GET', "{$this->getApiBaseUrl()}/network/economics", $this->cacheTtl)['metrics']
         );
     }
 
     public function getNetworkConfig(): NetworkConfig
     {
-        return NetworkConfig::fromResponse(
+        return NetworkConfig::fromApiResponse(
             static::request('GET', "{$this->getApiBaseUrl()}/network/config", $this->cacheTtl)['config']
         );
     }
 
     public function getShardStatus(int $shardId): ShardStatus
     {
-        return ShardStatus::fromResponse(
+        return ShardStatus::fromApiResponse(
             static::request('GET', "{$this->getApiBaseUrl()}/network/status/{$shardId}", $this->cacheTtl)['status']
         );
     }
