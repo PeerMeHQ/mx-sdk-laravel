@@ -2,6 +2,7 @@
 
 namespace Superciety\ElrondSdk\Api\Entities;
 
+use Illuminate\Support\Str;
 use Superciety\ElrondSdk\Api\ResponseBase;
 
 final class Transaction extends ResponseBase
@@ -28,8 +29,14 @@ final class Transaction extends ResponseBase
     ) {
     }
 
-    protected static function transformResponse(array $res): array
+    public function getType(): string
     {
-        return $res;
+        $dataHint = Str::before(base64_decode($this->data), '@');
+
+        return match ($dataHint) {
+            'ESDTNFTCreate' => 'nft_create',
+            'ESDTNFTTransfer' => 'nft_transfer',
+            default => 'unknown',
+        };
     }
 }

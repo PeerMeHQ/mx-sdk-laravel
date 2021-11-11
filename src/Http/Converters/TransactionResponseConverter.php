@@ -14,6 +14,7 @@ class TransactionResponseConverter
     public static function single(Transaction $transaction): array
     {
         return [
+            'type' => $transaction->getType(),
             'hash' => $transaction->txHash,
             'gasLimit' => $transaction->gasLimit,
             'gasPrice' => $transaction->gasPrice,
