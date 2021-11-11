@@ -10,10 +10,10 @@ class Account extends ResponseBase
         public string $address,
         public int $nonce,
         public string $balance,
-        public string $rootHash,
         public int $txCount,
-        public string $username,
         public int $shard,
+        public ?string $username = null,
+        public ?string $rootHash = null,
     ) {
     }
 }
