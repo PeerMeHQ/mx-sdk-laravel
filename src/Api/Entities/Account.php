@@ -1,6 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Accounts\Responses;
+namespace Superciety\ElrondSdk\Api\Entities;
 
 use Superciety\ElrondSdk\Api\ResponseBase;
 

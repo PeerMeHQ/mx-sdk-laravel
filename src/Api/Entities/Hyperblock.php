@@ -1,9 +1,10 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Blocks\Responses;
+namespace Superciety\ElrondSdk\Api\Entities;
 
 use Illuminate\Support\Collection;
 use Superciety\ElrondSdk\Api\ResponseBase;
+use Superciety\ElrondSdk\Api\Entities\GatewayTransaction;
 
 final class Hyperblock extends ResponseBase
 {
@@ -16,7 +17,7 @@ final class Hyperblock extends ResponseBase
         public int $numTxs,
         /** @var Collection|\Superciety\ElrondSdk\Blocks\Responses\ShardBlock[] $shardBlocks */
         public Collection $shardBlocks,
-        /** @var Collection|\Superciety\ElrondSdk\Blocks\Responses\Transaction[] $transactions */
+        /** @var Collection|\Superciety\ElrondSdk\Blocks\Responses\GatewayTransaction[] $transactions */
         public Collection $transactions,
         public ?int $timestamp = null,
         public string $developerFees,
@@ -30,7 +31,7 @@ final class Hyperblock extends ResponseBase
     {
         return new static(...static::filterUnallowedProperties(array_merge($res, [
             'shardBlocks' => ShardBlock::fromApiResponseMany($res['shardBlocks']),
-            'transactions' =>  Transaction::fromApiResponseMany($res['transactions']),
+            'transactions' =>  GatewayTransaction::fromApiResponseMany($res['transactions']),
         ])));
     }
 }

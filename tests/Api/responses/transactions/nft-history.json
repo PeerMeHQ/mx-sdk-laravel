@@ -1,0 +1,40 @@
+[
+    {
+        "txHash": "61afc70ff24611a5e4ae2faf7c554f3532c4ee44e7e8a19b3ad25513805bf68c",
+        "gasLimit": 1000000,
+        "gasPrice": 1000000000,
+        "gasUsed": 444700,
+        "miniBlockHash": "2d9a8a888e094104761e3c5b07072e53b771d942b17f0be2d9eff25007be12a0",
+        "nonce": 1204,
+        "receiver": "erd1qck4cp7833h88gg7rq6q4w0fnvf3g33v499609z9ehjhqg9uxuhs0zkjpv",
+        "receiverShard": 1,
+        "round": 6755252,
+        "sender": "erd1qck4cp7833h88gg7rq6q4w0fnvf3g33v499609z9ehjhqg9uxuhs0zkjpv",
+        "senderShard": 1,
+        "signature": "5a1311065458882ad29545fa8cf6bb02700ef2d5cbe0e8edb32792b11b0605b8b2b5c71dfec0f33c87220fb9dae463db00b1437d9e126a48025cdabf77a70a03",
+        "status": "success",
+        "value": "0",
+        "fee": "221752000000000",
+        "timestamp": 1636649112,
+        "data": "RVNEVE5GVFRyYW5zZmVyQDUxNTU0MTQzNGIyZDY2MzAzMTY1MzAzMkAwMjU5QDAxQDJlOWU1NWJlYWNlZmZiMTY3MWZlZDYzODNlNjdhZDIyMzQyZTA5YzUwZDg2ZTA3MGJhYTZmZDFkY2FjODFmYTQ="
+    },
+    {
+        "txHash": "d8356d5091b73760fa55099d88d814068fa1d8febd0c6d1f6d3226d39fec8fe9",
+        "gasLimit": 60000000,
+        "gasPrice": 1000000000,
+        "gasUsed": 60000000,
+        "miniBlockHash": "54ef55ff10c8a11a60b031657a4ec66b0c04b2e9590b8651ca7f2920597b389f",
+        "nonce": 1201,
+        "receiver": "erd1qck4cp7833h88gg7rq6q4w0fnvf3g33v499609z9ehjhqg9uxuhs0zkjpv",
+        "receiverShard": 1,
+        "round": 6755235,
+        "sender": "erd1qck4cp7833h88gg7rq6q4w0fnvf3g33v499609z9ehjhqg9uxuhs0zkjpv",
+        "senderShard": 1,
+        "signature": "7bae067a3fc2a9ee6d730aabf575b4ac39869529c650b29ad72c10c40d03799ee73761f2ff9d1c969f6930a3a14f48dd73871e218ece4001e348e36625e4ae0f",
+        "status": "success",
+        "value": "0",
+        "fee": "1308840000000000",
+        "timestamp": 1636649010,
+        "data": "RVNEVE5GVENyZWF0ZUA1MTU1NDE0MzRiMmQ2NjMwMzE2NTMwMzJAMDFANDQ3NTYzNmIyMDIzMzYzMDMxQDAzZThAQDQyNjE2MzZiNjc3MjZmNzU2ZTY0M2E1NjY1NzI2ZDZmNzU3NDY4M2I1MDZjNzU2ZDYxNjc2NTNhNTM2MTZlNjQzYjRmNzU3NDY2Njk3NDNhNDc3MjY1NjU2ZTIwNGI2ZTY5NzQ3NDY1NjQyMDUzNzc2NTYxNzQ2NTcyM2I1MDY1NjU3MDY1NzI3MzNhNGU2ZjZlNjUzYjU0NmY3MDNhNDI2Yzc1NjUyMDRhNmY2MzZiNjU3OTIwNDM2MTcwM2I0MjZjNjk2ZTY3NzMzYTRlNmY2ZTY1QDY4NzQ3NDcwNzMzYTJmMmY2MjYxNjY2YjcyNjU2OTYyNjIzNzcyNzU2MzY5MzI3NDZkNjg3NjY4NzE2NDY4Njk2ODc2Nzg2Yzc3NzI3MTYyMzc2YTM2NjE2YzYxNzczNzc3NmM2NjM3NzY3NDM1Njk2Mzc5NzU2MzcyNzA3MzZlNzE2NzY1MmU2OTcwNjY3MzJlNjQ3NzY1NjIyZTZjNjk2ZTZi"
+    }
+]

@@ -3,10 +3,11 @@
 namespace Superciety\ElrondSdk\Api;
 
 use Carbon\Carbon;
-use Superciety\ElrondSdk\Api\Nfts\NftEndpoints;
-use Superciety\ElrondSdk\Api\Blocks\BlockEndpoints;
-use Superciety\ElrondSdk\Api\Network\NetworkEndpoints;
-use Superciety\ElrondSdk\Api\Accounts\AccountEndpoints;
+use Superciety\ElrondSdk\Api\Endpoints\NftEndpoints;
+use Superciety\ElrondSdk\Api\Endpoints\BlockEndpoints;
+use Superciety\ElrondSdk\Api\Endpoints\AccountEndpoints;
+use Superciety\ElrondSdk\Api\Endpoints\NetworkEndpoints;
+use Superciety\ElrondSdk\Api\Endpoints\TokenEndpoints;
 
 final class Api
 {
@@ -37,5 +38,10 @@ final class Api
     public function nfts(): NftEndpoints
     {
         return new NftEndpoints($this->cacheTtl);
+    }
+
+    public function tokens(): TokenEndpoints
+    {
+        return new TokenEndpoints($this->cacheTtl);
     }
 }

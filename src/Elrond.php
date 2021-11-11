@@ -7,9 +7,9 @@ use Superciety\ElrondSdk\Crypto\Crypto;
 
 final class Elrond
 {
-    public static function api(string $chain = 'M'): Api
+    public static function api(): Api
     {
-        return new Api($chain);
+        return new Api();
     }
 
     public static function crypto(): Crypto

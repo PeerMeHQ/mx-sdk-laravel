@@ -1,10 +1,10 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Nfts;
+namespace Superciety\ElrondSdk\Api\Endpoints;
 
 use Carbon\Carbon;
 use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Nfts\Responses\Nft;
+use Superciety\ElrondSdk\Api\Entities\Nft;
 
 class NftEndpoints extends EndpointBase
 {

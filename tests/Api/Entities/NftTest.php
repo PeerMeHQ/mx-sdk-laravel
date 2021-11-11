@@ -1,8 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk\Tests\Api\Nfts;
-
-use Superciety\ElrondSdk\Api\Nfts\Responses\Nft;
+use Superciety\ElrondSdk\Api\Entities\Nft;
 
 it('getTags - returns all tags given in attributes', function () {
     $nft = makeTestNftWithHumanReadableAttributes('tags:tag1,tag2,tag3;metadata:xxxx_ipfs_content_iD_xxxx');
@@ -30,5 +28,17 @@ it('getIpfsContentId - returns an ipfs content id', function () {
 
 function makeTestNftWithHumanReadableAttributes(string $attributes)
 {
-    return new Nft('id', 'xyz', 123, $attributes, 1, 'irrelevant', 'name', 'erd1creator', 'ticker', 10, 'https://irrelevant', 'https://irrelevant', 'erd1owner', 1);
+    return new Nft(
+        identifier: 'id',
+        collection: 'xyz',
+        attributes: $attributes,
+        nonce: '01',
+        type: 'irrelevant',
+        name: 'name',
+        creator: 'erd1creator',
+        ticker: 'ticker',
+        royalties: 10,
+        url: 'https://irrelevant',
+        thumbnailUrl: 'https://irrelevant',
+    );
 }

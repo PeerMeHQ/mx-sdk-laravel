@@ -1,6 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Nfts\Responses;
+namespace Superciety\ElrondSdk\Api\Entities;
 
 use Illuminate\Support\Str;
 use Superciety\ElrondSdk\Api\ResponseBase;
@@ -14,18 +14,18 @@ final class Nft extends ResponseBase
     public function __construct(
         public string $identifier,
         public string $collection,
-        public int $timestamp,
+        public int|string|null $timestamp = null,
         public string $attributes,
-        public int $nonce,
+        public int|string $nonce,
         public string $type,
         public string $name,
         public string $creator,
-        public string $ticker,
         public ?int $royalties = null,
         public ?string $url = null,
+        public ?string $ticker = null,
         public ?string $thumbnailUrl = null,
-        public string $owner,
-        public int $supply,
+        public ?string $owner = null,
+        public ?int $supply = null,
     ) {
     }
 

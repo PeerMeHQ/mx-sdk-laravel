@@ -1,12 +1,12 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Accounts;
+namespace Superciety\ElrondSdk\Api\Endpoints;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Accounts\Responses\Nft;
-use Superciety\ElrondSdk\Api\Accounts\Responses\Account;
+use Superciety\ElrondSdk\Api\Entities\Nft;
+use Superciety\ElrondSdk\Api\Entities\Account;
 
 class AccountEndpoints extends EndpointBase
 {

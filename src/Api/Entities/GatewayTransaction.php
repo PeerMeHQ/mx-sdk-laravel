@@ -1,10 +1,10 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Blocks\Responses;
+namespace Superciety\ElrondSdk\Api\Entities;
 
 use Superciety\ElrondSdk\Api\ResponseBase;
 
-final class Transaction extends ResponseBase
+final class GatewayTransaction extends ResponseBase
 {
     public function __construct(
         public string $type,

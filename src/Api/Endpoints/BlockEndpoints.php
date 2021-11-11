@@ -1,10 +1,10 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Blocks;
+namespace Superciety\ElrondSdk\Api\Endpoints;
 
 use Carbon\Carbon;
 use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Blocks\Responses\Hyperblock;
+use Superciety\ElrondSdk\Api\Entities\Hyperblock;
 
 final class BlockEndpoints extends EndpointBase
 {
