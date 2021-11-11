@@ -3,7 +3,8 @@
 namespace Superciety\ElrondSdk\Http\Converters;
 
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Api\Accounts\Responses\Nft;
+use Superciety\ElrondSdk\Api\Nfts\Responses\Nft;
+use Superciety\ElrondSdk\Api\Accounts\Responses\Nft as AccountNft;
 
 /**
  * find the corresponding typescript representation in our frontend core package:
@@ -11,7 +12,7 @@ use Superciety\ElrondSdk\Api\Accounts\Responses\Nft;
  */
 final class NftResponseConverter
 {
-    public static function single(Nft $nft): array
+    public static function single(AccountNft|Nft $nft): array
     {
         return [
             'identifier' => $nft->identifier,

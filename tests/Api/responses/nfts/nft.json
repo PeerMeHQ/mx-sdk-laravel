@@ -1,0 +1,19 @@
+{
+    "identifier": "MARSHM1-021222-74",
+    "collection": "MARSHM1-021222",
+    "timestamp": 1636642038,
+    "attributes": "QmFja2dyb3VuZDp3aGl0ZTsgc2tpbjpvcmFuZ2U7IGNvbnRvdXI6YmxhY2s7IGVmZmVjdDpoYWxmIHRvbmU7IGFjY2Vzc29yaWVzOmRhbmdv",
+    "nonce": 116,
+    "type": "NonFungibleESDT",
+    "name": "Marshmallow #89",
+    "creator": "erd1jw85qvfr6dk0kulyjsxppk3a5wf0kyplddp07s8r3nyslwwyuqqqev553j",
+    "uris": [
+        "aHR0cHM6Ly9iYWZ5YmVpZjJkdW9jcHV6cWpxZmhmem1rcHRqZnJ1YWVyY3p4am1xbXJkaW9kNWlwcGxkN3Bqc3k0cS5pcGZzLmR3ZWIubGluay8="
+    ],
+    "url": "https://bafybeif2duocpuzqjqfhfzmkptjfruaerczxjmqmrdiod5ippld7pjsy4q.ipfs.dweb.link/",
+    "isWhitelistedStorage": false,
+    "thumbnailUrl": "https://media.elrond.com/nfts/thumbnail/MARSHM1-021222-74",
+    "supply": "1",
+    "owner": "erd18lw4mnnvl4za52tte99g92h8q0tsc3mc9nmjulpkk9hnycchv0ksny779v",
+    "ticker": "MARSHM1-021222"
+}
