@@ -2,6 +2,7 @@
 
 namespace Superciety\ElrondSdk\Api\Entities;
 
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Superciety\ElrondSdk\Api\ResponseBase;
 
@@ -22,7 +23,7 @@ final class Transaction extends ResponseBase
         public string $status,
         public string $value,
         public ?string $fee = null,
-        public ?int $timestamp = null,
+        public ?Carbon $timestamp = null,
         public ?string $data = null,
         public ?string $tokenIdentifier = null,
         public ?string $tokenValue = null,
@@ -38,5 +39,12 @@ final class Transaction extends ResponseBase
             'ESDTNFTTransfer' => 'nft_transfer',
             default => 'unknown',
         };
+    }
+
+    protected static function transformResponse(array $res): array
+    {
+        return array_merge($res, [
+            'timestamp' => isset($res['timestamp']) ? Carbon::createFromTimestampUTC($res['timestamp']) : null,
+        ]);
     }
 }
