@@ -24,4 +24,11 @@ final class GatewayTransaction extends ResponseBase
         public string $status,
     ) {
     }
+
+    protected static function transformResponse(array $res): array
+    {
+        return array_merge($res, [
+            'data' => isset($res['data']) ? base64_decode($res['data']) : null,
+        ]);
+    }
 }
