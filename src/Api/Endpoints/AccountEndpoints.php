@@ -18,7 +18,7 @@ class AccountEndpoints extends EndpointBase
     public function getByAddress(string $address): Account
     {
         return Account::fromApiResponse(
-            static::request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}", $this->cacheTtl, skipDataUnwrapping: true)
+            static::request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}", $this->cacheTtl)
         );
     }
 
@@ -27,7 +27,7 @@ class AccountEndpoints extends EndpointBase
         $types = implode(',', $types);
 
         return Nft::fromApiResponseMany(
-            static::request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}/nfts?type={$types}", $this->cacheTtl, skipDataUnwrapping: true)
+            static::request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}/nfts?type={$types}", $this->cacheTtl)
         );
     }
 }

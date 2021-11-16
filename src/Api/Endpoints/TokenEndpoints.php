@@ -17,7 +17,7 @@ class TokenEndpoints extends EndpointBase
     public function getTransactions(string $tokenId): Collection
     {
         return Transaction::fromApiResponseMany(
-            static::request('GET', "{$this->getApiBaseUrl()}/tokens/{$tokenId}/transactions", $this->cacheTtl, skipDataUnwrapping: true)
+            static::request('GET', "{$this->getApiBaseUrl()}/tokens/{$tokenId}/transactions", $this->cacheTtl)
         );
     }
 }

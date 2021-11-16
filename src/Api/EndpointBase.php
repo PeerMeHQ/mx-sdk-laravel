@@ -14,7 +14,7 @@ abstract class EndpointBase
         return trim(config('elrond.urls.api'), '/');
     }
 
-    protected static function request(string $method, string $url, ?Carbon $cacheTtl, bool $skipDataUnwrapping = false): array
+    protected static function request(string $method, string $url, ?Carbon $cacheTtl, bool $unwrapData = false): array
     {
         $cacheKey = Str::lower("{$method}-{$url}");
 
@@ -30,6 +30,6 @@ abstract class EndpointBase
             Cache::put($cacheKey, $res, $cacheTtl);
         }
 
-        return $skipDataUnwrapping ? $res : $res['data'];
+        return $unwrapData ? $res['data'] : $res;
     }
 }

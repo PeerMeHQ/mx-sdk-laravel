@@ -1,0 +1,7 @@
+{
+    "chainId": "1",
+    "gasPerDataByte": 1500,
+    "minGasLimit": 50000,
+    "minGasPrice": 1000000000,
+    "minTransactionVersion": 1
+}

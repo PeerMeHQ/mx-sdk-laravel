@@ -16,14 +16,14 @@ final class BlockEndpoints extends EndpointBase
     public function getHyperblockByNonce(string $nonce): Hyperblock
     {
         return Hyperblock::fromApiResponse(
-            static::request('GET', "{$this->getApiBaseUrl()}/hyperblock/by-nonce/{$nonce}", $this->cacheTtl)['hyperblock']
+            static::request('GET', "{$this->getApiBaseUrl()}/hyperblock/by-nonce/{$nonce}", $this->cacheTtl, unwrapData: true)['hyperblock']
         );
     }
 
     public function getHyperblockByHash(string $nonce): Hyperblock
     {
         return Hyperblock::fromApiResponse(
-            static::request('GET', "{$this->getApiBaseUrl()}/hyperblock/by-hash/{$nonce}", $this->cacheTtl)['hyperblock']
+            static::request('GET', "{$this->getApiBaseUrl()}/hyperblock/by-hash/{$nonce}", $this->cacheTtl, unwrapData: true)['hyperblock']
         );
     }
 }

@@ -1,15 +1,10 @@
 {
-    "data": {
-        "metrics": {
-            "erd_dev_rewards": "431881930809000000",
-            "erd_epoch_for_economics_data": 439,
-            "erd_inflation": "5309701523648625459568",
-            "erd_total_base_staked_value": "8190000000000000000000000",
-            "erd_total_fees": "6290198973140000000",
-            "erd_total_supply": "22552498146454845804720322",
-            "erd_total_top_up_value": "3538629699443199411790781"
-        }
-    },
-    "error": "",
-    "code": "successful"
+    "totalSupply": 22738134,
+    "circulatingSupply": 20078134,
+    "staked": 12077642,
+    "price": 308.29,
+    "marketCap": 6087314698,
+    "apr": 0.145813,
+    "topUpApr": 0.110942,
+    "baseApr": 0.165715
 }

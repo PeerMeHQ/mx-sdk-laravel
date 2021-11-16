@@ -16,7 +16,7 @@ class NftEndpoints extends EndpointBase
     public function getById(string $identifier): Nft
     {
         return Nft::fromApiResponse(
-            static::request('GET', "{$this->getApiBaseUrl()}/nfts/{$identifier}", $this->cacheTtl, skipDataUnwrapping: true)
+            static::request('GET', "{$this->getApiBaseUrl()}/nfts/{$identifier}", $this->cacheTtl)
         );
     }
 }

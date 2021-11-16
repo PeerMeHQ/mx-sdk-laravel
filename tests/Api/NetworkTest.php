@@ -5,7 +5,7 @@ namespace Superciety\ElrondSdk\Tests;
 use Superciety\ElrondSdk\Elrond;
 
 it('gets economics', function () {
-    fakeApiRequestWithResponse('/network/economics', 'network/economics.json');
+    fakeApiRequestWithResponse('/economics', 'network/economics.json');
 
     $actual = Elrond::api()
         ->network()
@@ -14,22 +14,12 @@ it('gets economics', function () {
     assertMatchesResponseSnapshot($actual);
 });
 
-it('gets network configs', function () {
-    fakeApiRequestWithResponse('/network/config', 'network/config.json');
+it('gets constants', function () {
+    fakeApiRequestWithResponse('/constants', 'network/constants.json');
 
     $actual = Elrond::api()
         ->network()
-        ->getNetworkConfig();
-
-    assertMatchesResponseSnapshot($actual);
-});
-
-it('gets shard status', function () {
-    fakeApiRequestWithResponse('/network/status/1', 'network/shard-status.json');
-
-    $actual = Elrond::api()
-        ->network()
-        ->getShardStatus(1);
+        ->getNetworkConstants();
 
     assertMatchesResponseSnapshot($actual);
 });
