@@ -11,3 +11,7 @@ it('has the desired precision given an integer', fn () => expect(Balance::egld(1
 it('has the desired precision given a non-precise float', fn () => expect(Balance::egld(12.12345)->amount)->toBe("12123450000000000000"));
 
 it('has the desired precision given a non-precise string', fn () => expect(Balance::egld("12.12345")->amount)->toBe("12123450000000000000"));
+
+it('toDenominated - does not have trailing zeros', fn () => expect(Balance::egld("12.12345")->toDenominated())->toBe("12.12345"));
+
+it('toDenominated - allows an optional decimal precision', fn () => expect(Balance::egld("12.12345")->toDenominated(3))->toBe("12.123"));

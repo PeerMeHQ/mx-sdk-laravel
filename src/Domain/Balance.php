@@ -10,7 +10,7 @@ class Balance
     ) {
     }
 
-    public static function from(Token $token, string $amount): static
+    public static function from(Token $token, string|int|float $amount): static
     {
         return new static(
             token: $token,
@@ -18,7 +18,7 @@ class Balance
         );
     }
 
-    public static function egld(string $amount): static
+    public static function egld(string|int|float $amount): static
     {
         return new static(
             token: Token::egld(),
@@ -26,13 +26,16 @@ class Balance
         );
     }
 
-    public function toDenominated(): string
+    public function toDenominated(?int $decimals = null): string
     {
         $formatted = substr_replace($this->amount, '.', -$this->token->decimals, 0);
+        $formatted = str_starts_with($formatted, '.') ? '0' . $formatted : $formatted;
+        $base = explode('.', $formatted)[0] ?? '';
+        $formatted = $decimals !== null ? substr($formatted, 0, strlen($base) + 1 + $decimals) : $formatted;
+        $formatted = rtrim($formatted, '0');
+        $formatted = rtrim($formatted, '.');
 
-        return str_starts_with($formatted, '.')
-            ? '0' . $formatted
-            : $formatted;
+        return $formatted;
     }
 
     private static function fixPrecision(string|int|float $amount, Token $token): string
