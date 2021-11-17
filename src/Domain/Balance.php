@@ -2,6 +2,8 @@
 
 namespace Superciety\ElrondSdk\Domain;
 
+use InvalidArgumentException;
+
 class Balance
 {
     private function __construct(
@@ -24,6 +26,18 @@ class Balance
             token: Token::egld(),
             amount: static::fixPrecision($amount, Token::egld()),
         );
+    }
+
+    public function plus(Balance $other): void
+    {
+        $this->assertSameToken($other);
+        $this->amount = bcadd($this->amount, $other->amount);
+    }
+
+    public function minus(Balance $other): void
+    {
+        $this->assertSameToken($other);
+        $this->amount = bcsub($this->amount, $other->amount);
     }
 
     public function toDenominated(?int $decimals = null): string
@@ -53,5 +67,12 @@ class Balance
         }
 
         return str_pad($amount, strlen($amount) + $token->decimals, '0');
+    }
+
+    private function assertSameToken(Balance $other): void
+    {
+        if ($this->token->identifier !== $other->token->identifier) {
+            throw new InvalidArgumentException("balance token '{$this->token->id}' does not match token '{$other->token->id}'.");
+        }
     }
 }
