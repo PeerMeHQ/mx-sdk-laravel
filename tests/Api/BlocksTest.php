@@ -3,6 +3,16 @@
 
 use Superciety\ElrondSdk\Elrond;
 
+it('gets blocks', function () {
+    fakeApiRequestWithResponse('/blocks', 'blocks/blocks.json');
+
+    $actual = Elrond::api()
+        ->blocks()
+        ->getBlocks();
+
+    assertMatchesResponseSnapshot($actual);
+});
+
 it('gets a hyperblock by nonce', function () {
     fakeApiRequestWithResponse('/hyperblock/by-nonce/12345', 'blocks/hyperblock_by_nonce.json');
 

@@ -15,6 +15,13 @@ final class BlockEndpoints extends EndpointBase
     ) {
     }
 
+    public function getBlocks(array $params = []): Collection
+    {
+        return Block::fromApiResponseMany(
+            $this->request('GET', "{$this->getApiBaseUrl()}/blocks", $params)
+        );
+    }
+
     public function getHyperblockByNonce(string $nonce): Hyperblock
     {
         return Hyperblock::fromApiResponse(
