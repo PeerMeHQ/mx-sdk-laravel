@@ -10,21 +10,21 @@ use Superciety\ElrondSdk\Api\Entities\NetworkConstants;
 final class NetworkEndpoints extends EndpointBase
 {
     public function __construct(
-        private ?Carbon $cacheTtl,
+        protected ?Carbon $cacheTtl,
     ) {
     }
 
     public function getEconomics(): Economics
     {
         return Economics::fromApiResponse(
-            static::request('GET', "{$this->getApiBaseUrl()}/economics", $this->cacheTtl)
+            $this->request('GET', "{$this->getApiBaseUrl()}/economics")
         );
     }
 
     public function getNetworkConstants(): NetworkConstants
     {
         return NetworkConstants::fromApiResponse(
-            static::request('GET', "{$this->getApiBaseUrl()}/constants", $this->cacheTtl)
+            $this->request('GET', "{$this->getApiBaseUrl()}/constants")
         );
     }
 }

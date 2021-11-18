@@ -2,7 +2,6 @@
 
 namespace Superciety\ElrondSdk\Api;
 
-use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
@@ -14,20 +13,20 @@ abstract class EndpointBase
         return trim(config('elrond.urls.api'), '/');
     }
 
-    protected static function request(string $method, string $url, ?Carbon $cacheTtl, bool $unwrapData = false): array
+    protected function request(string $method, string $url, array $params = [], bool $unwrapData = false): array
     {
         $cacheKey = Str::lower("{$method}-{$url}");
 
-        if ($cacheTtl && $cached = Cache::get($cacheKey)) {
+        if ($this->cacheTtl && $cached = Cache::get($cacheKey)) {
             return $cached;
         }
 
-        $res = Http::send($method, $url)
+        $res = Http::send($method, $url . '?' . http_build_query($params))
             ->throw()
             ->json();
 
-        if ($cacheTtl) {
-            Cache::put($cacheKey, $res, $cacheTtl);
+        if ($this->cacheTtl) {
+            Cache::put($cacheKey, $res);
         }
 
         return $unwrapData ? $res['data'] : $res;

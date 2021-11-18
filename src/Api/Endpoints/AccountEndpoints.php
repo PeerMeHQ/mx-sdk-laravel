@@ -11,23 +11,21 @@ use Superciety\ElrondSdk\Api\Entities\Account;
 class AccountEndpoints extends EndpointBase
 {
     public function __construct(
-        private ?Carbon $cacheTtl,
+        protected ?Carbon $cacheTtl,
     ) {
     }
 
     public function getByAddress(string $address): Account
     {
         return Account::fromApiResponse(
-            static::request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}", $this->cacheTtl)
+            $this->request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}")
         );
     }
 
-    public function getNfts(string $address, array $types = []): Collection
+    public function getNfts(string $address, array $params = []): Collection
     {
-        $types = implode(',', $types);
-
         return Nft::fromApiResponseMany(
-            static::request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}/nfts?type={$types}", $this->cacheTtl)
+            $this->request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}/nfts", $params)
         );
     }
 }

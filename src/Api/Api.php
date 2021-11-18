@@ -11,7 +11,7 @@ use Superciety\ElrondSdk\Api\Endpoints\TokenEndpoints;
 
 final class Api
 {
-    private ?Carbon $cacheTtl = null;
+    protected ?Carbon $cacheTtl = null;
 
     public function cacheFor(Carbon $ttl): self
     {

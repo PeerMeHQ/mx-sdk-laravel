@@ -10,14 +10,14 @@ use Superciety\ElrondSdk\Api\Entities\Transaction;
 class TokenEndpoints extends EndpointBase
 {
     public function __construct(
-        private ?Carbon $cacheTtl,
+        protected ?Carbon $cacheTtl,
     ) {
     }
 
     public function getTransactions(string $tokenId): Collection
     {
         return Transaction::fromApiResponseMany(
-            static::request('GET', "{$this->getApiBaseUrl()}/tokens/{$tokenId}/transactions", $this->cacheTtl)
+            $this->request('GET', "{$this->getApiBaseUrl()}/tokens/{$tokenId}/transactions")
         );
     }
 }
