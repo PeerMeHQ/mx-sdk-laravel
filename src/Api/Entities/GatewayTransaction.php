@@ -13,7 +13,7 @@ final class GatewayTransaction extends ResponseBase
         public string $value,
         public string $receiver,
         public string $sender,
-        public int $gasPrice,
+        public ?int $gasPrice = null,
         public ?int $gasLimit = null,
         public ?string $data = null,
         public ?string $signature = null,
