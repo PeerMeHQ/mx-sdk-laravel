@@ -26,7 +26,7 @@ abstract class EndpointBase
             ->json();
 
         if ($this->cacheTtl) {
-            Cache::put($cacheKey, $res);
+            Cache::put($cacheKey, $res, $this->cacheTtl);
         }
 
         return $unwrapData ? $res['data'] : $res;
