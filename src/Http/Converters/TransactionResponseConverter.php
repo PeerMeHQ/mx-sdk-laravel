@@ -3,8 +3,8 @@
 namespace Superciety\ElrondSdk\Http\Converters;
 
 use Illuminate\Support\Collection;
+use Superciety\ElrondSdk\Utils\Formatter;
 use Superciety\ElrondSdk\Api\Entities\Transaction;
-use Superciety\ElrondSdk\Utils\FormatterUtil;
 
 /**
  * find the corresponding typescript representation in our frontend core package:
@@ -31,7 +31,7 @@ class TransactionResponseConverter
             'value' => $transaction->value,
             'fee' => $transaction->fee,
             'timestamp' => $transaction->timestamp->timestamp,
-            'time' => FormatterUtil::timeToHumanReadable($transaction->timestamp),
+            'time' => Formatter::timeToHumanReadable($transaction->timestamp),
             'data' => $transaction->data,
             'tokenIdentifier' => $transaction->tokenIdentifier,
             'tokenValue' => $transaction->tokenValue,

@@ -4,7 +4,7 @@ namespace Superciety\ElrondSdk\Utils;
 
 use Carbon\Carbon;
 
-class FormatterUtil
+class Formatter
 {
     public static function timeToHumanReadable(?Carbon $time): string
     {
