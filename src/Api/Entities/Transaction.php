@@ -47,4 +47,28 @@ final class Transaction extends ResponseBase
             'timestamp' => isset($res['timestamp']) ? Carbon::createFromTimestampUTC($res['timestamp']) : null,
         ]);
     }
+
+    public static function fromGatewayTransaction(GatewayTransaction $gwTx): Transaction
+    {
+        return new static(
+            txHash: $gwTx->hash,
+            gasLimit: $gwTx->gasLimit,
+            gasPrice: $gwTx->gasPrice,
+            gasUsed: null,
+            miniBlockHash: $gwTx->miniblockHash,
+            nonce: $gwTx->nonce,
+            receiver: $gwTx->receiver,
+            receiverShard: $gwTx->destinationShard,
+            sender: $gwTx->sender,
+            senderShard: $gwTx->sourceShard,
+            signature: $gwTx->signature,
+            status: $gwTx->status,
+            value: $gwTx->value,
+            fee: null,
+            timestamp: null,
+            data: $gwTx->data,
+            tokenIdentifier: null,
+            tokenValue: null,
+        );
+    }
 }
