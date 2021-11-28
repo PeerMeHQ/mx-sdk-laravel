@@ -17,17 +17,43 @@ it('toDenominated - does not have trailing zeros', fn () => expect(Balance::egld
 it('toDenominated - allows an optional decimal precision', fn () => expect(Balance::egld("12.12345")->toDenominated(3))->toBe("12.123"));
 
 it('plus - adds a balance of the same token to the current balance', function () {
-    $balance = Balance::egld('10000000000000000000');
-
-    $balance->plus(Balance::egld('15000000000000000000'));
-
-    expect($balance->amount)->toBe('25000000000000000000');
+    expect(Balance::egld('10000000000000000000')->plus(Balance::egld('15000000000000000000'))->amount)->toBe('25000000000000000000');
 });
 
 it('minus - substracts a balance of the same token to the current balance', function () {
-    $balance = Balance::egld('15000000000000000000');
+    expect(Balance::egld('15000000000000000000')->minus(Balance::egld('10000000000000000000'))->amount)->toBe('5000000000000000000');
+});
 
-    $balance->minus(Balance::egld('10000000000000000000'));
+it('isMoreThan - returns true if balance is higher than the one given', function () {
+    expect(Balance::egld('15000000000000000000')->isMoreThan(Balance::egld('10000000000000000000')))->toBeTrue();
+});
 
-    expect($balance->amount)->toBe('5000000000000000000');
+it('isMoreThan - returns false if balance is lower than the one given', function () {
+    expect(Balance::egld('10000000000000000000')->isMoreThan(Balance::egld('15000000000000000000')))->toBeFalse();
+});
+
+it('isLessThan - returns true if balance is lower than the one given', function () {
+    expect(Balance::egld('10000000000000000000')->isLessThan(Balance::egld('15000000000000000000')))->toBeTrue();
+});
+
+it('isLessThan - returns false if balance is higher than the one given', function () {
+    expect(Balance::egld('15000000000000000000')->isLessThan(Balance::egld('10000000000000000000')))->toBeFalse();
+});
+
+it('isEqualOrMoreThan - returns true if balance is equal or higher than the one given', function () {
+    expect(Balance::egld('10000000000000000000')->isEqualOrMoreThan(Balance::egld('10000000000000000000')))->toBeTrue();
+    expect(Balance::egld('15000000000000000000')->isEqualOrMoreThan(Balance::egld('10000000000000000000')))->toBeTrue();
+});
+
+it('isEqualOrMoreThan - returns false if balance is less than the one given', function () {
+    expect(Balance::egld('10000000000000000000')->isEqualOrMoreThan(Balance::egld('15000000000000000000')))->toBeFalse();
+});
+
+it('isEqualOrLessThan - returns true if balance is equal or less than the one given', function () {
+    expect(Balance::egld('10000000000000000000')->isEqualOrLessThan(Balance::egld('10000000000000000000')))->toBeTrue();
+    expect(Balance::egld('10000000000000000000')->isEqualOrLessThan(Balance::egld('15000000000000000000')))->toBeTrue();
+});
+
+it('isEqualOrLessThan - returns false if balance is higher than the one given', function () {
+    expect(Balance::egld('15000000000000000000')->isEqualOrLessThan(Balance::egld('10000000000000000000')))->toBeFalse();
 });

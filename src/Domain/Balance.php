@@ -28,16 +28,44 @@ final class Balance
         );
     }
 
-    public function plus(Balance $other): void
+    public function plus(Balance $other): Balance
     {
         $this->assertSameToken($other);
         $this->amount = bcadd($this->amount, $other->amount);
+        return $this;
     }
 
-    public function minus(Balance $other): void
+    public function minus(Balance $other): Balance
     {
         $this->assertSameToken($other);
         $this->amount = bcsub($this->amount, $other->amount);
+        return $this;
+    }
+
+    public function isMoreThan(Balance $other): bool
+    {
+        $this->assertSameToken($other);
+        return bccomp($this->amount, $other->amount) === 1;
+    }
+
+    public function isEqualOrMoreThan(Balance $other): bool
+    {
+        $this->assertSameToken($other);
+        $result = bccomp($this->amount, $other->amount);
+        return  $result === 0 || $result === 1;
+    }
+
+    public function isLessThan(Balance $other): bool
+    {
+        $this->assertSameToken($other);
+        return bccomp($this->amount, $other->amount) === -1;
+    }
+
+    public function isEqualOrLessThan(Balance $other): bool
+    {
+        $this->assertSameToken($other);
+        $result = bccomp($this->amount, $other->amount);
+        return  $result === 0 || $result === -1;
     }
 
     public function toDenominated(?int $decimals = null): string
