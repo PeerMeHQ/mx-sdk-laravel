@@ -22,6 +22,7 @@ final class Elrond
     public static function requireAccountTokenOwnershipOrThrow(string $address, Balance $minimumBalance): void
     {
         $hasSufficientBalance = static::api()
+            ->cacheFor(now()->addSeconds(30))
             ->accounts()
             ->getToken($address, $minimumBalance->token->identifier)
             ->balance
