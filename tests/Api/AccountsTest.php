@@ -2,8 +2,9 @@
 
 use Superciety\ElrondSdk\Elrond;
 use Superciety\ElrondSdk\Domain\Nft;
+use Superciety\ElrondSdk\Domain\Balance;
 
-it('gets an account by address', function () {
+it('getByAddress - gets an account by address', function () {
     fakeApiRequestWithResponse('/accounts/erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc', 'accounts/account.json');
 
     $actual = Elrond::api()
@@ -13,7 +14,7 @@ it('gets an account by address', function () {
     assertMatchesResponseSnapshot($actual);
 });
 
-it('gets an accounts nfts', function () {
+it('getNfts - gets an accounts nfts', function () {
     fakeApiRequestWithResponse('/accounts/erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc/nfts*', 'accounts/nfts.json');
 
     $actual = Elrond::api()
@@ -24,4 +25,17 @@ it('gets an accounts nfts', function () {
 
     expect($actual[0])->toBeInstanceOf(Nft::class);
     expect($actual[0]->attributes)->toBe("description:POWERED BY ELROND NETWORK"); // to be base64 decoded
+});
+
+it('getToken - gets a specifc token owned by an account', function () {
+    fakeApiRequestWithResponse('/accounts/erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc/tokens/WHALE-b018f0', 'accounts/token-with-balance.json');
+
+    $actual = Elrond::api()
+        ->accounts()
+        ->getToken('erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc', 'WHALE-b018f0');
+
+    assertMatchesResponseSnapshot($actual);
+
+    expect($actual->balance)->toBeInstanceOf(Balance::class);
+    expect($actual->balance->amount)->toBe("1000000000000");
 });

@@ -1,0 +1,19 @@
+{
+    "identifier": "WHALE-b018f0",
+    "name": "Whalecoin",
+    "ticker": "WHALE-b018f0",
+    "owner": "erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbxxxxxxxxxx",
+    "minted": "2644244444444000000",
+    "burnt": "0",
+    "decimals": 6,
+    "isPaused": false,
+    "canUpgrade": true,
+    "canMint": true,
+    "canBurn": true,
+    "canChangeOwner": true,
+    "canPause": true,
+    "canFreeze": true,
+    "canWipe": true,
+    "supply": "3000000000000000000",
+    "balance": "1000000000000"
+}

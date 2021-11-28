@@ -17,7 +17,7 @@ class TokenDetailedWithBalance
         public string $burnt,
         public int $decimals,
         public bool $isPaused,
-        public TokenAssets $assets,
+        public ?TokenAssets $assets,
         public string $canUpgrade,
         public string $canMint,
         public string $canBurn,
@@ -35,7 +35,7 @@ class TokenDetailedWithBalance
         $token = new Token($res['identifier'], $res['name'], $res['decimals']);
 
         return new static(...static::filterUnallowedProperties(array_merge($res, [
-            'assets' => TokenAssets::fromApiResponseMany($res['assets'] ?? []),
+            'assets' => isset($res['assets']) ? TokenAssets::fromApiResponse($res['assets']) : null,
             'balance' => Balance::from($token, $res['balance']),
         ])));
     }
