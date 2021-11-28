@@ -82,19 +82,19 @@ final class Balance
 
     private static function fixPrecision(string|int|float $amount, Token $token): string
     {
-        $amount = (string) $amount;
+        $amountStr = (string) $amount;
 
-        if (str_contains($amount, '.')) {
-            $parts = explode('.', $amount);
+        if (str_contains($amountStr, '.')) {
+            $parts = explode('.', $amountStr);
             $decimals = str_pad($parts[1], $token->decimals, '0');
             return $parts[0] . $decimals;
         }
 
-        if (strlen($amount) >= $token->decimals) {
-            return $amount;
+        if (is_string($amount) && strlen($amountStr) >= $token->decimals) {
+            return $amountStr;
         }
 
-        return str_pad($amount, strlen($amount) + $token->decimals, '0');
+        return str_pad($amountStr, strlen($amountStr) + $token->decimals, '0');
     }
 
     private function assertSameToken(Balance $other): void
