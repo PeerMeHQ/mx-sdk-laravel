@@ -1,11 +1,13 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Entities;
+namespace Superciety\ElrondSdk\Domain;
 
-use Superciety\ElrondSdk\Api\ResponseBase;
+use Superciety\ElrondSdk\Api\ApiTransformable;
 
-final class NetworkConstants extends ResponseBase
+final class NetworkConstants
 {
+    use ApiTransformable;
+
     public function __construct(
         public string $chainId,
         public int $gasPerDataByte,

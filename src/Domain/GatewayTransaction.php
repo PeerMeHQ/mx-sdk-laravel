@@ -1,11 +1,13 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Entities;
+namespace Superciety\ElrondSdk\Domain;
 
-use Superciety\ElrondSdk\Api\ResponseBase;
+use Superciety\ElrondSdk\Api\ApiTransformable;
 
-final class GatewayTransaction extends ResponseBase
+final class GatewayTransaction
 {
+    use ApiTransformable;
+
     public function __construct(
         public string $type,
         public string $hash,

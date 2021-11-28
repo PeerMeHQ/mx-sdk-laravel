@@ -2,7 +2,7 @@
 
 namespace Superciety\ElrondSdk\Domain;
 
-class Token
+final class Token
 {
     public function __construct(
         public string $identifier,

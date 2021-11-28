@@ -4,7 +4,7 @@ namespace Superciety\ElrondSdk\Api;
 
 use Illuminate\Support\Collection;
 
-abstract class ResponseBase
+trait ApiTransformable
 {
     public static function fromApiResponse(array $res): static
     {

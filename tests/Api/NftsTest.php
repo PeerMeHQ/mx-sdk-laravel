@@ -1,7 +1,7 @@
 <?php
 
 use Superciety\ElrondSdk\Elrond;
-use Superciety\ElrondSdk\Api\Entities\Nft;
+use Superciety\ElrondSdk\Domain\Nft;
 
 it('gets an nft by id', function () {
     fakeApiRequestWithResponse('/nfts/MARSHM1-021222-74', 'nfts/nft.json');

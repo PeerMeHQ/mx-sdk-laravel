@@ -1,7 +1,7 @@
 <?php
 
 use Superciety\ElrondSdk\Elrond;
-use Superciety\ElrondSdk\Api\Entities\Nft;
+use Superciety\ElrondSdk\Domain\Nft;
 
 it('gets an account by address', function () {
     fakeApiRequestWithResponse('/accounts/erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc', 'accounts/account.json');

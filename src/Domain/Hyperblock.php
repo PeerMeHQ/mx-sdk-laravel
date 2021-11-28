@@ -1,13 +1,15 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Entities;
+namespace Superciety\ElrondSdk\Domain;
 
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Api\ResponseBase;
-use Superciety\ElrondSdk\Api\Entities\Transaction;
+use Superciety\ElrondSdk\Domain\Transaction;
+use Superciety\ElrondSdk\Api\ApiTransformable;
 
-final class Hyperblock extends ResponseBase
+final class Hyperblock
 {
+    use ApiTransformable;
+
     public function __construct(
         public int $nonce,
         public int $round,

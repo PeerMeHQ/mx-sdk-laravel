@@ -4,8 +4,8 @@ namespace Superciety\ElrondSdk\Api\Endpoints;
 
 use Carbon\Carbon;
 use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Entities\Economics;
-use Superciety\ElrondSdk\Api\Entities\NetworkConstants;
+use Superciety\ElrondSdk\Domain\Economics;
+use Superciety\ElrondSdk\Domain\NetworkConstants;
 
 final class NetworkEndpoints extends EndpointBase
 {

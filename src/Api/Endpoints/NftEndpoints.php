@@ -3,8 +3,8 @@
 namespace Superciety\ElrondSdk\Api\Endpoints;
 
 use Carbon\Carbon;
+use Superciety\ElrondSdk\Domain\Nft;
 use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Entities\Nft;
 
 class NftEndpoints extends EndpointBase
 {

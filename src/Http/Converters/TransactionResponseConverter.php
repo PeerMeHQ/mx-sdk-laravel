@@ -4,7 +4,7 @@ namespace Superciety\ElrondSdk\Http\Converters;
 
 use Illuminate\Support\Collection;
 use Superciety\ElrondSdk\Utils\Formatter;
-use Superciety\ElrondSdk\Api\Entities\Transaction;
+use Superciety\ElrondSdk\Domain\Transaction;
 
 /**
  * find the corresponding typescript representation in our frontend core package:

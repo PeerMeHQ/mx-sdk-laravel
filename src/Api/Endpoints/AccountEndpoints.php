@@ -4,9 +4,9 @@ namespace Superciety\ElrondSdk\Api\Endpoints;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+use Superciety\ElrondSdk\Domain\Nft;
+use Superciety\ElrondSdk\Domain\Account;
 use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Entities\Nft;
-use Superciety\ElrondSdk\Api\Entities\Account;
 
 class AccountEndpoints extends EndpointBase
 {

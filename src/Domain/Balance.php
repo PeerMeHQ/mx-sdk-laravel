@@ -4,7 +4,7 @@ namespace Superciety\ElrondSdk\Domain;
 
 use InvalidArgumentException;
 
-class Balance
+final class Balance
 {
     private function __construct(
         public Token $token,

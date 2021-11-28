@@ -1,12 +1,14 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Entities;
+namespace Superciety\ElrondSdk\Domain;
 
 use Illuminate\Support\Str;
-use Superciety\ElrondSdk\Api\ResponseBase;
+use Superciety\ElrondSdk\Api\ApiTransformable;
 
-final class Nft extends ResponseBase
+final class Nft
 {
+    use ApiTransformable;
+
     const NonFungibleESDT = 'NonFungibleESDT';
     const SemiFungibleESDT = 'SemiFungibleESDT';
     const MetaESDT = 'MetaESDT';

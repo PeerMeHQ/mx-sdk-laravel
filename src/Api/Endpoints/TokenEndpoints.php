@@ -5,7 +5,7 @@ namespace Superciety\ElrondSdk\Api\Endpoints;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Entities\Transaction;
+use Superciety\ElrondSdk\Domain\Transaction;
 
 class TokenEndpoints extends EndpointBase
 {

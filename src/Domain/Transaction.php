@@ -1,13 +1,15 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Entities;
+namespace Superciety\ElrondSdk\Domain;
 
 use Carbon\Carbon;
 use Illuminate\Support\Str;
-use Superciety\ElrondSdk\Api\ResponseBase;
+use Superciety\ElrondSdk\Api\ApiTransformable;
 
-final class Transaction extends ResponseBase
+final class Transaction
 {
+    use ApiTransformable;
+
     public function __construct(
         public string $txHash,
         public ?int $gasLimit = null,

@@ -1,11 +1,13 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Entities;
+namespace Superciety\ElrondSdk\Domain;
 
-use Superciety\ElrondSdk\Api\ResponseBase;
+use Superciety\ElrondSdk\Api\ApiTransformable;
 
-final class ShardBlock extends ResponseBase
+final class ShardBlock
 {
+    use ApiTransformable;
+
     public function __construct(
         public string $hash,
         public int $nonce,

@@ -1,11 +1,13 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Entities;
+namespace Superciety\ElrondSdk\Domain;
 
-use Superciety\ElrondSdk\Api\ResponseBase;
+use Superciety\ElrondSdk\Api\ApiTransformable;
 
-class Block extends ResponseBase
+class Block
 {
+    use ApiTransformable;
+
     public function __construct(
         public string $hash,
         public int $epoch,

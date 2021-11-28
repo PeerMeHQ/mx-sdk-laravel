@@ -4,9 +4,9 @@ namespace Superciety\ElrondSdk\Api\Endpoints;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+use Superciety\ElrondSdk\Domain\Block;
 use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Entities\Block;
-use Superciety\ElrondSdk\Api\Entities\Hyperblock;
+use Superciety\ElrondSdk\Domain\Hyperblock;
 
 final class BlockEndpoints extends EndpointBase
 {

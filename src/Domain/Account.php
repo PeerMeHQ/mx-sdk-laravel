@@ -1,11 +1,13 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Entities;
+namespace Superciety\ElrondSdk\Domain;
 
-use Superciety\ElrondSdk\Api\ResponseBase;
+use Superciety\ElrondSdk\Api\ApiTransformable;
 
-final class Account extends ResponseBase
+final class Account
 {
+    use ApiTransformable;
+
     public function __construct(
         public string $address,
         public int $nonce,

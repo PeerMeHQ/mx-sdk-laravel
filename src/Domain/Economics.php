@@ -1,11 +1,13 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Entities;
+namespace Superciety\ElrondSdk\Domain;
 
-use Superciety\ElrondSdk\Api\ResponseBase;
+use Superciety\ElrondSdk\Api\ApiTransformable;
 
-final class Economics extends ResponseBase
+final class Economics
 {
+    use ApiTransformable;
+
     public function __construct(
         public int $totalSupply,
         public int $circulatingSupply,
