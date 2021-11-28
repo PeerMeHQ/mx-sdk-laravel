@@ -2,7 +2,7 @@
 
 namespace Superciety\ElrondSdk\Domain;
 
-class TransactionPayload
+final class TransactionPayload
 {
     public function __construct(
         public string $data,
