@@ -28,6 +28,14 @@ final class Balance
         );
     }
 
+    public static function super(string|int|float $amount): static
+    {
+        return new static(
+            token: Token::super(),
+            amount: static::fixPrecision($amount, Token::super()),
+        );
+    }
+
     public function plus(Balance $other): Balance
     {
         $this->assertSameToken($other);

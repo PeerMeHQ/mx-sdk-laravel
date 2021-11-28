@@ -15,4 +15,9 @@ final class Token
     {
         return new static(identifier: 'EGLD', name: 'eGold', decimals: 18);
     }
+
+    public static function super(): static
+    {
+        return new static(identifier: 'tbd', name: 'SUPER', decimals: 0);
+    }
 }
