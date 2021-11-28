@@ -4,7 +4,7 @@ namespace Superciety\ElrondSdk\Domain;
 
 use Superciety\ElrondSdk\Api\ApiTransformable;
 
-class TokenDetailedWithBalance
+final class TokenDetailedWithBalance
 {
     use ApiTransformable;
 
