@@ -39,3 +39,13 @@ it('getToken - gets a specifc token owned by an account', function () {
     expect($actual->balance)->toBeInstanceOf(Balance::class);
     expect($actual->balance->amount)->toBe("1000000000000");
 });
+
+it('getCollections - gets collections owned by the user', function () {
+    fakeApiRequestWithResponse('/accounts/erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc/collections', 'accounts/collections.json');
+
+    $actual = Elrond::api()
+        ->accounts()
+        ->getCollections('erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc');
+
+    assertMatchesResponseSnapshot($actual);
+});
