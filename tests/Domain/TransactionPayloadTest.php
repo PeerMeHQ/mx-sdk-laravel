@@ -4,10 +4,7 @@ use Superciety\ElrondSdk\Domain\TransactionPayload;
 
 it('issueNonFungible - builds an nft token issue payload', function () {
     $actual = TransactionPayload::issueNonFungible('Testing', 'test', [
-        'canFreeze' => true,
-        'canWipe' => 'false', // should be filtered
-        'canPause' => 'true',
-        'canTransferNFTCreateRole' => 'true'
+        'canFreeze', 'canPause', 'canTransferNFTCreateRole',
     ]);
 
     expect($actual->data)
@@ -16,10 +13,7 @@ it('issueNonFungible - builds an nft token issue payload', function () {
 
 it('issueSemiFungible - builds an nft token issue payload', function () {
     $actual = TransactionPayload::issueSemiFungible('Testing', 'test', [
-        'canFreeze' => true,
-        'canWipe' => 'false', // should be filtered
-        'canPause' => 'true',
-        'canTransferNFTCreateRole' => 'true'
+        'canFreeze', 'canPause', 'canTransferNFTCreateRole',
     ]);
 
     expect($actual->data)

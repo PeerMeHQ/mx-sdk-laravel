@@ -15,6 +15,7 @@ final class TransactionPayload
             ->push(bin2hex($name))
             ->push(bin2hex(mb_strtoupper($ticker)))
             ->push(static::serializeTokenProperties($properties))
+            ->filter()
             ->join('@');
 
         return new TransactionPayload($data);
@@ -26,6 +27,7 @@ final class TransactionPayload
             ->push(bin2hex($name))
             ->push(bin2hex(mb_strtoupper($ticker)))
             ->push(static::serializeTokenProperties($properties))
+            ->filter()
             ->join('@');
 
         return new TransactionPayload($data);
@@ -42,6 +44,7 @@ final class TransactionPayload
             ->push(...collect($uris)
                 ->map(fn (string $uri) => bin2hex(trim($uri)))
                 ->all())
+            ->filter()
             ->join('@');
 
         return new TransactionPayload($data);
@@ -55,8 +58,8 @@ final class TransactionPayload
     private static function serializeTokenProperties(array $properties): string
     {
         return collect($properties)
-            ->reject(fn ($a) => $a === 'false' || !$a)
-            ->map(fn ($_, string $key) => bin2hex($key) . '@' .  bin2hex('true'))
+            ->filter()
+            ->map(fn ($p) => bin2hex($p) . '@' .  bin2hex('true'))
             ->join('@');
     }
 
