@@ -2,6 +2,8 @@
 
 return [
 
+    'chain_id' => env('ELROND_CHAIN_ID', '1'),
+
     'urls' => [
 
         /**
