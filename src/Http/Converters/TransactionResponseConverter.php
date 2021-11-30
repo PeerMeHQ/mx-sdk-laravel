@@ -10,7 +10,7 @@ use Superciety\ElrondSdk\Domain\Transaction;
  * find the corresponding typescript representation in our frontend core package:
  * https://github.com/Superciety/pwa-core-library
  */
-class TransactionResponseConverter
+final class TransactionResponseConverter
 {
     public static function single(Transaction $transaction): array
     {
