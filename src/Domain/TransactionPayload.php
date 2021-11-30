@@ -9,19 +9,39 @@ final class TransactionPayload
     ) {
     }
 
-    public static function issueNonFungible(string $token, string $name, int|float $royalties, string $hash, array $attributes, array $uris): TransactionPayload
+    public static function issueNonFungible(string $name, string $ticker, array $properties = []): TransactionPayload
     {
-        $urisHex = collect($uris)
-            ->map(fn (string $uri) => bin2hex(trim($uri)))
-            ->all();
+        $data = collect(['issueNonFungible'])
+            ->push(bin2hex($name))
+            ->push(bin2hex(mb_strtoupper($ticker)))
+            ->push(static::serializeTokenProperties($properties))
+            ->join('@');
 
+        return new TransactionPayload($data);
+    }
+
+    public static function issueSemiFungible(string $name, string $ticker, array $properties = []): TransactionPayload
+    {
+        $data = collect(['issueSemiFungible'])
+            ->push(bin2hex($name))
+            ->push(bin2hex(mb_strtoupper($ticker)))
+            ->push(static::serializeTokenProperties($properties))
+            ->join('@');
+
+        return new TransactionPayload($data);
+    }
+
+    public static function createNft(string $token, string $name, int|float $royalties, string $hash, array $attributes, array $uris): TransactionPayload
+    {
         $data = collect(['ESDTNFTCreate'])
             ->push(bin2hex(mb_strtoupper($token)))
             ->push(bin2hex($name))
             ->push((string) hexdec($royalties <= 100 ? $royalties * 100 : $royalties))
             ->push(bin2hex($hash))
-            ->push(bin2hex(static::serializeAttributes($attributes)))
-            ->push(...$urisHex)
+            ->push(bin2hex(static::serializeNftAttributes($attributes)))
+            ->push(...collect($uris)
+                ->map(fn (string $uri) => bin2hex(trim($uri)))
+                ->all())
             ->join('@');
 
         return new TransactionPayload($data);
@@ -32,7 +52,15 @@ final class TransactionPayload
         return base64_encode($this->data);
     }
 
-    public static function serializeAttributes(array $attributes): string
+    private static function serializeTokenProperties(array $properties): string
+    {
+        return collect($properties)
+            ->reject(fn ($a) => $a === 'false' || !$a)
+            ->map(fn ($_, string $key) => bin2hex($key) . '@' .  bin2hex('true'))
+            ->join('@');
+    }
+
+    private static function serializeNftAttributes(array $attributes): string
     {
         $serializeAttribute = fn (array $attribute) => collect($attribute)->map(fn (string $a) => trim($a))->join(',', ';');
 
