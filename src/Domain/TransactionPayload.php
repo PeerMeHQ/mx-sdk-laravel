@@ -2,6 +2,8 @@
 
 namespace Superciety\ElrondSdk\Domain;
 
+use Superciety\ElrondSdk\Elrond;
+
 final class TransactionPayload
 {
     public function __construct(
@@ -33,10 +35,11 @@ final class TransactionPayload
         return new TransactionPayload($data);
     }
 
-    public static function createNft(string $token, string $name, int|float $royalties, string $hash, array $attributes, array $uris): TransactionPayload
+    public static function createNft(string $collection, string $name, int|float $royalties, string $hash, array $attributes, array $uris): TransactionPayload
     {
         $data = collect(['ESDTNFTCreate'])
-            ->push(bin2hex(mb_strtoupper($token)))
+            ->push(bin2hex(mb_strtoupper($collection)))
+            ->push('01')
             ->push(bin2hex($name))
             ->push((string) hexdec($royalties <= 100 ? $royalties * 100 : $royalties))
             ->push(bin2hex($hash))
@@ -45,6 +48,19 @@ final class TransactionPayload
                 ->map(fn (string $uri) => bin2hex(trim($uri)))
                 ->all())
             ->filter()
+            ->join('@');
+
+        return new TransactionPayload($data);
+    }
+
+    public static function setNftRoles(string $collection, string $address, array $roles): TransactionPayload
+    {
+        $data = collect(['setSpecialRole'])
+            ->push(bin2hex(mb_strtoupper($collection)))
+            ->push(Elrond::crypto()->convertAddressBech32ToHex($address))
+            ->push(...collect($roles)
+                ->map(fn (string $role) => bin2hex(trim($role)))
+                ->all())
             ->join('@');
 
         return new TransactionPayload($data);
@@ -68,6 +84,7 @@ final class TransactionPayload
         $serializeAttribute = fn (array $attribute) => collect($attribute)->map(fn (string $a) => trim($a))->join(',', ';');
 
         $attributes = collect($attributes)
+            ->filter()
             ->map(function (string|array $attribute, string $name) use ($serializeAttribute) {
                 return $name . ':' . (is_string($attribute) ? trim($attribute) : $serializeAttribute($attribute));
             })
