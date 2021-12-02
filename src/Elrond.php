@@ -2,6 +2,7 @@
 
 namespace Superciety\ElrondSdk;
 
+use Throwable;
 use Superciety\ElrondSdk\Api\Api;
 use Superciety\ElrondSdk\Crypto\Crypto;
 use Superciety\ElrondSdk\Domain\Balance;
@@ -21,17 +22,22 @@ final class Elrond
 
     public static function requireAccountTokenOwnershipOrThrow(string $address, Balance $minimumBalance): void
     {
-        $hasSufficientBalance = static::api()
+        try {
+            $hasSufficientBalance = static::api()
             ->cacheFor(now()->addSeconds(30))
             ->accounts()
             ->getToken($address, $minimumBalance->token->identifier)
             ->balance
             ->isEqualOrMoreThan($minimumBalance);
 
-        if (!$hasSufficientBalance) {
-            throw ValidationException::withMessages([
-                'balance' => ["You must hold a minimum of {$minimumBalance->toDenominated()} {$minimumBalance->token->name} to perform this action."],
-            ]);
+            if ($hasSufficientBalance) {
+                return;
+            }
+        } catch (Throwable) {
         }
+
+        throw ValidationException::withMessages([
+            'balance' => ["You must hold a minimum of {$minimumBalance->toDenominated()} {$minimumBalance->token->name} to perform this action."],
+        ]);
     }
 }
