@@ -2,8 +2,14 @@
 
 namespace Superciety\ElrondSdk\Domain;
 
+use Exception;
+
 final class Token
 {
+    const SuperTokenId = 'SUPER-764d8d';
+    const SuperTokenIdTestnet = 'XSUPER-72a15d';
+    const SuperTokenIdDevnet = 'XSUPER-d0da40';
+
     public function __construct(
         public string $identifier,
         public string $name,
@@ -18,6 +24,13 @@ final class Token
 
     public static function super(): static
     {
-        return new static(identifier: 'tbd', name: 'SUPER', decimals: 0);
+        $tokenId = match (config('elrond.chain_id')) {
+            'D' => static::SuperTokenIdDevnet,
+            'T' => static::SuperTokenIdTestnet,
+            '1' => static::SuperTokenId,
+            default => throw new Exception('invalid chain id'),
+        };
+
+        return new static(identifier: $tokenId, name: 'SUPER', decimals: 0);
     }
 }
