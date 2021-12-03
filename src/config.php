@@ -2,6 +2,12 @@
 
 return [
 
+    /**
+     * the elrond blockchain network you want to interact with:
+     * - 1 for mainnet
+     * - T for testnet
+     * - D for devnet
+     */
     'chain_id' => env('ELROND_CHAIN_ID', '1'),
 
     'urls' => [
