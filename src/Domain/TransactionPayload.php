@@ -57,7 +57,7 @@ final class TransactionPayload
     {
         $data = collect(['setSpecialRole'])
             ->push(bin2hex($collection))
-            ->push(Elrond::crypto()->convertAddressBech32ToHex($address))
+            ->push(Elrond::crypto()->decodeBech32ToHex($address))
             ->push(...collect($roles)
                 ->map(fn (string $role) => bin2hex(trim($role)))
                 ->all())

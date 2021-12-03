@@ -4,57 +4,36 @@ namespace Superciety\ElrondSdk\Crypto;
 
 use Exception;
 use Elliptic\EdDSA;
-use kornrunner\Keccak;
 use function BitWasp\Bech32\decode;
 use function BitWasp\Bech32\convertBits;
 
 final class Crypto
 {
-    const MessagePrefix = "\x17Elrond Signed Message:\n";
-
-    public function verify(SignedMessage $signedMessage): bool
+    public function verify(SignableMessage $signedMessage): bool
     {
-        $addressHex = $this->convertAddressBech32ToHex($signedMessage->address);
-
-        $ec = new EdDSA('ed25519');
-        $key = $ec->keyFromPublic($addressHex);
-
-        return $key->verify($signedMessage->message, $signedMessage->signature);
+        return (new EdDSA('ed25519'))
+            ->keyFromPublic($this->decodeBech32ToHex($signedMessage->address))
+            ->verify($signedMessage->serializeForSigning(), $signedMessage->signature);
     }
 
     public function verifyLogin(ProofableLogin $proofableLogin): bool
     {
-        return $this->verify(new SignedMessage(
-            message: $this->keccak("{$proofableLogin->address}{$proofableLogin->token}{}"), // how elrond wallet providers sign logins
+        return $this->verify(new SignableMessage(
+            message: "{$proofableLogin->address}{$proofableLogin->token}{}", // how elrond wallet providers sign login messages
             signature: $proofableLogin->signature,
             address: $proofableLogin->address,
         ));
     }
 
-    public function convertAddressBech32ToHex(string $address): string
+    public function decodeBech32ToHex(string $address): string
     {
-        if (strlen($address) !== 62) {
-            throw new Exception('address has invalid length.');
-        }
+        throw_unless(strlen($address) === 62, Exception::class, 'invalid length');
 
-        $result = decode($address)[1];
-        $result = convertBits($result, count($result), 5, 8, false);
-        $resultString = "";
+        $decoded = decode($address)[1];
+        $res = convertBits($decoded, count($decoded), 5, 8, false);
 
-        for ($i = 0; $i < count($result); $i++) {
-            $hex = dechex($result[$i]);
-
-            if (strlen($hex) == 1) {
-                $hex = "0".$hex;
-            }
-            $resultString = $resultString . $hex;
-        }
-
-        return $resultString;
-    }
-
-    public function keccak(string $message): string
-    {
-        return Keccak::hash(static::MessagePrefix . strlen($message) . $message, 256);
+        return collect($res)
+            ->map(fn ($bits) => dechex($bits))
+            ->reduce(fn ($carry, $hex) => $carry . (strlen($hex) === 1 ? "0$hex" : $hex));
     }
 }
