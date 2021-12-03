@@ -45,7 +45,7 @@ final class Elrond
                 return;
             }
 
-            Log::error("there might be something wrong with the account token guard: {$e->getMessage()}", $e);
+            Log::error("there might be something wrong with the account token guard: {$e->getMessage()}", $e->getTrace());
         }
 
         throw ValidationException::withMessages([
