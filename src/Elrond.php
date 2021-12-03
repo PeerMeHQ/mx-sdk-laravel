@@ -43,7 +43,7 @@ final class Elrond
         }
 
         throw ValidationException::withMessages([
-            'balance' => ["You must hold a minimum of {$minimumBalance->toDenominated()} {$minimumBalance->token->name} to perform this action."],
+            'balance' => ["You must hold at least {$minimumBalance->toDenominated()} \${$minimumBalance->token->name} tokens."],
         ]);
     }
 }
