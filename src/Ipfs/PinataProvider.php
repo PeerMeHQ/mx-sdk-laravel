@@ -24,10 +24,15 @@ final class PinataProvider implements IProvider
     {
         $res = $this->getHttpClient()
             ->post(static::ApiBaseUrl . '/pinning/pinJSONToIPFS', [
-                'description' => $description,
-                'fileType' => $fileType,
-                'fileUri' => $fileUri,
-                'fileName' => $fileName,
+                'pinataMetadata' => [
+                    'name' => 'metadata.json',
+                ],
+                'pinataContent' => [
+                    'description' => $description,
+                    'fileType' => $fileType,
+                    'fileUri' => $fileUri,
+                    'fileName' => $fileName,
+                ],
             ])
             ->throw()
             ->json();
