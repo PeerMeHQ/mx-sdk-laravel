@@ -2,11 +2,12 @@
 
 namespace Superciety\ElrondSdk;
 
-use Throwable;
 use Superciety\ElrondSdk\Api\Api;
+use Illuminate\Support\Facades\Log;
 use Superciety\ElrondSdk\Crypto\Crypto;
 use Superciety\ElrondSdk\Domain\Balance;
 use Superciety\ElrondSdk\Ipfs\IProvider;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Validation\ValidationException;
 
 final class Elrond
@@ -30,16 +31,21 @@ final class Elrond
     {
         try {
             $hasSufficientBalance = static::api()
-            ->cacheFor(now()->addSeconds(30))
-            ->accounts()
-            ->getToken($address, $minimumBalance->token->identifier)
-            ->balance
-            ->isEqualOrMoreThan($minimumBalance);
+                ->cacheFor(now()->addSeconds(30))
+                ->accounts()
+                ->getToken($address, $minimumBalance->token->identifier)
+                ->balance
+                ->isEqualOrMoreThan($minimumBalance);
 
             if ($hasSufficientBalance) {
                 return;
             }
-        } catch (Throwable) {
+        } catch (RequestException $e) {
+            if ($e->getCode() === 400) {
+                return;
+            }
+
+            Log::error("there might be something wrong with the account token guard: {$e->getMessage()}", $e);
         }
 
         throw ValidationException::withMessages([
