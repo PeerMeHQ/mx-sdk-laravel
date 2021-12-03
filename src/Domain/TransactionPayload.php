@@ -38,10 +38,10 @@ final class TransactionPayload
     public static function createNft(string $collection, string $name, int|float $royalties, string $hash, array $attributes, array $uris): TransactionPayload
     {
         $data = collect(['ESDTNFTCreate'])
-            ->push(bin2hex(mb_strtoupper($collection)))
+            ->push(bin2hex($collection))
             ->push('01')
             ->push(bin2hex($name))
-            ->push((string) hexdec($royalties <= 100 ? $royalties * 100 : $royalties))
+            ->push((string) dechex($royalties <= 100 ? $royalties * 100 : $royalties))
             ->push(bin2hex($hash))
             ->push(bin2hex(static::serializeNftAttributes($attributes)))
             ->push(...collect($uris)
@@ -56,7 +56,7 @@ final class TransactionPayload
     public static function setNftRoles(string $collection, string $address, array $roles): TransactionPayload
     {
         $data = collect(['setSpecialRole'])
-            ->push(bin2hex(mb_strtoupper($collection)))
+            ->push(bin2hex($collection))
             ->push(Elrond::crypto()->convertAddressBech32ToHex($address))
             ->push(...collect($roles)
                 ->map(fn (string $role) => bin2hex(trim($role)))
@@ -81,7 +81,10 @@ final class TransactionPayload
 
     private static function serializeNftAttributes(array $attributes): string
     {
-        $serializeAttribute = fn (array $attribute) => collect($attribute)->map(fn (string $a) => trim($a))->join(',', ';');
+        $serializeAttribute = fn (array $attribute) => collect($attribute)
+            ->map(fn (?string $a) => $a !== null ? trim($a) : null)
+            ->filter()
+            ->join(',', ';');
 
         $attributes = collect($attributes)
             ->filter()
