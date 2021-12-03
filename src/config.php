@@ -17,4 +17,17 @@ return [
          */
         'api' => env('ELROND_URL_API', 'https://api.elrond.com'),
     ],
+
+    'ipfs' => [
+
+        'provider' => \Superciety\ElrondSdk\Ipfs\PinataProvider::class,
+
+        'providers' => [
+
+            'pinata' => [
+
+                'bearer_token' => env('PINATA_BEARER_TOKEN'),
+            ],
+        ],
+    ],
 ];

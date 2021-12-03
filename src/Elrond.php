@@ -6,6 +6,7 @@ use Throwable;
 use Superciety\ElrondSdk\Api\Api;
 use Superciety\ElrondSdk\Crypto\Crypto;
 use Superciety\ElrondSdk\Domain\Balance;
+use Superciety\ElrondSdk\Ipfs\IProvider;
 use Illuminate\Validation\ValidationException;
 
 final class Elrond
@@ -18,6 +19,11 @@ final class Elrond
     public static function crypto(): Crypto
     {
         return new Crypto();
+    }
+
+    public static function ipfs(): IProvider
+    {
+        return new (config('elrond.ipfs.provider'));
     }
 
     public static function requireAccountTokenOwnershipOrThrow(string $address, Balance $minimumBalance): void
