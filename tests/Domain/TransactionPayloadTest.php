@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Str;
 use Superciety\ElrondSdk\Domain\TransactionPayload;
 
 it('issueNonFungible - builds an nft token issue payload', function () {
@@ -33,5 +34,22 @@ it('createNft - builds an nft issue payload', function () {
     $actual = TransactionPayload::createNft('SOME-1234', 'SomeToken', 12.50, 'xxxANYHASHxxx', $attributes, $uris);
 
     expect($actual->data)
-        ->toBe("ESDTNFTCreate@534f4d452d31323334@01@536f6d65546f6b656e@4e2@787878414e5948415348787878@746167733a6f6e653b74776f3b6d657461646174613a78797a@68747470733a2f2f737570657263696574792e636f6d");
+        ->toBe("ESDTNFTCreate@534f4d452d31323334@01@536f6d65546f6b656e@04e2@787878414e5948415348787878@746167733a6f6e653b74776f3b6d657461646174613a78797a@68747470733a2f2f737570657263696574792e636f6d");
 });
+
+it('createNft - encodes for the correct hex representation', function (float $percent, string $expectedHex) {
+    $actual = TransactionPayload::createNft('xx-1234', 'xx', $percent, 'xx', [], ['https://any.com']);
+    $royaltiesArgIndex = 4;
+
+    expect(Str::of($actual->data)->explode('@')[$royaltiesArgIndex])
+        ->toBe($expectedHex);
+})
+    ->with([
+        [1.1, '006e'],
+        [5, '01f4'],
+        [9.99, '03e7'],
+        [12.5, '04e2'],
+        [50, '1388'],
+        [80.75, '1f8b'],
+        [100, '2710'],
+    ]);

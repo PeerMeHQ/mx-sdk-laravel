@@ -35,13 +35,13 @@ final class TransactionPayload
         return new TransactionPayload($data);
     }
 
-    public static function createNft(string $collection, string $name, int|float $royalties, string $hash, array $attributes, array $uris): TransactionPayload
+    public static function createNft(string $collection, string $name, float $royalties, string $hash, array $attributes, array $uris): TransactionPayload
     {
         $data = collect(['ESDTNFTCreate'])
             ->push(bin2hex($collection))
             ->push('01')
             ->push(bin2hex($name))
-            ->push((string) dechex($royalties <= 100 ? $royalties * 100 : $royalties))
+            ->push(str_pad(dechex($royalties * 100), 4, '0', STR_PAD_LEFT))
             ->push(bin2hex($hash))
             ->push(bin2hex(static::serializeNftAttributes($attributes)))
             ->push(...collect($uris)
