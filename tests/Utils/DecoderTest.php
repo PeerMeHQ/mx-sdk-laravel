@@ -1,8 +1,8 @@
 <?php
 
-use Superciety\ElrondSdk\Elrond;
+use Superciety\ElrondSdk\Utils\Decoder;
 
-it('decodes bech32 to hex', fn ($bech32, $expectedHex) => expect(Elrond::crypto()->decodeBech32ToHex($bech32))->toBe($expectedHex))
+it('bech32ToHex - decodes bech32 to hex', fn ($bech32, $expectedHex) => expect(Decoder::bech32ToHex($bech32))->toBe($expectedHex))
     ->with([
         ['erd18fswpz2r2q3p40jlewkt9u7d46lvrukdn8j09tppza75efv0jz8s2lc68r', '3a60e0894350221abe5fcbacb2f3cdaebec1f2cd99e4f2ac21177d4ca58f908f'],
         ['erd1367z5dtnjt00t3sshczrvuw56nmhegvt6nu25zffh7wxv0ypqykshauu5q', '8ebc2a357392def5c610be043671d4d4f77ca18bd4f8aa0929bf9c663c81012d'],

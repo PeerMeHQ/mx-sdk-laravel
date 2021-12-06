@@ -2,7 +2,8 @@
 
 namespace Superciety\ElrondSdk\Domain;
 
-use Superciety\ElrondSdk\Elrond;
+use Superciety\ElrondSdk\Utils\Decoder;
+use Superciety\ElrondSdk\Utils\Encoder;
 
 final class TransactionPayload
 {
@@ -14,8 +15,8 @@ final class TransactionPayload
     public static function issueNonFungible(string $name, string $ticker, array $properties = []): TransactionPayload
     {
         $data = collect(['issueNonFungible'])
-            ->push(bin2hex($name))
-            ->push(bin2hex(mb_strtoupper($ticker)))
+            ->push(Encoder::toHex($name))
+            ->push(Encoder::toHex(strtoupper($ticker)))
             ->push(static::serializeTokenProperties($properties))
             ->filter()
             ->join('@');
@@ -26,8 +27,8 @@ final class TransactionPayload
     public static function issueSemiFungible(string $name, string $ticker, array $properties = []): TransactionPayload
     {
         $data = collect(['issueSemiFungible'])
-            ->push(bin2hex($name))
-            ->push(bin2hex(mb_strtoupper($ticker)))
+            ->push(Encoder::toHex($name))
+            ->push(Encoder::toHex(strtoupper($ticker)))
             ->push(static::serializeTokenProperties($properties))
             ->filter()
             ->join('@');
@@ -38,14 +39,14 @@ final class TransactionPayload
     public static function createNft(string $collection, string $name, float $royalties, string $hash, array $attributes, array $uris): TransactionPayload
     {
         $data = collect(['ESDTNFTCreate'])
-            ->push(bin2hex($collection))
-            ->push('01')
-            ->push(bin2hex($name))
-            ->push(str_pad(dechex($royalties * 100), 4, '0', STR_PAD_LEFT))
-            ->push(bin2hex($hash))
-            ->push(bin2hex(static::serializeNftAttributes($attributes)))
+            ->push(Encoder::toHex($collection))
+            ->push(Encoder::toHex(1))
+            ->push(Encoder::toHex($name))
+            ->push(Encoder::toHex($royalties * 100, 2))
+            ->push(Encoder::toHex($hash))
+            ->push(static::serializeNftAttributes($attributes))
             ->push(...collect($uris)
-                ->map(fn (string $uri) => bin2hex(trim($uri)))
+                ->map(fn (string $uri) => Encoder::toHex($uri))
                 ->all())
             ->filter()
             ->join('@');
@@ -57,9 +58,9 @@ final class TransactionPayload
     {
         $data = collect(['setSpecialRole'])
             ->push(bin2hex($collection))
-            ->push(Elrond::crypto()->decodeBech32ToHex($address))
+            ->push(Decoder::bech32ToHex($address))
             ->push(...collect($roles)
-                ->map(fn (string $role) => bin2hex(trim($role)))
+                ->map(fn (string $role) => Encoder::toHex($role))
                 ->all())
             ->join('@');
 
@@ -69,8 +70,9 @@ final class TransactionPayload
     public static function burnNft(string $collection, int $nonce): TransactionPayload
     {
         $data = collect(['ESDTNFTBurn'])
-            ->push(bin2hex($collection))
-            ->push(str_pad(dechex($nonce), $nonce > 256 ? 4 : 2, '0', STR_PAD_LEFT))
+            ->push(Encoder::toHex($collection))
+            ->push(Encoder::toHex($nonce))
+            ->push(Encoder::toHex(1))
             ->join('@');
 
         return new TransactionPayload($data);
@@ -85,7 +87,7 @@ final class TransactionPayload
     {
         return collect($properties)
             ->filter()
-            ->map(fn ($p) => bin2hex($p) . '@' .  bin2hex('true'))
+            ->map(fn ($p) => Encoder::toHex($p) . '@' .  Encoder::toHex('true'))
             ->join('@');
     }
 
@@ -103,6 +105,6 @@ final class TransactionPayload
             })
             ->join(';');
 
-        return rtrim($attributes, ';');
+        return Encoder::toHex(rtrim($attributes, ';'));
     }
 }
