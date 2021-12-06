@@ -16,7 +16,7 @@ final class NftResponseConverter
         return [
             'identifier' => $nft->identifier,
             'collection' => $nft->collection,
-            'none' => $nft->nonce,
+            'nonce' => $nft->nonce,
             'type' => $nft->type,
             'name' => $nft->name,
             'creator' => $nft->creator,
