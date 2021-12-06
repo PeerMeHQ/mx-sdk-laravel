@@ -66,6 +66,16 @@ final class TransactionPayload
         return new TransactionPayload($data);
     }
 
+    public static function burnNft(string $collection, int $nonce): TransactionPayload
+    {
+        $data = collect(['ESDTNFTBurn'])
+            ->push(bin2hex($collection))
+            ->push(str_pad(dechex($nonce), $nonce > 256 ? 4 : 2, '0', STR_PAD_LEFT))
+            ->join('@');
+
+        return new TransactionPayload($data);
+    }
+
     public function toBase64(): string
     {
         return base64_encode($this->data);

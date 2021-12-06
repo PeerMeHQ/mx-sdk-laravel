@@ -44,6 +44,16 @@ class PreparedTx
         );
     }
 
+    public static function burnNft(TransactionPayload $payload, User $user): PreparedTx
+    {
+        return new static(
+            receiver: $user->address,
+            value: Balance::egld(0),
+            data: $payload,
+            gasLimit: 10000000,
+        );
+    }
+
     public function getChainId(): string
     {
         return config('elrond.chain_id', '1');
