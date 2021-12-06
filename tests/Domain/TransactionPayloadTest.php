@@ -9,7 +9,7 @@ it('issueNonFungible - builds an nft token issue payload', function () {
     ]);
 
     expect($actual->data)
-        ->toBe("issueNonFungible@54657374696e67@54455354@63616e467265657a65@74727565@63616e5061757365@74727565@63616e5472616e736665724e4654437265617465526f6c65@74727565");
+        ->toBe('issueNonFungible@54657374696e67@54455354@63616e467265657a65@74727565@63616e5061757365@74727565@63616e5472616e736665724e4654437265617465526f6c65@74727565');
 });
 
 it('issueSemiFungible - builds an nft token issue payload', function () {
@@ -18,7 +18,7 @@ it('issueSemiFungible - builds an nft token issue payload', function () {
     ]);
 
     expect($actual->data)
-        ->toBe("issueSemiFungible@54657374696e67@54455354@63616e467265657a65@74727565@63616e5061757365@74727565@63616e5472616e736665724e4654437265617465526f6c65@74727565");
+        ->toBe('issueSemiFungible@54657374696e67@54455354@63616e467265657a65@74727565@63616e5061757365@74727565@63616e5472616e736665724e4654437265617465526f6c65@74727565');
 });
 
 it('createNft - builds an nft issue payload', function () {
@@ -34,7 +34,7 @@ it('createNft - builds an nft issue payload', function () {
     $actual = TransactionPayload::createNft('SOME-1234', 'SomeToken', 12.50, 'xxxANYHASHxxx', $attributes, $uris);
 
     expect($actual->data)
-        ->toBe("ESDTNFTCreate@534f4d452d31323334@01@536f6d65546f6b656e@04e2@787878414e5948415348787878@746167733a6f6e653b74776f3b6d657461646174613a78797a@68747470733a2f2f737570657263696574792e636f6d");
+        ->toBe('ESDTNFTCreate@534f4d452d31323334@01@536f6d65546f6b656e@04e2@787878414e5948415348787878@746167733a6f6e653b74776f3b6d657461646174613a78797a@68747470733a2f2f737570657263696574792e636f6d');
 });
 
 it('createNft - encodes for the correct hex representation', function (float $percent, string $expectedHex) {
@@ -53,3 +53,10 @@ it('createNft - encodes for the correct hex representation', function (float $pe
         [80.75, '1f8b'],
         [100, '2710'],
     ]);
+
+it('burnNft - builds an nft burn payload', function () {
+    $actual = TransactionPayload::burnNft('SOME-1234', 1);
+
+    expect($actual->data)
+        ->toBe('ESDTNFTBurn@534f4d452d31323334@01@01');
+});
