@@ -19,6 +19,8 @@ it('toDenominated - does not have trailing zeros', fn () => expect(Balance::egld
 
 it('toDenominated - allows an optional decimal precision', fn () => expect(Balance::egld("12.12345")->toDenominated(3))->toBe("12.123"));
 
+it('toDenominated - does not show decimals for tokens without decimals', fn () => expect(Balance::from(new Token('any', 'any', 0), 10)->toDenominated())->toBe("10"));
+
 it('plus - adds a balance of the same token to the current balance', function () {
     expect(Balance::egld('10000000000000000000')->plus(Balance::egld('15000000000000000000'))->amount)->toBe('25000000000000000000');
 });

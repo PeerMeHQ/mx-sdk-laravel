@@ -78,6 +78,10 @@ final class Balance
 
     public function toDenominated(?int $decimals = null): string
     {
+        if ($this->token->decimals === 0) {
+            return $this->amount;
+        }
+
         $formatted = substr_replace($this->amount, '.', -$this->token->decimals, 0);
         $formatted = str_starts_with($formatted, '.') ? '0' . $formatted : $formatted;
         $base = explode('.', $formatted)[0] ?? '';
