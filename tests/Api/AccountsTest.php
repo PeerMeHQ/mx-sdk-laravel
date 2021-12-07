@@ -49,3 +49,13 @@ it('getCollections - gets collections owned by the user', function () {
 
     assertMatchesResponseSnapshot($actual);
 });
+
+it('getCollection - gets collection owned by the user and given id', function () {
+    fakeApiRequestWithResponse('/accounts/erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc/collections/EVOLUTIONS-570eff', 'accounts/collection.json');
+
+    $actual = Elrond::api()
+        ->accounts()
+        ->getCollection('erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc', 'EVOLUTIONS-570eff');
+
+    assertMatchesResponseSnapshot($actual);
+});

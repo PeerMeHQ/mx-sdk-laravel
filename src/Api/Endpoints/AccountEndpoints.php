@@ -44,4 +44,11 @@ class AccountEndpoints extends EndpointBase
             $this->request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}/collections", $params)
         );
     }
+
+    public function getCollection(string $address, string $collection, array $params = []): NftCollectionAccount
+    {
+        return NftCollectionAccount::fromApiResponse(
+            $this->request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}/collections/{$collection}", $params)
+        );
+    }
 }

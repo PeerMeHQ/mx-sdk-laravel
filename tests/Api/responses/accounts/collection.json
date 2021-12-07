@@ -1,0 +1,12 @@
+{
+    "collection": "EVOLUTIONS-570eff",
+    "type": "NonFungibleESDT",
+    "name": "EvolutionSeries",
+    "ticker": "EVOLUTIONS-570eff",
+    "canFreeze": false,
+    "canWipe": false,
+    "canPause": false,
+    "canTransferRole": false,
+    "canCreate": true,
+    "canBurn": false
+}
