@@ -4,6 +4,7 @@ namespace Superciety\ElrondSdk;
 
 use Superciety\ElrondSdk\Api\Api;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
 use Superciety\ElrondSdk\Crypto\Crypto;
 use Superciety\ElrondSdk\Domain\Balance;
 use Superciety\ElrondSdk\Ipfs\IProvider;
@@ -50,6 +51,15 @@ final class Elrond
 
         throw ValidationException::withMessages([
             'balance' => ["You must hold at least {$minimumBalance->toDenominated()} \${$minimumBalance->token->name} tokens."],
+        ]);
+    }
+
+    public static function fakeApiResponseWith(string $responseFile): void
+    {
+        $appFilePath = base_path("vendor/superciety/elrond-sdk-laravel/tests/Api/responses/{$responseFile}");
+
+        Http::fake([
+            '*' => Http::response(file_get_contents($appFilePath))
         ]);
     }
 }
