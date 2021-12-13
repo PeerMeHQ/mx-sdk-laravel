@@ -7,7 +7,9 @@ class Encoder
     public static function toHex(string|int $value, ?int $bytes = null): string
     {
         if (is_string($value)) {
-            return bin2hex(trim($value));
+            return str_starts_with($value, 'erd1')
+                ? Decoder::bech32ToHex($value)
+                : bin2hex(trim($value));
         }
 
         $bytes = $bytes ?? $value > 256 ? 2 : 1;

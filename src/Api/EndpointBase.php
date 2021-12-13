@@ -21,14 +21,17 @@ abstract class EndpointBase
             return $cached;
         }
 
-        $res = Http::send($method, $url . '?' . http_build_query($params))
-            ->throw()
-            ->json();
+        $res = match (strtoupper($method)) {
+            'GET' => Http::get($url, $params),
+            'POST' => Http::post($url, $params),
+        };
+
+        $unpacked = $res->throw()->json();
 
         if ($this->cacheTtl) {
-            Cache::put($cacheKey, $res, $this->cacheTtl);
+            Cache::put($cacheKey, $unpacked, $this->cacheTtl);
         }
 
-        return $unwrapData ? $res['data'] : $res;
+        return $unwrapData ? $unpacked['data'] : $unpacked;
     }
 }

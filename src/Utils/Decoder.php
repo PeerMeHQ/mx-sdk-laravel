@@ -19,4 +19,13 @@ class Decoder
             ->map(fn ($bits) => dechex($bits))
             ->reduce(fn ($carry, $hex) => $carry . (strlen($hex) === 1 ? "0$hex" : $hex));
     }
+
+    public static function fromBase64(string $value): string|int
+    {
+        $decoded = base64_decode($value);
+
+        return ctype_print($decoded) // check if has been fully decoded or still has binary data (assume hex dec)
+            ? $decoded
+            : hexdec(bin2hex($decoded));
+    }
 }
