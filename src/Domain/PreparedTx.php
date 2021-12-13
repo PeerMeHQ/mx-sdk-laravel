@@ -2,8 +2,6 @@
 
 namespace Superciety\ElrondSdk\Domain;
 
-use App\Models\User;
-
 class PreparedTx
 {
     public function __construct(
@@ -24,10 +22,10 @@ class PreparedTx
         );
     }
 
-    public static function mintNft(TransactionPayload $payload, User $user): PreparedTx
+    public static function mintNft(TransactionPayload $payload, string $receiver): PreparedTx
     {
         return new static(
-            receiver: $user->address,
+            receiver: $receiver,
             value: Balance::egld(0),
             data: $payload,
             gasLimit: 60000000,
@@ -44,10 +42,10 @@ class PreparedTx
         );
     }
 
-    public static function burnNft(TransactionPayload $payload, User $user): PreparedTx
+    public static function burnNft(TransactionPayload $payload, string $receiver): PreparedTx
     {
         return new static(
-            receiver: $user->address,
+            receiver: $receiver,
             value: Balance::egld(0),
             data: $payload,
             gasLimit: 10000000,

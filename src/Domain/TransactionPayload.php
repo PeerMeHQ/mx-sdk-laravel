@@ -12,6 +12,19 @@ final class TransactionPayload
     ) {
     }
 
+    public static function superToContractTransfer(int $superAmount, string $functionName, array $args): TransactionPayload
+    {
+        $data = collect(['ESDTTransfer'])
+            ->push(Encoder::toHex(Token::super()->identifier))
+            ->push(Encoder::toHex($superAmount))
+            ->push(Encoder::toHex($functionName))
+            ->push(...collect($args)->map(fn ($arg) => Encoder::toHex($arg))->all())
+            ->filter()
+            ->join('@');
+
+        return new TransactionPayload($data);
+    }
+
     public static function issueNonFungible(string $name, string $ticker, array $properties = []): TransactionPayload
     {
         $data = collect(['issueNonFungible'])

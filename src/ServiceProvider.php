@@ -11,6 +11,8 @@ class ServiceProvider extends ServiceProviderBase
         $this->publishes([
             __DIR__.'/config.php' => config_path('elrond.php'),
         ]);
+
+        $this->loadRoutesFrom(__DIR__ . '/routes.php');
     }
 
     public function register()

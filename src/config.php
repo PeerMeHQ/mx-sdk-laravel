@@ -24,6 +24,11 @@ return [
         'api' => env('ELROND_URL_API', 'https://api.elrond.com'),
     ],
 
+    'prepared-txs' => [
+        'issueNftCollection' => \Superciety\ElrondSdk\PreparedTxs\IssueNftCollectionTxBuilder::class,
+        'setNftCollectionRoles' => \Superciety\ElrondSdk\PreparedTxs\SetNftCollectionRolesTxBuilder::class,
+    ],
+
     'ipfs' => [
 
         'provider' => \Superciety\ElrondSdk\Ipfs\PinataProvider::class,
