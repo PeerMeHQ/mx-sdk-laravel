@@ -54,12 +54,14 @@ final class Elrond
         ]);
     }
 
-    public static function fakeApiResponseWith(string $responseFile): void
+    public static function fakeApiResponseWith(array $responses): void
     {
-        $appFilePath = base_path("vendor/superciety/elrond-sdk-laravel/tests/Api/responses/{$responseFile}");
+        $getResponseFilePath = fn ($file) => base_path("vendor/superciety/elrond-sdk-laravel/tests/Api/responses/{$file}");
 
-        Http::fake([
-            '*' => Http::response(file_get_contents($appFilePath))
-        ]);
+        Http::fake(collect($responses)
+            ->mapWithKeys(fn ($resFile, $resEndpoint) => [
+                $resEndpoint => Http::response(file_get_contents($getResponseFilePath($resFile)))
+            ])
+            ->all());
     }
 }
