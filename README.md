@@ -12,7 +12,7 @@ composer require superciety/elrond-sdk-laravel
 
 ## Usage
 
-You can get a pricing information using the `Superciety\ElrondApi::endpoint()` method.
+TODO: add docs
 
 ## Testing
 
