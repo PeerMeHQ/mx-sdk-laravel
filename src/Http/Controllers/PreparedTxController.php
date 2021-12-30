@@ -23,6 +23,8 @@ class PreparedTxController extends ControllerBase
 
         return $builder instanceof IPreparedTxBuilder
             ? $this->preparedTx($builder->build($request->all()))
-            : $this->invalid();
+            : $this->invalid([
+                'error' => "no tx builder found for {$name}",
+            ]);
     }
 }
