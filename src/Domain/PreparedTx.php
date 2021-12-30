@@ -2,7 +2,7 @@
 
 namespace Superciety\ElrondSdk\Domain;
 
-class PreparedTx
+final class PreparedTx
 {
     public function __construct(
         public string $receiver,
