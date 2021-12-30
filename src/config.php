@@ -25,8 +25,9 @@ return [
     ],
 
     'prepared-txs' => [
-        'issueNftCollection' => \Superciety\ElrondSdk\PreparedTxs\IssueNftCollectionTxBuilder::class,
-        'setNftCollectionRoles' => \Superciety\ElrondSdk\PreparedTxs\SetNftCollectionRolesTxBuilder::class,
+        'issue-nft-collection' => \Superciety\ElrondSdk\PreparedTxs\IssueNftCollectionTxBuilder::class,
+        'set-nft-collection-roles' => \Superciety\ElrondSdk\PreparedTxs\SetNftCollectionRolesTxBuilder::class,
+    ],
 
     'vm_queries' => [
         // ...
