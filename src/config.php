@@ -27,6 +27,9 @@ return [
     'prepared-txs' => [
         'issueNftCollection' => \Superciety\ElrondSdk\PreparedTxs\IssueNftCollectionTxBuilder::class,
         'setNftCollectionRoles' => \Superciety\ElrondSdk\PreparedTxs\SetNftCollectionRolesTxBuilder::class,
+
+    'vm_queries' => [
+        // ...
     ],
 
     'ipfs' => [
