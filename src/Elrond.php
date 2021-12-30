@@ -28,6 +28,11 @@ final class Elrond
         return new (config('elrond.ipfs.provider'));
     }
 
+    public static function constants(): Constants
+    {
+        return new Constants();
+    }
+
     public static function requireAccountTokenOwnershipOrThrow(string $address, Balance $minimumBalance): void
     {
         try {
