@@ -12,6 +12,16 @@ final class TransactionPayload
     ) {
     }
 
+    public static function contractCall(string $func, array $args = []): TransactionPayload
+    {
+        $encodedArgs = collect($args)
+            ->map(fn ($arg) => Encoder::toHex($arg))
+            ->filter()
+            ->join('@');
+
+        return new TransactionPayload("{$func}@{$encodedArgs}");
+    }
+
     public static function superToContractTransfer(int $superAmount, string $functionName, array $args): TransactionPayload
     {
         $data = collect(['ESDTTransfer'])

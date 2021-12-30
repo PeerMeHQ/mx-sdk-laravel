@@ -3,6 +3,15 @@
 use Illuminate\Support\Str;
 use Superciety\ElrondSdk\Domain\TransactionPayload;
 
+it('contractCall - builds a contract call payload', function () {
+    $actual = TransactionPayload::contractCall('doTest', [
+        'arg2', 'arg1', 3,
+    ]);
+
+    expect($actual->data)
+        ->toBe('doTest@61726732@61726731@03');
+});
+
 it('issueNonFungible - builds an nft token issue payload', function () {
     $actual = TransactionPayload::issueNonFungible('Testing', 'test', [
         'canFreeze', 'canPause', 'canTransferNFTCreateRole',
