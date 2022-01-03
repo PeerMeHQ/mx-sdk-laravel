@@ -36,7 +36,7 @@ final class TokenDetailedWithBalance
 
         return new static(...static::filterUnallowedProperties(array_merge($res, [
             'assets' => isset($res['assets']) ? TokenAssets::fromApiResponse($res['assets']) : null,
-            'balance' => Balance::from($token, $res['balance']),
+            'balance' => Balance::from($token, $res['balance'] ?? 0),
         ])));
     }
 }
