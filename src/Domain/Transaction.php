@@ -34,13 +34,7 @@ final class Transaction
 
     public function getType(): string
     {
-        $dataHint = Str::before(base64_decode($this->data), '@');
-
-        return match ($dataHint) {
-            'ESDTNFTCreate' => 'nft_create',
-            'ESDTNFTTransfer' => 'nft_transfer',
-            default => 'unknown',
-        };
+        return Str::before(base64_decode($this->data), '@');
     }
 
     protected static function transformResponse(array $res): array
