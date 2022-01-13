@@ -51,7 +51,7 @@ final class Nft
     protected static function transformResponse(array $res): array
     {
         return array_merge($res, [
-            'attributes' => isset($res['attributes']) ? base64_decode($res['attributes']) : null,
+            'attributes' => isset($res['attributes']) ? base64_decode($res['attributes']) : '',
         ]);
     }
 }
