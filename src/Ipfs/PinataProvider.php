@@ -9,7 +9,7 @@ final class PinataProvider implements IProvider
 {
     const ApiBaseUrl = 'https://api.pinata.cloud';
 
-    public function addFile($contents, string $filename): IpfsContentId
+    public function addFile(string $filename, $contents): IpfsContentId
     {
         $res = $this->getHttpClient()
             ->attach('file', $contents, $filename)
@@ -20,20 +20,14 @@ final class PinataProvider implements IProvider
         return new IpfsContentId($res['IpfsHash']);
     }
 
-    public function addMetadata(string $description, string $fileType, string $fileUri, string $fileName): IpfsContentId
+    public function addFileInDirectory(string $filename, $contents): IpfsContentId
     {
         $res = $this->getHttpClient()
-            ->post(static::ApiBaseUrl . '/pinning/pinJSONToIPFS', [
-                'pinataMetadata' => [
-                    'name' => 'metadata.json',
-                ],
-                'pinataContent' => [
-                    'description' => $description,
-                    'fileType' => $fileType,
-                    'fileUri' => $fileUri,
-                    'fileName' => $fileName,
-                ],
-            ])
+            ->attach('file', $contents, $filename)
+            ->attach('pinataOptions', json_encode([
+                'wrapWithDirectory' => true,
+            ]))
+            ->post(static::ApiBaseUrl . '/pinning/pinFileToIPFS')
             ->throw()
             ->json();
 
