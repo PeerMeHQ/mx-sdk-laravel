@@ -9,13 +9,13 @@ class IpfsContentId
     ) {
     }
 
-    public function getNativeUri(): string
+    public function getNativeUri(string $filename = ''): string
     {
-        return "ipfs://{$this->value}";
+        return trim("ipfs://{$this->value}/{$filename}", '/');
     }
 
-    public function getFirstPartyPublicGatewayUri(): string
+    public function getFirstPartyPublicGatewayUri(string $filename = ''): string
     {
-        return "https://ipfs.io/ipfs/{$this->value}";
+        return trim("https://ipfs.io/ipfs/{$this->value}/{$filename}", '/');
     }
 }
