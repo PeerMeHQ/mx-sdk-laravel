@@ -28,11 +28,16 @@ final class Nft
         public ?string $thumbnailUrl = null,
         public ?string $owner = null,
         public ?int $supply = null,
+        public array $tags = [],
     ) {
     }
 
     public function getTags(): array
     {
+        if (!empty($this->tags)) {
+            return $this->tags;
+        }
+
         preg_match('/tags:(?<tags>[\w\s\,]*)/', $this->attributes, $matches);
 
         return Str::of($matches['tags'] ?? '')

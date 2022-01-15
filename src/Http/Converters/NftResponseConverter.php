@@ -24,9 +24,9 @@ final class NftResponseConverter
             'royalties' => $nft->royalties,
             'url' => $nft->url,
             'thumbnailUrl' => $nft->thumbnailUrl,
-            'tags' => $nft->getTags(),
             'owner' => $nft->owner,
             'supply' => $nft->supply,
+            'tags' => $nft->getTags(),
         ];
     }
 
