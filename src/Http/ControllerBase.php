@@ -24,6 +24,12 @@ class ControllerBase extends Controller
         return $this;
     }
 
+    public function withMeta(array $meta): self
+    {
+        $this->metaData = $meta;
+        return $this;
+    }
+
     public function ok($message = [])
     {
         return $this->setStatusCode(200)->respond($message);
