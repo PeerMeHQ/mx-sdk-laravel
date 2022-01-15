@@ -29,6 +29,7 @@ final class Nft
         public ?string $owner = null,
         public ?int $supply = null,
         public array $tags = [],
+        public ?string $description = null,
     ) {
     }
 
@@ -57,6 +58,7 @@ final class Nft
     {
         return array_merge($res, [
             'attributes' => isset($res['attributes']) ? base64_decode($res['attributes']) : '',
+            'description' => $res['metadata']['description'] ?? null,
         ]);
     }
 }

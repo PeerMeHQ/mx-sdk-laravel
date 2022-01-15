@@ -27,6 +27,7 @@ final class NftResponseConverter
             'owner' => $nft->owner,
             'supply' => $nft->supply,
             'tags' => $nft->getTags(),
+            'description' => $nft->description,
         ];
     }
 
