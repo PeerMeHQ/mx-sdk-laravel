@@ -14,4 +14,6 @@ it('gets an nft by id', function () {
 
     expect($actual)->toBeInstanceOf(Nft::class);
     expect($actual->attributes)->toBe("Background:white; skin:orange; contour:black; effect:half tone; accessories:dango");
+    expect($actual->description)->toBe("test description");
+    expect($actual->royalties)->toBe(8);
 });
