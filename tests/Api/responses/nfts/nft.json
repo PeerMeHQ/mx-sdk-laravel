@@ -7,13 +7,25 @@
     "type": "NonFungibleESDT",
     "name": "Marshmallow #89",
     "creator": "erd1jw85qvfr6dk0kulyjsxppk3a5wf0kyplddp07s8r3nyslwwyuqqqev553j",
+    "royalties": 8,
     "uris": [
         "aHR0cHM6Ly9iYWZ5YmVpZjJkdW9jcHV6cWpxZmhmem1rcHRqZnJ1YWVyY3p4am1xbXJkaW9kNWlwcGxkN3Bqc3k0cS5pcGZzLmR3ZWIubGluay8="
     ],
     "url": "https://bafybeif2duocpuzqjqfhfzmkptjfruaerczxjmqmrdiod5ippld7pjsy4q.ipfs.dweb.link/",
+    "media": [
+        {
+            "url": "https://bafybeif2duocpuzqjqfhfzmkptjfruaerczxjmqmrdiod5ippld7pjsy4q.ipfs.dweb.link/",
+            "fileSize": 1323419,
+            "fileType": "image/jpeg",
+            "originalUrl": "https://bafybeif2duocpuzqjqfhfzmkptjfruaerczxjmqmrdiod5ippld7pjsy4q.ipfs.dweb.link/",
+            "thumbnailUrl": "https://media.elrond.com/nfts/thumbnail/MARSHM1-021222-2d55607e"
+        }
+    ],
     "isWhitelistedStorage": false,
-    "thumbnailUrl": "https://media.elrond.com/nfts/thumbnail/MARSHM1-021222-74",
+    "metadata": {
+        "description": "test description"
+    },
     "supply": "1",
-    "owner": "erd18lw4mnnvl4za52tte99g92h8q0tsc3mc9nmjulpkk9hnycchv0ksny779v",
+    "owner": "erd1qqqqqqqqqqqqqpgqd9rvv2n378e27jcts8vfwynpx0gfl5ufz6hqhfy0u0",
     "ticker": "MARSHM1-021222"
 }
