@@ -13,7 +13,7 @@ abstract class EndpointBase
         return trim(config('elrond.urls.api'), '/');
     }
 
-    protected function request(string $method, string $url, array $params = [], bool $unwrapData = false): array
+    protected function request(string $method, string $url, array $params = [], bool $unwrapData = false)
     {
         $cacheKey = Str::lower("{$method}-{$url}");
 

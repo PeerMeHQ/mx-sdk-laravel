@@ -15,6 +15,13 @@ function fakeApiRequestWithResponse(string $endpoint, string $responseFile): voi
     ]);
 }
 
+function fakeApiRequestWithResponseValue(string $endpoint, $value): void
+{
+    Http::fake([
+        config('elrond.urls.api') . '/' . ltrim($endpoint, '/') => Http::response($value),
+    ]);
+}
+
 function assertMatchesResponseSnapshot($actual): void
 {
     test()->assertMatchesSnapshot($actual, new ResponseSnapshotDriver);

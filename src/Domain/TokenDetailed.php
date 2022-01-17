@@ -14,25 +14,29 @@ final class TokenDetailed
         public string $ticker,
         public string $owner,
         public string $minted,
-        public string $burnt,
+        public Balance $burnt,
         public int $decimals,
         public bool $isPaused,
-        public TokenAssets $assets,
-        public string $canUpgrade,
-        public string $canMint,
-        public string $canBurn,
-        public string $canChangeOwner,
-        public string $canPause,
-        public string $canFreeze,
-        public string $canWipe,
-        public string $supply,
+        public ?TokenAssets $assets,
+        public bool $canUpgrade,
+        public bool $canMint,
+        public bool $canBurn,
+        public bool $canChangeOwner,
+        public bool $canPause,
+        public bool $canFreeze,
+        public bool $canWipe,
+        public Balance $supply,
     ) {
     }
 
     public static function fromApiResponse(array $res): static
     {
+        $token = new Token($res['identifier'], $res['name'], $res['decimals']);
+
         return new static(...static::filterUnallowedProperties(array_merge($res, [
-            'assets' => TokenAssets::fromApiResponseMany($res['assets'] ?? []),
+            'assets' => isset($res['assets']) ? TokenAssets::fromApiResponse($res['assets']) : null,
+            'burnt' => Balance::from($token, $res['burnt']),
+            'supply' => Balance::from($token, $res['supply']),
         ])));
     }
 }
