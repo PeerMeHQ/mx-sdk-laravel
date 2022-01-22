@@ -25,8 +25,8 @@ final class TokenDetailedWithBalance
         public string $canPause,
         public string $canFreeze,
         public string $canWipe,
-        public string $supply,
         public Balance $balance,
+        public ?string $supply = null,
     ) {
     }
 
