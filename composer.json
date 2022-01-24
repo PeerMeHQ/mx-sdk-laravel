@@ -29,6 +29,7 @@
         "pestphp/pest": "^1.20",
         "pestphp/pest-plugin-laravel": "^1.1",
         "phpunit/phpunit": "^9.5",
+        "spatie/pest-plugin-test-time": "^1.0",
         "spatie/phpunit-snapshot-assertions": "^4.2"
     },
     "autoload": {
