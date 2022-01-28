@@ -12,7 +12,7 @@ class Decoder
     {
         throw_unless(strlen($address) === 62, Exception::class, 'invalid length');
 
-        $decoded = decode($address)[1];
+        $decoded = decode(strtolower($address))[1];
         $res = convertBits($decoded, count($decoded), 5, 8, false);
 
         return collect($res)
