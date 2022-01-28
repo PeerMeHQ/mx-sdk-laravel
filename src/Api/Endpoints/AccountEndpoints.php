@@ -31,6 +31,13 @@ class AccountEndpoints extends EndpointBase
         );
     }
 
+    public function getTokens(string $address, array $params = []): Collection
+    {
+        return TokenDetailedWithBalance::fromApiResponseMany(
+            $this->request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}/tokens", $params)
+        );
+    }
+
     public function getToken(string $address, string $token): TokenDetailedWithBalance
     {
         return TokenDetailedWithBalance::fromApiResponse(

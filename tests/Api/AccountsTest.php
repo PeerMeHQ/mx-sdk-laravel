@@ -27,6 +27,16 @@ it('getNfts - gets an accounts nfts', function () {
     expect($actual[0]->attributes)->toBe("description:POWERED BY ELROND NETWORK"); // to be base64 decoded
 });
 
+it('getTokens - gets tokens owned by an account', function () {
+    fakeApiRequestWithResponse('/accounts/erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc/tokens', 'accounts/tokens.json');
+
+    $actual = Elrond::api()
+        ->accounts()
+        ->getTokens('erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc');
+
+    assertMatchesResponseSnapshot($actual);
+});
+
 it('getToken - gets a specifc token owned by an account', function () {
     fakeApiRequestWithResponse('/accounts/erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc/tokens/WHALE-b018f0', 'accounts/token-with-balance.json');
 
