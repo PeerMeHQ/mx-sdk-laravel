@@ -1,0 +1,1 @@
+O:37:"Superciety\ElrondSdk\Domain\Economics":8:{s:11:"totalSupply";i:22738134;s:17:"circulatingSupply";i:20078134;s:6:"staked";i:12077642;s:5:"price";d:308.29;s:9:"marketCap";i:6087314698;s:3:"apr";d:0.145813;s:8:"topUpApr";d:0.110942;s:7:"baseApr";d:0.165715;}

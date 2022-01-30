@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Http;
+use Superciety\ElrondSdk\Tests\TestCase;
 use Superciety\ElrondSdk\Tests\ResponseSnapshotDriver;
 
-uses(\Superciety\ElrondSdk\Tests\TestCase::class)->in(__DIR__);
-uses(\Spatie\Snapshots\MatchesSnapshots::class)->in(__DIR__);
+uses(TestCase::class)->in(__DIR__);
 
 function fakeApiRequestWithResponse(string $endpoint, string $responseFile): void
 {
