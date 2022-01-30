@@ -10,7 +10,7 @@ class Encoder
     {
         if (is_string($value)) {
             return str_starts_with($value, 'erd1')
-                ? Address::fromBech32($value)
+                ? Address::fromBech32($value)->hex()
                 : bin2hex(trim($value));
         }
 
