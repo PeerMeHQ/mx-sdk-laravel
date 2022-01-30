@@ -2,24 +2,25 @@
 
 namespace Superciety\ElrondSdk\Crypto;
 
-use Elliptic\EdDSA;
-use Superciety\ElrondSdk\Utils\Decoder;
+use Superciety\ElrondSdk\Domain\Address;
+use Superciety\ElrondSdk\Domain\Signature;
+use Superciety\ElrondSdk\Domain\UserVerifier;
+use Superciety\ElrondSdk\Domain\SignableMessage;
 
 final class Crypto
 {
-    public function verify(SignableMessage $signedMessage): bool
+    public function verifyLogin(string $token, Signature|string $signature, Address|string $address): bool
     {
-        return (new EdDSA('ed25519'))
-            ->keyFromPublic(Decoder::bech32ToHex($signedMessage->address))
-            ->verify($signedMessage->serializeForSigning(), $signedMessage->signature);
-    }
+        $address = $address instanceof Address ? $address : Address::fromBech32($address);
+        $signature = $signature instanceof Signature ? $signature : new Signature($signature);
 
-    public function verifyLogin(ProofableLogin $proofableLogin): bool
-    {
-        return $this->verify(new SignableMessage(
-            message: "{$proofableLogin->address}{$proofableLogin->token}{}", // how elrond wallet providers sign login messages
-            signature: $proofableLogin->signature,
-            address: $proofableLogin->address,
-        ));
+        $verifiable = new SignableMessage(
+            message: "{$address->bech32()}{$token}{}", // how elrond wallet providers sign login messages
+            signature: $signature,
+            address: $address,
+        );
+
+        return UserVerifier::fromAddress($address)
+            ->verify($verifiable);
     }
 }
