@@ -2,13 +2,15 @@
 
 namespace Superciety\ElrondSdk\Utils;
 
+use Superciety\ElrondSdk\Domain\Address;
+
 class Encoder
 {
     public static function toHex(string|int $value, ?int $bytes = null): string
     {
         if (is_string($value)) {
             return str_starts_with($value, 'erd1')
-                ? Decoder::bech32ToHex($value)
+                ? Address::fromBech32($value)
                 : bin2hex(trim($value));
         }
 
