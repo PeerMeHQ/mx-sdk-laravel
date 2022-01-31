@@ -27,6 +27,8 @@ it('toDenominated - does not show decimals for tokens without decimals', fn () =
 
 it('toDenominated - correctly displays values below zero', fn () => expect(Balance::from(new Token('any', 'any', 18), 0.00086)->toDenominated())->toBe('0.00086'));
 
+it('toDenominated - strips trailing zeros', fn () => expect(Balance::from(new Token('any', 'any', 18), 0.10000086)->toDenominated(2))->toBe('0.1'));
+
 it('plus - adds a balance of the same token to the current balance', function () {
     expect(Balance::egld('10000000000000000000')->plus(Balance::egld('15000000000000000000'))->amount)->toBe('25000000000000000000');
 });

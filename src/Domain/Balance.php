@@ -82,13 +82,13 @@ final class Balance
             return $this->amount;
         }
 
-        $amount = $this->amount;
         $amount = str_pad($this->amount, $this->token->decimals, '0', STR_PAD_LEFT);
         $amount = substr_replace($amount, '.', -$this->token->decimals, 0); // insert dot
         $amount = rtrim($amount, '0');
         $decAmount = strlen(explode('.', $amount)[1] ?? '');
+        $formattetd = number_format($amount, $decimals ?? $decAmount, '.', '');
 
-        return number_format($amount, $decimals ?? $decAmount, '.', '');
+        return rtrim(rtrim($formattetd, '0'), '.');
     }
 
     private static function fixPrecision(string|int|float $amount, Token $token): string
