@@ -3,23 +3,29 @@
 use Superciety\ElrondSdk\Domain\Token;
 use Superciety\ElrondSdk\Domain\Balance;
 
-it('has the desired precision given an already precise value', fn () => expect(Balance::egld("12000000000000000000")->amount)->toBe("12000000000000000000"));
+it('has the desired precision given an already precise value', fn () => expect(Balance::egld('12000000000000000000')->amount)->toBe('12000000000000000000'));
 
-it('has the desired precision given an already precise decimal value', fn () => expect(Balance::egld("12.000000000000000000")->amount)->toBe("12000000000000000000"));
+it('has the desired precision given an unprecise value', fn () => expect(Balance::egld('826671350000000')->amount)->toBe('826671350000000'));
 
-it('has the desired precision given an integer', fn () => expect(Balance::egld(12)->amount)->toBe("12000000000000000000"));
+it('has the desired precision given an already precise decimal value', fn () => expect(Balance::egld('12.000000000000000000')->amount)->toBe('12000000000000000000'));
 
-it('has the desired precision given an integer bigger in length than token decimals', fn () => expect(Balance::from(new Token('any', 'any', 3), 10_000_000)->amount)->toBe("10000000000"));
+it('has the desired precision given an integer', fn () => expect(Balance::egld(12)->amount)->toBe('12000000000000000000'));
 
-it('has the desired precision given a non-precise float', fn () => expect(Balance::egld(12.12345)->amount)->toBe("12123450000000000000"));
+it('has the desired precision given an integer bigger in length than token decimals', fn () => expect(Balance::from(new Token('any', 'any', 3), 10_000_000)->amount)->toBe('10000000000'));
 
-it('has the desired precision given a non-precise string', fn () => expect(Balance::egld("12.12345")->amount)->toBe("12123450000000000000"));
+it('has the desired precision given a non-precise float', fn () => expect(Balance::egld(12.12345)->amount)->toBe('12123450000000000000'));
 
-it('toDenominated - does not have trailing zeros', fn () => expect(Balance::egld("12.12345")->toDenominated())->toBe("12.12345"));
+it('has the desired precision given a non-precise string', fn () => expect(Balance::egld('12.12345')->amount)->toBe('12123450000000000000'));
 
-it('toDenominated - allows an optional decimal precision', fn () => expect(Balance::egld("12.12345")->toDenominated(3))->toBe("12.123"));
+it('toDenominated - does not have trailing zeros', fn () => expect(Balance::egld('12.12345')->toDenominated())->toBe('12.12345'));
 
-it('toDenominated - does not show decimals for tokens without decimals', fn () => expect(Balance::from(new Token('any', 'any', 0), 10)->toDenominated())->toBe("10"));
+it('toDenominated - allows an optional decimal precision', fn () => expect(Balance::egld('12.12345')->toDenominated(3))->toBe('12.123'));
+
+it('toDenominated - correctly displays inpresice string values', fn () => expect(Balance::egld('826671350000000')->toDenominated(6))->toBe('0.000827'));
+
+it('toDenominated - does not show decimals for tokens without decimals', fn () => expect(Balance::from(new Token('any', 'any', 0), 10)->toDenominated())->toBe('10'));
+
+it('toDenominated - correctly displays values below zero', fn () => expect(Balance::from(new Token('any', 'any', 18), 0.00086)->toDenominated())->toBe('0.00086'));
 
 it('plus - adds a balance of the same token to the current balance', function () {
     expect(Balance::egld('10000000000000000000')->plus(Balance::egld('15000000000000000000'))->amount)->toBe('25000000000000000000');

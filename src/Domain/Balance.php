@@ -82,14 +82,13 @@ final class Balance
             return $this->amount;
         }
 
-        $formatted = substr_replace($this->amount, '.', -$this->token->decimals, 0);
-        $formatted = str_starts_with($formatted, '.') ? '0' . $formatted : $formatted;
-        $base = explode('.', $formatted)[0] ?? '';
-        $formatted = $decimals !== null ? substr($formatted, 0, strlen($base) + 1 + $decimals) : $formatted;
-        $formatted = rtrim($formatted, '0');
-        $formatted = rtrim($formatted, '.');
+        $amount = $this->amount;
+        $amount = str_pad($this->amount, $this->token->decimals, '0', STR_PAD_LEFT);
+        $amount = substr_replace($amount, '.', -$this->token->decimals, 0); // insert dot
+        $amount = rtrim($amount, '0');
+        $decAmount = strlen(explode('.', $amount)[1] ?? '');
 
-        return $formatted;
+        return number_format($amount, $decimals ?? $decAmount, '.', '');
     }
 
     private static function fixPrecision(string|int|float $amount, Token $token): string
@@ -102,7 +101,7 @@ final class Balance
             return $parts[0] . $decimals;
         }
 
-        if (is_string($amount) && strlen($amountStr) >= $token->decimals) {
+        if (is_string($amount)) {
             return $amountStr;
         }
 
