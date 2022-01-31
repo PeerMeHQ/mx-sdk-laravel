@@ -32,7 +32,7 @@ class Address
 
         $hex = collect($res)
             ->map(fn ($bits) => dechex($bits))
-            ->reduce(fn ($carry, $hex) => $carry . (strlen($hex) === 1 ? "0$hex" : $hex));
+            ->reduce(fn ($carry, $hex) => $carry . str_pad($hex, 2, "0", STR_PAD_LEFT));
 
         return new Address($hex);
     }
