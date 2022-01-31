@@ -2,8 +2,8 @@
 
 namespace Superciety\ElrondSdk\Domain;
 
-use Superciety\ElrondSdk\Utils\Decoder;
 use Superciety\ElrondSdk\Utils\Encoder;
+use Superciety\ElrondSdk\Domain\Address;
 
 final class TransactionPayload
 {
@@ -81,7 +81,7 @@ final class TransactionPayload
     {
         $data = collect(['setSpecialRole'])
             ->push(bin2hex($collection))
-            ->push(Decoder::bech32ToHex($address))
+            ->push(Address::fromBech32($address)->hex())
             ->push(...collect($roles)
                 ->map(fn (string $role) => Encoder::toHex($role))
                 ->all())

@@ -46,7 +46,7 @@ it('createNft - builds an nft issue payload', function () {
         ->toBe('ESDTNFTCreate@534f4d452d31323334@01@536f6d65546f6b656e@04e2@787878414e5948415348787878@746167733a6f6e653b74776f3b6d657461646174613a78797a@68747470733a2f2f737570657263696574792e636f6d');
 });
 
-it('createNft - encodes for the correct hex representation', function (float $percent, string $expectedHex) {
+it('createNft - encodes for the correct royalties hex representation', function (float $percent, string $expectedHex) {
     $actual = TransactionPayload::createNft('xx-1234', 'xx', $percent, 'xx', [], ['https://any.com']);
     $royaltiesArgIndex = 4;
 
@@ -62,6 +62,13 @@ it('createNft - encodes for the correct hex representation', function (float $pe
         [80.75, '1f8b'],
         [100, '2710'],
     ]);
+
+it('setNftRoles - builds an nft set special roles payload', function () {
+    $actual = TransactionPayload::setNftRoles('SOME-1234', 'erd1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u', ['ESDTRoleNFTCreate', 'ESDTRoleNFTBurn']);
+
+    expect($actual->data)
+        ->toBe('setSpecialRole@534f4d452d31323334@000000000000000000010000000000000000000000000000000000000002ffff@45534454526f6c654e4654437265617465@45534454526f6c654e46544275726e');
+});
 
 it('burnNft - builds an nft burn payload', function () {
     $actual = TransactionPayload::burnNft('SOME-1234', 1);
