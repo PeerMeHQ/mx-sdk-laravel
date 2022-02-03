@@ -6,8 +6,8 @@ use Exception;
 
 final class Token
 {
-    const SuperTokenId = 'SUPER-764d8d';
-    const SuperTokenIdTestnet = 'XSUPER-34d9ea';
+    const SuperTokenId = 'SUPER-507aa6';
+    const SuperTokenIdTestnet = 'XSUPER-d99d09';
     const SuperTokenIdDevnet = 'XSUPER-d0da40';
 
     public function __construct(
