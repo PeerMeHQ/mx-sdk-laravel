@@ -18,8 +18,8 @@ class IssueNftCollectionTxBuilder implements IPreparedTxBuilder
         $properties = $input['properties'] ?? throw ValidationException::withMessages(['collection' => 'properties are required']);
 
         return PreparedTx::issueNonFungible(match ($type) {
-            'NonFungibleESDT' => TransactionPayload::issueNonFungible($name, $ticker, $properties),
-            'SemiFungibleESDT' => TransactionPayload::issueSemiFungible($name, $ticker, $properties),
+            'NonFungibleESDT', 'nft' => TransactionPayload::issueNonFungible($name, $ticker, $properties),
+            'SemiFungibleESDT', 'sft' => TransactionPayload::issueSemiFungible($name, $ticker, $properties),
             default => throw new InvalidArgumentException("invalid type '{$type}'"),
         });
     }
