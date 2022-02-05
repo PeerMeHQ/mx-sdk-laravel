@@ -4,7 +4,7 @@ use Superciety\ElrondSdk\PreparedTxs\IssueNftCollectionTxBuilder;
 
 it('builds a nft collection issue tx', function () {
     $input = [
-        'type' => 'nft',
+        'type' => 'NonFungibleESDT',
         'name' => 'Test1',
         'ticker' => 'Test2',
         'properties' => ['canFreeze', 'canWipe'],
@@ -19,7 +19,7 @@ it('builds a nft collection issue tx', function () {
 
 it('builds a sft collection issue tx', function () {
     $input = [
-        'type' => 'sft',
+        'type' => 'SemiFungibleESDT',
         'name' => 'Test1',
         'ticker' => 'Test2',
         'properties' => ['canFreeze', 'canWipe'],
