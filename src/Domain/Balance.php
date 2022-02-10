@@ -76,19 +76,17 @@ final class Balance
         return  $result === 0 || $result === -1;
     }
 
-    public function toDenominated(?int $decimals = null): string
+    public function toDenominated(bool $formatted = false): string
     {
-        if ($this->token->decimals === 0) {
-            return $this->amount;
+        $denominated = $this->token->decimals === 0
+            ? $this->amount
+            : rtrim(rtrim(substr_replace($this->amount, '.', -$this->token->decimals, 0), '0'), '.');
+
+        if ($formatted || empty($denominated)) {
+            return number_format((float) $denominated);
         }
 
-        $amount = str_pad($this->amount, $this->token->decimals, '0', STR_PAD_LEFT);
-        $amount = substr_replace($amount, '.', -$this->token->decimals, 0); // insert dot
-        $amount = rtrim($amount, '0');
-        $decAmount = strlen(explode('.', $amount)[1] ?? '');
-        $formattetd = number_format($amount, $decimals ?? $decAmount, '.', '');
-
-        return rtrim(rtrim($formattetd, '0'), '.');
+        return str_starts_with($denominated, '.') ? "0{$denominated}" : $denominated;
     }
 
     private static function fixPrecision(string|int|float $amount, Token $token): string
