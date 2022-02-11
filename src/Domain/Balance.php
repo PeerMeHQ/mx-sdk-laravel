@@ -16,7 +16,7 @@ final class Balance
     {
         return new static(
             token: $token,
-            amount: static::fixPrecision($amount, $token),
+            amount: static::applyDenomination($amount, $token),
         );
     }
 
@@ -24,7 +24,7 @@ final class Balance
     {
         return new static(
             token: Token::egld(),
-            amount: static::fixPrecision($amount, Token::egld()),
+            amount: static::applyDenomination($amount, Token::egld()),
         );
     }
 
@@ -32,7 +32,7 @@ final class Balance
     {
         return new static(
             token: Token::super(),
-            amount: static::fixPrecision($amount, Token::super()),
+            amount: static::applyDenomination($amount, Token::super()),
         );
     }
 
@@ -89,7 +89,7 @@ final class Balance
         return str_starts_with($denominated, '.') ? "0{$denominated}" : $denominated;
     }
 
-    private static function fixPrecision(string|int|float $amount, Token $token): string
+    private static function applyDenomination(string|int|float $amount, Token $token): string
     {
         $amountStr = (string) $amount;
 
