@@ -31,6 +31,6 @@ final class Token
             default => throw new Exception('invalid chain id'),
         };
 
-        return new static(identifier: $tokenId, name: 'SUPER', decimals: 0);
+        return new static(identifier: $tokenId, name: 'SUPER', decimals: 18);
     }
 }
