@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Superciety\ElrondSdk\Api\EndpointBase;
 use Superciety\ElrondSdk\Domain\Economics;
-use Superciety\ElrondSdk\Api\Models\MexPair;
+use Superciety\ElrondSdk\Api\Entities\MexPair;
 use Superciety\ElrondSdk\Domain\NetworkConstants;
 
 final class NetworkEndpoints extends EndpointBase

@@ -1,10 +1,10 @@
 <?php
 
-namespace Superciety\ElrondSdk\Domain;
+namespace Superciety\ElrondSdk\Api\Entities;
 
 use Superciety\ElrondSdk\Api\ApiTransformable;
 
-final class VmHexResult
+final class VmIntResult
 {
     use ApiTransformable;
 

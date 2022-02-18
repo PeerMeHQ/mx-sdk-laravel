@@ -1,6 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Models;
+namespace Superciety\ElrondSdk\Api\Entities;
 
 use Superciety\ElrondSdk\Domain\Balance;
 use Superciety\ElrondSdk\Api\ApiTransformable;

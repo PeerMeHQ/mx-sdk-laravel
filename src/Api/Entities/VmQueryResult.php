@@ -1,6 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk\Domain;
+namespace Superciety\ElrondSdk\Api\Entities;
 
 use Illuminate\Support\Collection;
 use Superciety\ElrondSdk\Utils\Decoder;
