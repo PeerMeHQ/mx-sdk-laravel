@@ -8,7 +8,7 @@ final class Token
 {
     const SuperTokenId = 'SUPER-507aa6';
     const SuperTokenIdTestnet = 'XSUPER-4abae3';
-    const SuperTokenIdDevnet = 'XSUPER-d0da40';
+    const SuperTokenIdDevnet = 'XSUPER-5ef129';
 
     public function __construct(
         public string $identifier,
