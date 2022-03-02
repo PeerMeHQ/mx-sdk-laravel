@@ -2,14 +2,6 @@
 
 namespace Superciety\ElrondSdk\Api\Entities;
 
-use Superciety\ElrondSdk\Api\ApiTransformable;
-
-final class VmHexResult
+final class VmHexResult extends VmResultBase
 {
-    use ApiTransformable;
-
-    public function __construct(
-        public string $data,
-    ) {
-    }
 }

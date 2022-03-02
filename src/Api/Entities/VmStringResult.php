@@ -2,14 +2,6 @@
 
 namespace Superciety\ElrondSdk\Api\Entities;
 
-use Superciety\ElrondSdk\Api\ApiTransformable;
-
-final class VmStringResult
+final class VmStringResult extends VmResultBase
 {
-    use ApiTransformable;
-
-    public function __construct(
-        public string $data,
-    ) {
-    }
 }

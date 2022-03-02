@@ -5,7 +5,7 @@ namespace Superciety\ElrondSdk\Http\Controllers;
 use Illuminate\Http\Request;
 use InvalidArgumentException;
 use Superciety\ElrondSdk\Http\ControllerBase;
-use Superciety\ElrondSdk\PreparedQueries\IVmQueryBuilder;
+use Superciety\ElrondSdk\PreparedQueries\IVmQuery;
 use Superciety\ElrondSdk\Http\Converters\VmResultResponseConverter;
 
 class VmQueryController extends ControllerBase
@@ -21,9 +21,10 @@ class VmQueryController extends ControllerBase
             ->get($name) ?? throw new InvalidArgumentException("no vm query configured for '{$name}'");
 
         $builder = new $builderClass();
+        $user = request()->user();
 
-        return $builder instanceof IVmQueryBuilder
-            ? $this->ok(VmResultResponseConverter::single($builder->build($request->all())))
+        return $builder instanceof IVmQuery
+            ? $this->ok(VmResultResponseConverter::single($builder->execute($request->all(), $user)))
             : $this->invalid([
                 'error' => "no query builder found for '{$name}'",
             ]);
