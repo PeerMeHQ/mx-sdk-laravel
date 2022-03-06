@@ -50,6 +50,20 @@ final class Balance
         return $this;
     }
 
+    public function times(Balance $other): Balance
+    {
+        $this->assertSameToken($other);
+        $this->amount = bcmul($this->amount, $other->amount);
+        return $this;
+    }
+
+    public function div(Balance $other): Balance
+    {
+        $this->assertSameToken($other);
+        $this->amount = bcdiv($this->amount, $other->amount);
+        return $this;
+    }
+
     public function isMoreThan(Balance $other): bool
     {
         $this->assertSameToken($other);
@@ -76,17 +90,21 @@ final class Balance
         return  $result === 0 || $result === -1;
     }
 
-    public function toDenominated(bool $formatted = false): string
+    public function toDenominated(?int $decimals = null, bool $formatted = false): string
     {
         $denominated = $this->token->decimals === 0
             ? $this->amount
             : rtrim(rtrim(substr_replace($this->amount, '.', -$this->token->decimals, 0), '0'), '.');
 
+        $denominated = str_starts_with($denominated, '.') ? "0{$denominated}" : $denominated;
+
         if ($formatted || empty($denominated)) {
             return number_format((float) $denominated);
         }
 
-        return str_starts_with($denominated, '.') ? "0{$denominated}" : $denominated;
+        return $decimals !== null && str_contains($denominated, '.')
+            ? rtrim(substr($denominated, 0, strpos($denominated, '.') + 1 + $decimals), '.')
+            : $denominated;
     }
 
     private static function applyDenomination(string|int|float $amount, Token $token): string
