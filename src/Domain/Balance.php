@@ -6,7 +6,7 @@ use InvalidArgumentException;
 
 final class Balance
 {
-    private function __construct(
+    public function __construct(
         public Token $token,
         public string $amount,
     ) {
@@ -117,7 +117,7 @@ final class Balance
             return $parts[0] . $decimals;
         }
 
-        if (is_string($amount)) {
+        if (is_string($amount) && $amountStr !== '0') {
             return $amountStr;
         }
 
