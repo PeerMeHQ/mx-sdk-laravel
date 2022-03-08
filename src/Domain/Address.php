@@ -37,6 +37,11 @@ class Address
         return new Address($hex);
     }
 
+    public static function fromBase64(string $value): Address
+    {
+        return new Address(bin2hex(base64_decode($value)));
+    }
+
     public function hex(): string
     {
         return $this->valueHex;
