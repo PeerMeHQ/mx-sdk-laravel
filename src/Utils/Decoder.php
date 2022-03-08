@@ -10,6 +10,16 @@ class Decoder
 
         return ctype_print($decoded) // check if has been fully decoded or still has binary data (assume hex dec)
             ? $decoded
-            : hexdec(bin2hex($decoded));
+            : static::bchexdec(bin2hex($decoded));
+    }
+
+    public static function bchexdec(string $value): string
+    {
+        $dec = 0;
+        $len = strlen($value);
+        for ($i = 1; $i <= $len; $i++) {
+            $dec = bcadd($dec, bcmul(strval(hexdec($value[$i - 1])), bcpow('16', strval($len - $i))));
+        }
+        return $dec;
     }
 }
