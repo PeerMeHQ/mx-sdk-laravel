@@ -2,9 +2,9 @@
 
 namespace Superciety\ElrondSdk\PreparedQueries;
 
-use Superciety\ElrondSdk\Api\Entities\VmResultBase;
-
 interface IVmQuery
 {
-    public function execute(array $input, $user): VmResultBase;
+    public function execute(array $input, $user): self;
+
+    public function toResponse(): array;
 }

@@ -19,9 +19,7 @@ final class VmQueryResult extends VmResultBase
     protected static function transformResponse(array $res): array
     {
         return array_merge($res, [
-            'data' => collect($res['data']['returnData'] ?? [])
-                ->map(fn ($v) => Decoder::fromBase64($v))
-                ->values(),
+            'data' => $res['data']['returnData'] ?? [],
             'code' => $res['data']['returnCode'] ?? 'error',
         ]);
     }

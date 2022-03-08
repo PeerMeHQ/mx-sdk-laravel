@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use InvalidArgumentException;
 use Superciety\ElrondSdk\Http\ControllerBase;
 use Superciety\ElrondSdk\PreparedQueries\IVmQuery;
-use Superciety\ElrondSdk\Http\Converters\VmResultResponseConverter;
 
 class VmQueryController extends ControllerBase
 {
@@ -23,10 +22,12 @@ class VmQueryController extends ControllerBase
         $builder = new $builderClass();
         $user = request()->user();
 
-        return $builder instanceof IVmQuery
-            ? $this->ok(VmResultResponseConverter::single($builder->execute($request->all(), $user)))
-            : $this->invalid([
-                'error' => "no query builder found for '{$name}'",
-            ]);
+        if (!$builder instanceof IVmQuery) {
+            return $this->invalid(['error' => "no query builder found for '{$name}'"]);
+        }
+
+        $builder->execute($request->all(), $user);
+
+        return $this->ok($builder->toResponse());
     }
 }
