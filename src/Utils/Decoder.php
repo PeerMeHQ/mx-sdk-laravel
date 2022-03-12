@@ -13,6 +13,11 @@ class Decoder
             : static::bchexdec(bin2hex($decoded));
     }
 
+    public static function fromBase64U32(string $value): int
+    {
+        return unpack("N*", base64_decode($value))[1];
+    }
+
     public static function bchexdec(string $value): string
     {
         $dec = 0;
