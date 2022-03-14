@@ -7,7 +7,7 @@ use Exception;
 final class Token
 {
     const SuperTokenId = 'SUPER-507aa6';
-    const SuperTokenIdTestnet = 'XSUPER-da8349';
+    const SuperTokenIdTestnet = 'XSUPER-0ad9d6';
     const SuperTokenIdDevnet = 'XSUPER-5ef129';
 
     public function __construct(
