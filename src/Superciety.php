@@ -13,7 +13,7 @@ class Superciety
     const ApiBaseUrlMainnet = 'https://api.superciety.com';
     const ApiBaseUrlTestnet = 'https://staging-api.superciety.com';
 
-    public static function getIdentity(string $address): array
+    public static function getIdentity(string $address): ?array
     {
         return Http::get(static::getApiBaseUrl() . "/identity/{$address}")
                 ->throw()
