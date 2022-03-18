@@ -3,8 +3,10 @@
 namespace Superciety\ElrondSdk\Api\Endpoints;
 
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 use Superciety\ElrondSdk\Domain\Nft;
 use Superciety\ElrondSdk\Api\EndpointBase;
+use Superciety\ElrondSdk\Api\Entities\NftOwner;
 
 class NftEndpoints extends EndpointBase
 {
@@ -17,6 +19,13 @@ class NftEndpoints extends EndpointBase
     {
         return Nft::fromApiResponse(
             $this->request('GET', "{$this->getApiBaseUrl()}/nfts/{$identifier}")
+        );
+    }
+
+    public function getOwners(string $identifier, array $params = []): Collection
+    {
+        return NftOwner::fromApiResponseMany(
+            $this->request('GET', "{$this->getApiBaseUrl()}/nfts/{$identifier}/owners", $params)
         );
     }
 }
