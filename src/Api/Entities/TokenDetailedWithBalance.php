@@ -1,7 +1,9 @@
 <?php
 
-namespace Superciety\ElrondSdk\Domain;
+namespace Superciety\ElrondSdk\Api\Entities;
 
+use Superciety\ElrondSdk\Domain\Token;
+use Superciety\ElrondSdk\Domain\Balance;
 use Superciety\ElrondSdk\Api\ApiTransformable;
 
 final class TokenDetailedWithBalance

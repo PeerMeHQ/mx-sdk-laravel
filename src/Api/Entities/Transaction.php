@@ -1,9 +1,10 @@
 <?php
 
-namespace Superciety\ElrondSdk\Domain;
+namespace Superciety\ElrondSdk\Api\Entities;
 
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use Superciety\ElrondSdk\Utils\Decoder;
 use Superciety\ElrondSdk\Api\ApiTransformable;
 
 final class Transaction
@@ -40,6 +41,7 @@ final class Transaction
     protected static function transformResponse(array $res): array
     {
         return array_merge($res, [
+            'data' => isset($res['data']) ? Decoder::fromBase64($res['data']) : null,
             'timestamp' => isset($res['timestamp']) ? Carbon::createFromTimestampUTC($res['timestamp']) : null,
         ]);
     }

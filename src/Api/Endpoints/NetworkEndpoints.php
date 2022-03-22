@@ -5,9 +5,9 @@ namespace Superciety\ElrondSdk\Api\Endpoints;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Domain\Economics;
 use Superciety\ElrondSdk\Api\Entities\MexPair;
-use Superciety\ElrondSdk\Domain\NetworkConstants;
+use Superciety\ElrondSdk\Api\Entities\Economics;
+use Superciety\ElrondSdk\Api\Entities\NetworkConstants;
 
 final class NetworkEndpoints extends EndpointBase
 {

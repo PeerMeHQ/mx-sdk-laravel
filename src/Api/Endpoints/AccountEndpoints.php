@@ -4,11 +4,11 @@ namespace Superciety\ElrondSdk\Api\Endpoints;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Domain\Nft;
-use Superciety\ElrondSdk\Domain\Account;
 use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Domain\NftCollectionAccount;
-use Superciety\ElrondSdk\Domain\TokenDetailedWithBalance;
+use Superciety\ElrondSdk\Api\Entities\Nft;
+use Superciety\ElrondSdk\Api\Entities\Account;
+use Superciety\ElrondSdk\Api\Entities\NftCollectionAccount;
+use Superciety\ElrondSdk\Api\Entities\TokenDetailedWithBalance;
 
 class AccountEndpoints extends EndpointBase
 {

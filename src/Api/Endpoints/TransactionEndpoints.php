@@ -4,7 +4,7 @@ namespace Superciety\ElrondSdk\Api\Endpoints;
 
 use Carbon\Carbon;
 use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Domain\Transaction;
+use Superciety\ElrondSdk\Api\Entities\Transaction;
 
 class TransactionEndpoints extends EndpointBase
 {

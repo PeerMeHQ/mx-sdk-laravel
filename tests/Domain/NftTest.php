@@ -1,6 +1,6 @@
 <?php
 
-use Superciety\ElrondSdk\Domain\Nft;
+use Superciety\ElrondSdk\Api\Entities\Nft;
 
 it('getTags - returns all tags given in attributes', function () {
     $nft = makeTestNftWithHumanReadableAttributes('tags:tag1,tag2,tag3;metadata:xxxx_ipfs_content_iD_xxxx');

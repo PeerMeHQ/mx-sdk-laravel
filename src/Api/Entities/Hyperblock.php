@@ -1,10 +1,10 @@
 <?php
 
-namespace Superciety\ElrondSdk\Domain;
+namespace Superciety\ElrondSdk\Api\Entities;
 
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Domain\Transaction;
 use Superciety\ElrondSdk\Api\ApiTransformable;
+use Superciety\ElrondSdk\Api\Entities\Transaction;
 
 final class Hyperblock
 {
