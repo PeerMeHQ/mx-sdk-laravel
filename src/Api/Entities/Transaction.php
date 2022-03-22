@@ -16,7 +16,7 @@ final class Transaction
         public ?int $gasLimit = null,
         public ?int $gasPrice = null,
         public ?int $gasUsed = null,
-        public string $miniBlockHash,
+        public ?string $miniBlockHash = null,
         public int $nonce,
         public string $receiver,
         public ?int $receiverShard = null,
