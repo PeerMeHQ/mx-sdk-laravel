@@ -3,7 +3,7 @@
 namespace Superciety\ElrondSdk\Http\Converters;
 
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Domain\Nft;
+use Superciety\ElrondSdk\Api\Entities\Nft;
 
 /**
  * find the corresponding typescript representation in our frontend core package:

@@ -3,7 +3,7 @@
 namespace Superciety\ElrondSdk\Http\Converters;
 
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Domain\NftCollectionAccount;
+use Superciety\ElrondSdk\Api\Entities\NftCollectionAccount;
 
 class NftCollectionAccountResponseConverter
 {
