@@ -39,7 +39,7 @@ final class Nft
             return $this->tags;
         }
 
-        preg_match('/tags:(?<tags>[\w\s\,]*)/', $this->attributes, $matches);
+        preg_match('/tags:(?<tags>[\w\s\,]*)/', base64_decode($this->attributes), $matches);
 
         return Str::of($matches['tags'] ?? '')
             ->explode(',')
@@ -49,7 +49,7 @@ final class Nft
 
     public function getIpfsContentId(): ?string
     {
-        preg_match('/metadata:(?<metadata>[\w]*)/', $this->attributes, $matches);
+        preg_match('/metadata:(?<metadata>[\w]*)/', base64_decode($this->attributes), $matches);
 
         return $matches['metadata'] ?? null;
     }
@@ -57,7 +57,6 @@ final class Nft
     protected static function transformResponse(array $res): array
     {
         return array_merge($res, [
-            'attributes' => isset($res['attributes']) ? base64_decode($res['attributes']) : '',
             'description' => $res['metadata']['description'] ?? null,
         ]);
     }
