@@ -17,7 +17,7 @@ final class Nft
         public string $identifier,
         public string $collection,
         public int|string|null $timestamp = null,
-        public string $attributes,
+        public string $attributes = '',
         public int|string $nonce,
         public string $type,
         public string $name,
