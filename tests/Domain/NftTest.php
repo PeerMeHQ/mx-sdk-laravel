@@ -3,7 +3,7 @@
 use Superciety\ElrondSdk\Api\Entities\Nft;
 
 it('getTags - returns all tags given in attributes', function () {
-    $nft = makeTestNftWithHumanReadableAttributes('tags:tag1,tag2,tag3;metadata:xxxx_ipfs_content_iD_xxxx');
+    $nft = makeTestNftWithHumanReadableAttributes(base64_encode('tags:tag1,tag2,tag3;metadata:xxxx_ipfs_content_iD_xxxx'));
 
     $actual = $nft->getTags();
 
@@ -11,7 +11,7 @@ it('getTags - returns all tags given in attributes', function () {
 });
 
 it('getTags - returns an empty array if no tags given', function () {
-    $nft = makeTestNftWithHumanReadableAttributes('tags:;metadata:QmQU4JJgNMuQ4SLpJrY76rK7Tmpdv3dnskD3fhzJWwDkeV');
+    $nft = makeTestNftWithHumanReadableAttributes(base64_encode('tags:;metadata:QmQU4JJgNMuQ4SLpJrY76rK7Tmpdv3dnskD3fhzJWwDkeV'));
 
     $actual = $nft->getTags();
 
@@ -19,7 +19,7 @@ it('getTags - returns an empty array if no tags given', function () {
 });
 
 it('getIpfsContentId - returns an ipfs content id', function () {
-    $nft = makeTestNftWithHumanReadableAttributes('tags:tag1,tag2,tag3;metadata:xxxx_ipfs_content_iD_xxxx');
+    $nft = makeTestNftWithHumanReadableAttributes(base64_encode('tags:tag1,tag2,tag3;metadata:xxxx_ipfs_content_iD_xxxx'));
 
     $actual = $nft->getIpfsContentId();
 

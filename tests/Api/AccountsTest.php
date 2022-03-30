@@ -24,7 +24,7 @@ it('getNfts - gets an accounts nfts', function () {
     assertMatchesResponseSnapshot($actual);
 
     expect($actual[0])->toBeInstanceOf(Nft::class);
-    expect($actual[0]->attributes)->toBe("description:POWERED BY ELROND NETWORK"); // to be base64 decoded
+    expect(base64_decode($actual[0]->attributes))->toBe("description:POWERED BY ELROND NETWORK"); // to be base64 decoded
 });
 
 it('getTokens - gets tokens owned by an account', function () {
