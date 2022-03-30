@@ -22,10 +22,10 @@ class NftEndpoints extends EndpointBase
         );
     }
 
-    public function getOwners(string $identifier, array $params = []): Collection
+    public function getAccounts(string $identifier, array $params = []): Collection
     {
         return NftOwner::fromApiResponseMany(
-            $this->request('GET', "{$this->getApiBaseUrl()}/nfts/{$identifier}/owners", $params)
+            $this->request('GET', "{$this->getApiBaseUrl()}/nfts/{$identifier}/accounts", $params)
         );
     }
 }

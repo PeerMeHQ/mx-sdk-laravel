@@ -18,12 +18,12 @@ it('gets an nft by id', function () {
     expect($actual->royalties)->toBe(8);
 });
 
-it('gets the owners of an nft', function () {
-    fakeApiRequestWithResponse('/nfts/SCYPERKS-025266-01/owners', 'nfts/owners.json');
+it('gets the owner accounts of an nft', function () {
+    fakeApiRequestWithResponse('/nfts/SCYPERKS-025266-01/accounts', 'nfts/accounts.json');
 
     $actual = Elrond::api()
         ->nfts()
-        ->getOwners('SCYPERKS-025266-01');
+        ->getAccounts('SCYPERKS-025266-01');
 
     assertMatchesResponseSnapshot($actual);
 });
