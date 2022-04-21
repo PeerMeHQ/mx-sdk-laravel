@@ -35,7 +35,7 @@ final class Transaction
 
     public function getType(): string
     {
-        return Str::before(base64_decode($this->data), '@');
+        return Str::before($this->data, '@');
     }
 
     protected static function transformResponse(array $res): array
