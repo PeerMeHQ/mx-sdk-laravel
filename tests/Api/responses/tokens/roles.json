@@ -1,0 +1,80 @@
+[
+    {
+        "address": "erd1qqqqqqqqqqqqqpgqjpt0qqgsrdhp2xqygpjtfrpwf76f9nvg2jpsg4q7th",
+        "canMint": true,
+        "canBurn": true,
+        "roles": ["ESDTRoleLocalMint", "ESDTRoleLocalBurn"]
+    },
+    {
+        "address": "erd1qqqqqqqqqqqqqpgqye633y7k0zd7nedfnp3m48h24qygm5jl2jpslxallh",
+        "canMint": true,
+        "canBurn": true,
+        "roles": ["ESDTRoleLocalMint", "ESDTRoleLocalBurn"]
+    },
+    {
+        "address": "erd1qqqqqqqqqqqqqpgqsw9pssy8rchjeyfh8jfafvl3ynum0p9k2jps6lwewp",
+        "canMint": true,
+        "canBurn": true,
+        "roles": ["ESDTRoleLocalMint", "ESDTRoleLocalBurn"]
+    },
+    {
+        "address": "erd1qqqqqqqqqqqqqpgqv4ks4nzn2cw96mm06lt7s2l3xfrsznmp2jpsszdry5",
+        "canMint": true,
+        "canBurn": true,
+        "roles": ["ESDTRoleLocalMint", "ESDTRoleLocalBurn"]
+    },
+    {
+        "address": "erd1qqqqqqqqqqqqqpgqrc4pg2xarca9z34njcxeur622qmfjp8w2jps89fxnl",
+        "canMint": true,
+        "canBurn": true,
+        "roles": ["ESDTRoleLocalMint", "ESDTRoleLocalBurn"]
+    },
+    {
+        "address": "erd1qqqqqqqqqqqqqpgqa0fsfshnff4n76jhcye6k7uvd7qacsq42jpsp6shh2",
+        "canMint": false,
+        "canBurn": true,
+        "roles": ["ESDTRoleLocalBurn"]
+    },
+    {
+        "address": "erd1qqqqqqqqqqqqqpgqs2puacesqywt84jawqenmmree20uj80d2jpsefuka9",
+        "canMint": true,
+        "canBurn": true,
+        "roles": ["ESDTRoleLocalMint", "ESDTRoleLocalBurn"]
+    },
+    {
+        "address": "erd1qqqqqqqqqqqqqpgqs2mmvzpu6wz83z3vthajl4ncpwz67ctu2jpsrcl0ct",
+        "canMint": true,
+        "canBurn": true,
+        "roles": ["ESDTRoleLocalMint", "ESDTRoleLocalBurn"]
+    },
+    {
+        "address": "erd1qqqqqqqqqqqqqpgq5e2m9df5yxxkmr86rusejc979arzayjk2jpsz2q43s",
+        "canMint": false,
+        "canBurn": true,
+        "roles": ["ESDTRoleLocalBurn"]
+    },
+    {
+        "address": "erd1qqqqqqqqqqqqqpgqnqvjnn4haygsw2hls2k9zjjadnjf9w7g2jpsmc60a4",
+        "canMint": true,
+        "canBurn": false,
+        "roles": ["ESDTRoleLocalMint"]
+    },
+    {
+        "address": "erd1qqqqqqqqqqqqqpgqutddd7dva0x4xmehyljp7wh7ecynag0u2jpskxx6xt",
+        "canMint": true,
+        "canBurn": false,
+        "roles": ["ESDTRoleLocalMint"]
+    },
+    {
+        "address": "erd1qqqqqqqqqqqqqpgqe9v45fnpkv053fj0tk7wvnkred9pms892jps9lkqrn",
+        "canMint": true,
+        "canBurn": true,
+        "roles": ["ESDTRoleLocalMint", "ESDTRoleLocalBurn"]
+    },
+    {
+        "address": "erd1qqqqqqqqqqqqqpgq7qhsw8kffad85jtt79t9ym0a4ycvan9a2jps0zkpen",
+        "canMint": false,
+        "canBurn": true,
+        "roles": ["ESDTRoleLocalBurn"]
+    }
+]
