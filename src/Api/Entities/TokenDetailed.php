@@ -13,8 +13,6 @@ final class TokenDetailed
         public string $name,
         public string $ticker,
         public string $owner,
-        public string $minted,
-        public string $burnt,
         public int $decimals,
         public bool $isPaused,
         public ?TokenAssets $assets,
@@ -26,6 +24,8 @@ final class TokenDetailed
         public bool $canFreeze,
         public bool $canWipe,
         public string $supply,
+        public ?string $minted = null,
+        public ?string $burnt = null,
     ) {
     }
 
