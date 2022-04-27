@@ -10,6 +10,7 @@ use function BitWasp\Bech32\convertBits;
 class Address
 {
     const HRP = 'erd';
+    const SMART_CONTRACT_HEX_PUBKEY_PREFIX = '0000000000000000';
 
     private function __construct(
         private string $valueHex,
@@ -53,5 +54,10 @@ class Address
         $bits = array_values(unpack('C*', $bin));
 
         return encode(self::HRP, convertBits($bits, count($bits), 8, 5));
+    }
+
+    public function isContractAddress(): bool
+    {
+        return str_starts_with($this->valueHex, self::SMART_CONTRACT_HEX_PUBKEY_PREFIX);
     }
 }
