@@ -41,7 +41,7 @@ final class Transaction
     protected static function transformResponse(array $res): array
     {
         return array_merge($res, [
-            'data' => isset($res['data']) ? Decoder::fromBase64($res['data']) : null,
+            'data' => isset($res['data']) ? base64_decode($res['data']) : null,
             'timestamp' => isset($res['timestamp']) ? Carbon::createFromTimestampUTC($res['timestamp']) : null,
         ]);
     }
