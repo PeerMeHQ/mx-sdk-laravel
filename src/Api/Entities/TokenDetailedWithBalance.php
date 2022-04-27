@@ -15,8 +15,6 @@ final class TokenDetailedWithBalance
         public string $name,
         public string $ticker,
         public string $owner,
-        public string $minted,
-        public string $burnt,
         public int $decimals,
         public bool $isPaused,
         public ?TokenAssets $assets,
@@ -28,6 +26,8 @@ final class TokenDetailedWithBalance
         public bool $canFreeze,
         public bool $canWipe,
         public Balance $balance,
+        public ?string $burnt = null,
+        public ?string $minted = null,
         public ?string $supply = null,
     ) {
     }
