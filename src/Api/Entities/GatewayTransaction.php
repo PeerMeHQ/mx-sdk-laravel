@@ -15,15 +15,15 @@ final class GatewayTransaction
         public string $value,
         public string $receiver,
         public string $sender,
-        public ?int $gasPrice = null,
-        public ?int $gasLimit = null,
-        public ?string $data = null,
-        public ?string $signature = null,
         public int $sourceShard,
         public int $destinationShard,
         public string $miniblockType,
         public string $miniblockHash,
         public string $status,
+        public ?int $gasPrice = null,
+        public ?int $gasLimit = null,
+        public ?string $data = null,
+        public ?string $signature = null,
     ) {
     }
 

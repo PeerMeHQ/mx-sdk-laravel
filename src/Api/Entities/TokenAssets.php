@@ -9,11 +9,11 @@ final class TokenAssets
     use ApiTransformable;
 
     public function __construct(
-        public ?string $website = null,
         public string $description,
         public string $status,
         public string $pngUrl,
         public string $svgUrl,
+        public ?string $website = null,
     ) {
     }
 }

@@ -21,11 +21,11 @@ final class Hyperblock
         public Collection $shardBlocks,
         /** @var Collection $transactions */
         public Collection $transactions,
-        public ?int $timestamp = null,
         public string $developerFees,
         public string $accumulatedFeesInEpoch,
         public string $developerFeesInEpoch,
         public string $status,
+        public ?int $timestamp = null,
     ) {
     }
 
