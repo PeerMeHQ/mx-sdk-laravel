@@ -61,11 +61,13 @@ final class Elrond
 
     public static function fakeApiResponseWith(array $responses): void
     {
-        $getResponseFilePath = fn ($file) => base_path("vendor/superciety/elrond-sdk-laravel/tests/Api/responses/{$file}");
+        $getResponse = fn ($data) => is_string($data) && str_ends_with($data, '.json')
+            ? file_get_contents(base_path("vendor/superciety/elrond-sdk-laravel/tests/Api/responses/{$data}"))
+            : $data;
 
         Http::fake(collect($responses)
-            ->mapWithKeys(fn ($resFile, $resEndpoint) => [
-                $resEndpoint => Http::response(file_get_contents($getResponseFilePath($resFile)))
+            ->mapWithKeys(fn ($resData, $resEndpoint) => [
+                $resEndpoint => Http::response($getResponse($resData))
             ])
             ->all());
     }
