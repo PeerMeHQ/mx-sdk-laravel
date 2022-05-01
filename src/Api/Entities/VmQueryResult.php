@@ -2,8 +2,6 @@
 
 namespace Superciety\ElrondSdk\Api\Entities;
 
-use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Utils\Decoder;
 use Superciety\ElrondSdk\Api\ApiTransformable;
 
 final class VmQueryResult extends VmResultBase

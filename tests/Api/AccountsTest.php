@@ -11,6 +11,8 @@ it('getByAddress - gets an account by address', function () {
         ->accounts()
         ->getByAddress('erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc');
 
+    expect($actual->balance)->toBeInstanceOf(Balance::class);
+
     assertMatchesResponseSnapshot($actual);
 });
 
