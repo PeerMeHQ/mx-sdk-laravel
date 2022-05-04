@@ -11,22 +11,15 @@ final class MexPair
 
     public function __construct(
         public string $baseId,
-        public Balance $basePrice,
+        public float $basePrice,
         public string $baseSymbol,
         public string $baseName,
         public string $quoteId,
-        public string $quotePrice,
+        public float $quotePrice,
         public string $quoteSymbol,
         public string $quoteName,
         public string $totalValue,
         public ?string $volume24h = null,
     ) {
-    }
-
-    public static function fromApiResponse(array $res): static
-    {
-        return new static(...static::filterUnallowedProperties(array_merge($res, [
-            'basePrice' => Balance::egld($res['basePrice']),
-        ])));
     }
 }

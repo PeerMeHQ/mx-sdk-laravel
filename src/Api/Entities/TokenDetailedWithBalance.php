@@ -13,7 +13,6 @@ final class TokenDetailedWithBalance
     public function __construct(
         public string $identifier,
         public string $name,
-        public string $ticker,
         public string $owner,
         public int $decimals,
         public bool $isPaused,
@@ -26,6 +25,7 @@ final class TokenDetailedWithBalance
         public bool $canFreeze,
         public bool $canWipe,
         public Balance $balance,
+        public ?string $ticker = null,
         public ?string $burnt = null,
         public ?string $minted = null,
         public ?string $supply = null,
