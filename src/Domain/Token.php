@@ -4,6 +4,9 @@ namespace Superciety\ElrondSdk\Domain;
 
 use Exception;
 
+/**
+ * @deprecated Use TokenPayment intstead
+ */
 final class Token
 {
     const SuperTokenId = 'SUPER-507aa6';
