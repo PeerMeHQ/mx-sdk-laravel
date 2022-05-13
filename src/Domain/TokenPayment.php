@@ -2,18 +2,12 @@
 
 namespace Superciety\ElrondSdk\Domain;
 
-use Exception;
 use InvalidArgumentException;
 
-final class TokenPayment
+class TokenPayment
 {
     const EGLDTokenIdentifier = 'EGLD';
     const EGLDNumDecimals = 18;
-
-    const SuperTokenId = 'SUPER-507aa6';
-    const SuperTokenIdTestnet = 'XSUPER-0ad9d6';
-    const SuperTokenIdDevnet = 'DSUPER-9af8df';
-    const SuperNumDecimals = 18;
 
     public function __construct(
         public readonly string $tokenIdentifier,
@@ -31,16 +25,6 @@ final class TokenPayment
     public static function egldFromBigInteger(string $amountAsBigInteger): TokenPayment
     {
         return new TokenPayment(static::EGLDTokenIdentifier, 0, $amountAsBigInteger, static::EGLDNumDecimals);
-    }
-
-    public static function superFromAmount(int|float $amount): TokenPayment
-    {
-        return static::superFromBigInteger(static::toBigNumber($amount, static::SuperNumDecimals));
-    }
-
-    public static function superFromBigInteger(string $amountAsBigInteger): TokenPayment
-    {
-        return new TokenPayment(static::getSuperTokenIdentifier(), 0, $amountAsBigInteger, static::SuperNumDecimals);
     }
 
     public static function fungibleFromAmount(string $tokenIdentifier, int|float $amount, int $numDecimals): TokenPayment
@@ -154,7 +138,7 @@ final class TokenPayment
         return  $result === 0 || $result === -1;
     }
 
-    private static function toBigNumber(string|int|float $amount, int $decimals): string
+    protected static function toBigNumber(string|int|float $amount, int $decimals): string
     {
         $amountStr = (string) $amount;
 
@@ -171,20 +155,10 @@ final class TokenPayment
         return str_pad($amountStr, strlen($amountStr) + $decimals, '0');
     }
 
-    private function assertSameToken(TokenPayment $other): void
+    protected function assertSameToken(TokenPayment $other): void
     {
         if ($this->tokenIdentifier !== $other->tokenIdentifier) {
             throw new InvalidArgumentException("token '{$this->tokenIdentifier}' does not match token '{$other->tokenIdentifier}'");
         }
-    }
-
-    private static function getSuperTokenIdentifier(): string
-    {
-        return match (config('elrond.chain_id')) {
-            'D' => static::SuperTokenIdDevnet,
-            'T' => static::SuperTokenIdTestnet,
-            '1' => static::SuperTokenId,
-            default => throw new Exception('invalid chain id'),
-        };
     }
 }
