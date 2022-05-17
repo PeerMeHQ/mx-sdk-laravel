@@ -4,7 +4,6 @@ namespace Superciety\ElrondSdk\Api\Entities;
 
 use Carbon\Carbon;
 use Illuminate\Support\Str;
-use Superciety\ElrondSdk\Utils\Decoder;
 use Superciety\ElrondSdk\Api\ApiTransformable;
 
 final class Transaction
