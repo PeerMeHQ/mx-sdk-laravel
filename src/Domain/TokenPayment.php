@@ -74,6 +74,18 @@ class TokenPayment
             : $denominated;
     }
 
+    public function toFloat(?int $decimals = null): float
+    {
+        $phpMaxDecPrecision = 14;
+
+        return (float) $this->toDenominated($decimals ?? $phpMaxDecPrecision);
+    }
+
+    public function toInt(): int
+    {
+        return (int) $this->toDenominated(0);
+    }
+
     public function isEgld()
     {
         return $this->tokenIdentifier == static::EGLDTokenIdentifier;
