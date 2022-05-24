@@ -8,7 +8,7 @@ use Superciety\ElrondSdk\Domain\TokenPayment;
 class SuperPayment extends TokenPayment
 {
     const SuperTokenId = 'SUPER-507aa6';
-    const SuperTokenIdTestnet = 'XSUPER-0ad9d6';
+    const SuperTokenIdTestnet = 'XSUPER-c19331';
     const SuperTokenIdDevnet = 'DSUPER-9af8df';
     const SuperNumDecimals = 18;
 

@@ -10,7 +10,7 @@ use Exception;
 final class Token
 {
     const SuperTokenId = 'SUPER-507aa6';
-    const SuperTokenIdTestnet = 'XSUPER-0ad9d6';
+    const SuperTokenIdTestnet = 'XSUPER-c19331';
     const SuperTokenIdDevnet = 'DSUPER-9af8df';
 
     public function __construct(
