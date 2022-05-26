@@ -15,7 +15,8 @@ abstract class EndpointBase
 
     protected function request(string $method, string $url, array $params = [], bool $unwrapData = false)
     {
-        $cacheKey = Str::lower("{$method}-{$url}");
+        $serializedParams = collect($params)->flatten()->implode(',');
+        $cacheKey = Str::lower("{$method}-{$url}".$serializedParams);
 
         if ($this->cacheTtl && $cached = Cache::get($cacheKey)) {
             return $cached;
