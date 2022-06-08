@@ -6,7 +6,7 @@ use Superciety\ElrondSdk\Domain\Address;
 
 class Encoder
 {
-    public static function toHex(string|int $value, ?int $bytes = null): string
+    public static function toHex(string|int $value): string
     {
         if (is_string($value)) {
             return str_starts_with($value, 'erd1')
@@ -14,8 +14,14 @@ class Encoder
                 : bin2hex(trim($value));
         }
 
-        $bytes = $bytes ?? $value > 256 ? 2 : 1;
+        return static::numberToPaddedHex($value);
+    }
 
-        return str_pad(dechex($value), $bytes * 2, '0', STR_PAD_LEFT);
+    public static function numberToPaddedHex(int $value): string
+    {
+        $padding = '0';
+        $hex = dechex($value);
+
+        return strlen($hex) % 2 === 1 ? $padding . $hex : $hex;
     }
 }

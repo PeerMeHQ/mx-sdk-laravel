@@ -54,7 +54,7 @@ it('createNft - encodes for the correct royalties hex representation', function 
         ->toBe($expectedHex);
 })
     ->with([
-        [1.1, '006e'],
+        [1.1, '6e'],
         [5, '01f4'],
         [9.99, '03e7'],
         [12.5, '04e2'],
