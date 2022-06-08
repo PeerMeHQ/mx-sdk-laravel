@@ -4,9 +4,6 @@ namespace Superciety\ElrondSdk\Domain;
 
 use InvalidArgumentException;
 
-/**
- * @deprecated Use TokenPayment intstead
- */
 final class Balance
 {
     public function __construct(
