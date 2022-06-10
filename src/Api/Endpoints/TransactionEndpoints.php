@@ -4,7 +4,7 @@ namespace Superciety\ElrondSdk\Api\Endpoints;
 
 use Carbon\Carbon;
 use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Entities\Transaction;
+use Superciety\ElrondSdk\Api\Entities\TransactionDetailed;
 
 class TransactionEndpoints extends EndpointBase
 {
@@ -13,9 +13,9 @@ class TransactionEndpoints extends EndpointBase
     ) {
     }
 
-    public function getByHash(string $txHash): Transaction
+    public function getByHash(string $txHash): TransactionDetailed
     {
-        return Transaction::fromApiResponse(
+        return TransactionDetailed::fromApiResponse(
             $this->request('GET', "{$this->getApiBaseUrl()}/transactions/{$txHash}")
         );
     }

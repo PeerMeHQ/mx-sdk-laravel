@@ -1,19 +1,184 @@
 {
-    "txHash": "c21ad6f5241d5e8b84f98cc9c37e660edcb049376fc51bd1866d73b6a4c9d615",
-    "gasLimit": 50000,
+    "txHash": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
+    "gasLimit": 11020500,
     "gasPrice": 1000000000,
-    "gasUsed": 50000,
-    "miniBlockHash": "2f84125daba3eca90ad72214d2ca8af76370ca68b1ad63756e4ff76f0e1f1f43",
-    "nonce": 24863,
-    "receiver": "erd1x4ks5f3hynsppytz2xq338ls36hxzkh6cr3erh5stq4cpgnfkqwq5ppzqp",
-    "receiverShard": 0,
-    "round": 6903094,
-    "sender": "erd1rm8pg3yrngzyhrjejkz3xq2lfp64mvnt64llj3fyft53d3t4ckjq0q8v4k",
-    "senderShard": 0,
-    "signature": "c671b8bfcdccc7e1e110e4054f5d5eb60286a8433b900c4eec99571764aab690c5cbc63375b5fad4fac7e64a2a9cb0c8030ab2a7df73252c7a880874fbbda307",
+    "gasUsed": 7761788,
+    "miniBlockHash": "32bf59979bbee9cb8854f39fdb3b9df82e64d59aa307beed6e5cac6ff75b0c34",
+    "nonce": 872,
+    "receiver": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+    "receiverShard": 1,
+    "round": 1051405,
+    "sender": "erd1l90wgf4qqqjgutxqu5v3nadpxlh23vt2dhvsp5qptqttheaq67rshxfly3",
+    "senderShard": 1,
+    "signature": "6c20eb9a7b1fb711cf7fae17ae2508baee5049c15a74de4901a3333e579efa3e3bb1a93cf586192b9143a0f09ff277c31052afbca6d95ad7c0beb7e3f6ab250b",
     "status": "success",
-    "value": "79000000000000000",
-    "fee": "50000000000000",
-    "timestamp": 1637536164,
-    "price": 426.87
+    "value": "0",
+    "fee": "330562880000000",
+    "timestamp": 1654860030,
+    "data": "RVNEVFRyYW5zZmVyQDQ0NDE0MzQ0NDE0ZjJkMzczMDM5MzE2MzY0QDA0ZTI2MzgwYTEzNmIyMDAwMEA3MDcyNmY3MDZmNzM2NUA0YzY1Njc2NTZlNjQ2MTcyNzkyMDQ0NzI2MTY3NmY2ZTIwMmQyMDZlNmY3NDIwNzk2NTc0MjA3MzY1NjU2ZUA=",
+    "function": "propose",
+    "action": {
+        "category": "esdtNft",
+        "name": "transfer",
+        "description": "Transfer",
+        "arguments": {
+            "transfers": [
+                {
+                    "type": "FungibleESDT",
+                    "name": "DACDAO",
+                    "ticker": "DACDAO-7091cd",
+                    "token": "DACDAO-7091cd",
+                    "decimals": 18,
+                    "value": "90100000000000000000"
+                }
+            ],
+            "receiver": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+            "functionName": "propose",
+            "functionArgs": [
+                "4c6567656e6461727920447261676f6e202d206e6f7420796574207365656e",
+                ""
+            ]
+        }
+    },
+    "results": [
+        {
+            "hash": "b61a6787c50083bf3a831a91d11e077eba8c738fbefeca15e4e82e31926c196c",
+            "timestamp": 1654860030,
+            "nonce": 0,
+            "gasLimit": 10565000,
+            "gasPrice": 1000000000,
+            "value": "0",
+            "sender": "erd1l90wgf4qqqjgutxqu5v3nadpxlh23vt2dhvsp5qptqttheaq67rshxfly3",
+            "receiver": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+            "data": "cHJvcG9zZUA0YzY1Njc2NTZlNjQ2MTcyNzkyMDQ0NzI2MTY3NmY2ZTIwMmQyMDZlNmY3NDIwNzk2NTc0MjA3MzY1NjU2ZUA=",
+            "prevTxHash": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
+            "originalTxHash": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
+            "callType": "0"
+        },
+        {
+            "hash": "ac24c03951850cac14e64812279343c8202dbfb943434f4a8105ac9772a63a4a",
+            "timestamp": 1654860030,
+            "nonce": 873,
+            "gasLimit": 0,
+            "gasPrice": 1000000000,
+            "value": "32587120000000",
+            "sender": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+            "receiver": "erd1l90wgf4qqqjgutxqu5v3nadpxlh23vt2dhvsp5qptqttheaq67rshxfly3",
+            "data": "QDZmNmJAMDNlMw==",
+            "prevTxHash": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
+            "originalTxHash": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
+            "callType": "0"
+        },
+        {
+            "hash": "1b6df9db65dadcedd7e42a99914b854547d69b6683e4afa201523d93983cfcdd",
+            "timestamp": 1654860030,
+            "nonce": 0,
+            "gasLimit": 0,
+            "gasPrice": 1000000000,
+            "value": "0",
+            "sender": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+            "receiver": "erd1l90wgf4qqqjgutxqu5v3nadpxlh23vt2dhvsp5qptqttheaq67rshxfly3",
+            "data": "RVNEVE5GVFRyYW5zZmVyQDQ0NDE0MzQ0NDE0ZjU2NGY1NDQ1MmQ2MjYzMzAzMzM2NjJAMDYxOEAwMUBmOTVlZTQyNmEwMDAyNDhlMmNjMGU1MTkxOWY1YTEzN2VlYThiMTZhNmRkOTAwZDAwMTU4MTZiYmU3YTBkNzg3",
+            "prevTxHash": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
+            "originalTxHash": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
+            "callType": "0"
+        }
+    ],
+    "price": 61.09,
+    "logs": {
+        "address": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+        "events": [
+            {
+                "address": "erd1l90wgf4qqqjgutxqu5v3nadpxlh23vt2dhvsp5qptqttheaq67rshxfly3",
+                "identifier": "ESDTTransfer",
+                "topics": [
+                    "REFDREFPLTcwOTFjZA==",
+                    "",
+                    "BOJjgKE2sgAA",
+                    "AAAAAAAAAAAFAILYk8NQK1Gaa91B0LM3oDa7X6+BV4c="
+                ],
+                "order": 0
+            },
+            {
+                "address": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+                "identifier": "ESDTNFTCreate",
+                "topics": [
+                    "REFDREFPVk9URS1iYzAzNmI=",
+                    "Bhg=",
+                    "AQ==",
+                    "CAESAgAB"
+                ],
+                "order": 1
+            },
+            {
+                "address": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+                "identifier": "ESDTNFTTransfer",
+                "topics": [
+                    "REFDREFPVk9URS1iYzAzNmI=",
+                    "Bhg=",
+                    "AQ==",
+                    "+V7kJqAAJI4swOUZGfWhN+6osWpt2QDQAVgWu+eg14c="
+                ],
+                "order": 2
+            },
+            {
+                "address": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+                "identifier": "propose",
+                "topics": [
+                    "cHJvcG9zZQ==",
+                    "+V7kJqAAJI4swOUZGfWhN+6osWpt2QDQAVgWu+eg14c=",
+                    "AAAAAAAAA+P5XuQmoAAkjizA5RkZ9aE37qixam3ZANABWBa756DXhwAAAB9MZWdlbmRhcnkgRHJhZ29uIC0gbm90IHlldCBzZWVuAAAAAAAAAABioyj+AAAAAGKken4AAAAAAAAAAAkE4mOAoTayAAAAAAAA",
+                    "AAAAAA1EQUNEQU8tNzA5MWNkAAAAAAAAAAAAAAAJBOJjgKE2sgAA",
+                    "BOJjgKE2sgAA",
+                    "YqMo/g==",
+                    "EAMY"
+                ],
+                "order": 3
+            },
+            {
+                "address": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+                "identifier": "completedTxEvent",
+                "topics": ["eiXg9FOjz+XgW5f2yOFgAouYu0H6D5Ms/4N9nx/K1QA="],
+                "order": 4
+            }
+        ]
+    },
+    "operations": [
+        {
+            "id": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
+            "action": "transfer",
+            "type": "esdt",
+            "esdtType": "FungibleESDT",
+            "identifier": "DACDAO-7091cd",
+            "name": "DACDAO",
+            "sender": "erd1l90wgf4qqqjgutxqu5v3nadpxlh23vt2dhvsp5qptqttheaq67rshxfly3",
+            "receiver": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+            "value": "90100000000000000000",
+            "decimals": 18
+        },
+        {
+            "id": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
+            "action": "create",
+            "type": "nft",
+            "esdtType": "NonFungibleESDT",
+            "collection": "DACDAOVOTE-bc036b",
+            "identifier": "DACDAOVOTE-bc036b-0618",
+            "name": "DACDAOVOTE",
+            "sender": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+            "receiver": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+            "value": "1"
+        },
+        {
+            "id": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
+            "action": "transfer",
+            "type": "nft",
+            "esdtType": "NonFungibleESDT",
+            "collection": "DACDAOVOTE-bc036b",
+            "identifier": "DACDAOVOTE-bc036b-0618",
+            "name": "DACDAOVOTE",
+            "sender": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+            "receiver": "erd1l90wgf4qqqjgutxqu5v3nadpxlh23vt2dhvsp5qptqttheaq67rshxfly3",
+            "value": "1"
+        }
+    ]
 }
