@@ -2,7 +2,6 @@
 
 namespace Superciety\ElrondSdk\Api\Entities;
 
-use Superciety\ElrondSdk\Domain\Balance;
 use Superciety\ElrondSdk\Api\ApiTransformable;
 
 final class MexPair

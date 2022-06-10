@@ -6,7 +6,7 @@ final class PreparedTx
 {
     public function __construct(
         public string $receiver,
-        public Balance $value,
+        public TokenPayment $value,
         public TransactionPayload $data,
         public int $gasLimit,
     ) {
@@ -16,7 +16,7 @@ final class PreparedTx
     {
         return new static(
             receiver: 'erd1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u',
-            value: Balance::egld(0.05),
+            value: TokenPayment::egldFromAmount(0.05),
             data: $payload,
             gasLimit: 60000000,
         );
@@ -26,7 +26,7 @@ final class PreparedTx
     {
         return new static(
             receiver: $receiver,
-            value: Balance::egld(0),
+            value: TokenPayment::egldFromAmount(0),
             data: $payload,
             gasLimit: 60000000,
         );
@@ -36,7 +36,7 @@ final class PreparedTx
     {
         return new static(
             receiver: 'erd1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u',
-            value: Balance::egld(0),
+            value: TokenPayment::egldFromAmount(0),
             data: $payload,
             gasLimit: 60000000,
         );
@@ -46,7 +46,7 @@ final class PreparedTx
     {
         return new static(
             receiver: $receiver,
-            value: Balance::egld(0),
+            value: TokenPayment::egldFromAmount(0),
             data: $payload,
             gasLimit: 10000000,
         );

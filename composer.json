@@ -17,6 +17,7 @@
     "require": {
         "php": "^8.0",
         "bitwasp/bech32": "^0.0.1",
+        "brick/math": "^0.9.3",
         "guzzlehttp/guzzle": "^7.4.2",
         "illuminate/contracts": "^9.9.0",
         "illuminate/http": "^9.9.0",

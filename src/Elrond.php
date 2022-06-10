@@ -6,10 +6,10 @@ use Superciety\ElrondSdk\Api\Api;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Superciety\ElrondSdk\Crypto\Crypto;
-use Superciety\ElrondSdk\Domain\Balance;
 use Superciety\ElrondSdk\Ipfs\IProvider;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Validation\ValidationException;
+use Superciety\ElrondSdk\Domain\TokenPayment;
 
 final class Elrond
 {
@@ -33,15 +33,15 @@ final class Elrond
         return new Constants();
     }
 
-    public static function requireAccountTokenOwnershipOrThrow(string $address, Balance $minimumBalance): void
+    public static function requireAccountTokenOwnershipOrThrow(string $address, TokenPayment $minValue): void
     {
         try {
             $hasSufficientBalance = static::api()
                 ->cacheFor(now()->addSeconds(30))
                 ->accounts()
-                ->getToken($address, $minimumBalance->token->identifier)
+                ->getToken($address, $minValue->tokenIdentifier)
                 ->balance
-                ->isEqualOrMoreThan($minimumBalance);
+                ->isGreaterThanOrEqualTo($minValue->amountAsBigInteger);
 
             if ($hasSufficientBalance) {
                 return;
@@ -55,7 +55,7 @@ final class Elrond
         }
 
         throw ValidationException::withMessages([
-            'balance' => ["You must hold at least {$minimumBalance->toDenominated()} {$minimumBalance->token->name} tokens"],
+            'balance' => ["You must hold at least {$minValue->toDenominated()} {$minValue->tokenIdentifier} tokens"],
         ]);
     }
 

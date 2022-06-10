@@ -1,7 +1,7 @@
 <?php
 
+use Brick\Math\BigInteger;
 use Superciety\ElrondSdk\Elrond;
-use Superciety\ElrondSdk\Domain\Balance;
 use Superciety\ElrondSdk\Api\Entities\Nft;
 
 it('getByAddress - gets an account by address', function () {
@@ -11,7 +11,7 @@ it('getByAddress - gets an account by address', function () {
         ->accounts()
         ->getByAddress('erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc');
 
-    expect($actual->balance)->toBeInstanceOf(Balance::class);
+    expect($actual->balance)->toBeInstanceOf(BigInteger::class);
 
     assertMatchesResponseSnapshot($actual);
 });
@@ -48,8 +48,8 @@ it('getToken - gets a specifc token owned by an account', function () {
 
     assertMatchesResponseSnapshot($actual);
 
-    expect($actual->balance)->toBeInstanceOf(Balance::class);
-    expect($actual->balance->amount)->toBe("1000000000000");
+    expect($actual->balance)->toBeInstanceOf(BigInteger::class);
+    expect((string) $actual->balance)->toBe("1000000000000");
 });
 
 it('getCollections - gets collections owned by the user', function () {

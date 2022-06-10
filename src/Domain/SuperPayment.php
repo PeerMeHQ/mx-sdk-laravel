@@ -3,6 +3,8 @@
 namespace Superciety\ElrondSdk\Domain;
 
 use Exception;
+use Brick\Math\BigDecimal;
+use Brick\Math\BigInteger;
 use Superciety\ElrondSdk\Domain\TokenPayment;
 
 class SuperPayment extends TokenPayment
@@ -14,12 +16,16 @@ class SuperPayment extends TokenPayment
 
     public static function fromAmount(int|float $amount): SuperPayment
     {
-        return static::fromBigInteger(static::toBigNumber($amount, static::SuperNumDecimals));
+        $bigInteger = BigDecimal::of($amount)
+            ->withPointMovedRight(static::SuperNumDecimals)
+            ->toBigInteger();
+
+        return static::fromBigInteger($bigInteger);
     }
 
-    public static function fromBigInteger(string $amountAsBigInteger): SuperPayment
+    public static function fromBigInteger(BigInteger|string $amountAsBigInteger): SuperPayment
     {
-        return new SuperPayment(static::getSuperTokenIdentifier(), 0, $amountAsBigInteger, static::SuperNumDecimals);
+        return new SuperPayment(static::getSuperTokenIdentifier(), 0, BigInteger::of($amountAsBigInteger), static::SuperNumDecimals);
     }
 
     public static function getSuperTokenIdentifier(): string

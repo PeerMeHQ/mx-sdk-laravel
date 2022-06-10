@@ -27,14 +27,10 @@ final class Transaction
         public ?string $fee = null,
         public ?Carbon $timestamp = null,
         public ?string $data = null,
+        public ?string $function = null,
         public ?string $tokenIdentifier = null,
         public ?string $tokenValue = null,
     ) {
-    }
-
-    public function getType(): string
-    {
-        return Str::before($this->data, '@');
     }
 
     protected static function transformResponse(array $res): array
@@ -43,30 +39,5 @@ final class Transaction
             'data' => isset($res['data']) ? base64_decode($res['data']) : null,
             'timestamp' => isset($res['timestamp']) ? Carbon::createFromTimestampUTC($res['timestamp']) : null,
         ]);
-    }
-
-    /** @deprecated */
-    public static function fromGatewayTransaction(GatewayTransaction $gwTx): Transaction
-    {
-        return new static(
-            txHash: $gwTx->hash,
-            gasLimit: $gwTx->gasLimit,
-            gasPrice: $gwTx->gasPrice,
-            gasUsed: null,
-            miniBlockHash: $gwTx->miniblockHash,
-            nonce: $gwTx->nonce,
-            receiver: $gwTx->receiver,
-            receiverShard: $gwTx->destinationShard,
-            sender: $gwTx->sender,
-            senderShard: $gwTx->sourceShard,
-            signature: $gwTx->signature,
-            status: $gwTx->status,
-            value: $gwTx->value,
-            fee: null,
-            timestamp: null,
-            data: $gwTx->data,
-            tokenIdentifier: null,
-            tokenValue: null,
-        );
     }
 }

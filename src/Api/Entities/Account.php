@@ -2,8 +2,8 @@
 
 namespace Superciety\ElrondSdk\Api\Entities;
 
+use Brick\Math\BigInteger;
 use Superciety\ElrondSdk\Domain\Address;
-use Superciety\ElrondSdk\Domain\Balance;
 use Superciety\ElrondSdk\Api\ApiTransformable;
 
 final class Account
@@ -13,7 +13,7 @@ final class Account
     public function __construct(
         public Address $address,
         public int $nonce,
-        public Balance $balance,
+        public BigInteger $balance,
         public int $txCount,
         public int $shard,
         public ?string $username = null,
@@ -25,7 +25,7 @@ final class Account
     {
         return array_merge($res, [
             'address' => Address::fromBech32($res['address']),
-            'balance' => Balance::egld($res['balance'] ?? 0)
+            'balance' => BigInteger::of($res['balance'] ?? 0)
         ]);
     }
 }

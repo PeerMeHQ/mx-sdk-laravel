@@ -2,8 +2,7 @@
 
 namespace Superciety\ElrondSdk\Api\Entities;
 
-use Superciety\ElrondSdk\Domain\Token;
-use Superciety\ElrondSdk\Domain\Balance;
+use Brick\Math\BigInteger;
 use Superciety\ElrondSdk\Api\ApiTransformable;
 
 final class TokenDetailedWithBalance
@@ -24,7 +23,7 @@ final class TokenDetailedWithBalance
         public bool $canPause,
         public bool $canFreeze,
         public bool $canWipe,
-        public Balance $balance,
+        public BigInteger $balance,
         public ?string $ticker = null,
         public ?string $burnt = null,
         public ?string $minted = null,
@@ -34,11 +33,9 @@ final class TokenDetailedWithBalance
 
     public static function fromApiResponse(array $res): static
     {
-        $token = new Token($res['identifier'], $res['name'], $res['decimals']);
-
         return new static(...static::filterUnallowedProperties(array_merge($res, [
             'assets' => isset($res['assets']) ? TokenAssets::fromApiResponse($res['assets']) : null,
-            'balance' => Balance::from($token, $res['balance'] ?? 0),
+            'balance' => BigInteger::of($res['balance'] ?? 0),
         ])));
     }
 }
