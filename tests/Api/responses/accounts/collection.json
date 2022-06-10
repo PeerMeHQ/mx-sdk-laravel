@@ -1,12 +1,13 @@
 {
-    "collection": "EVOLUTIONS-570eff",
+    "collection": "EVOLUTIONS-3a6ba5",
     "type": "NonFungibleESDT",
     "name": "EvolutionSeries",
-    "ticker": "EVOLUTIONS-570eff",
+    "ticker": "EVOLUTIONS-3a6ba5",
+    "owner": "erd1660va6y429mxz4dkgek0ssny8tcc85zu768t9xgxwhwhjzccl88sga3xjx",
+    "timestamp": 1650314730,
     "canFreeze": false,
     "canWipe": false,
     "canPause": false,
-    "canTransferRole": false,
-    "canCreate": true,
-    "canBurn": false
+    "canTransferNftCreateRole": false,
+    "count": 5
 }

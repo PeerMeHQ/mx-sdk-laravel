@@ -45,6 +45,7 @@ final class Transaction
         ]);
     }
 
+    /** @deprecated */
     public static function fromGatewayTransaction(GatewayTransaction $gwTx): Transaction
     {
         return new static(

@@ -14,12 +14,11 @@ class NftCollectionAccountResponseConverter
             'type' => $nftCollection->type,
             'name' => $nftCollection->name,
             'ticker' => $nftCollection->ticker,
+            'owner' => $nftCollection->owner->bech32(),
             'canFreeze' => $nftCollection->canFreeze,
             'canWipe' => $nftCollection->canWipe,
             'canPause' => $nftCollection->canPause,
-            'canTransferRole' => $nftCollection->canTransferRole,
-            'canCreate' => $nftCollection->canCreate,
-            'canBurn' => $nftCollection->canBurn,
+            'canTransferNftCreateRole' => $nftCollection->canTransferNftCreateRole,
         ];
     }
 
