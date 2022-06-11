@@ -21,3 +21,5 @@ it('toDenominated - does not show decimals for tokens without decimals', fn () =
 it('toDenominated - correctly displays values floating numbers', fn () => expect(TokenPayment::fungibleFromAmount('-', 0.00086, 18)->toDenominated())->toBe('0.00086'));
 
 it('toDenominated - strips trailing zeros', fn () => expect(TokenPayment::fungibleFromAmount('-', 0.10000086, 18)->toDenominated())->toBe('0.10000086'));
+
+it('toInt - casts to an int primitive', fn () => expect(TokenPayment::egldFromBigInteger('5000000000000000001234')->toInt())->toBe(5000));

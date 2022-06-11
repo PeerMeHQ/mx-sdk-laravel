@@ -4,6 +4,7 @@ namespace Superciety\ElrondSdk\Domain;
 
 use Brick\Math\BigDecimal;
 use Brick\Math\BigInteger;
+use Brick\Math\RoundingMode;
 
 class TokenPayment
 {
@@ -75,7 +76,7 @@ class TokenPayment
         $float = $this->amountAsBigInteger
             ->toBigDecimal()
             ->withPointMovedLeft($this->numDecimals)
-            ->toScale($decimals ?? 12)
+            ->toScale($decimals ?? 12, RoundingMode::DOWN)
             ->toFloat();
 
         return $formatted ? number_format($float) : $float;
@@ -89,5 +90,10 @@ class TokenPayment
     public function isFungible()
     {
         return $this->nonce === 0;
+    }
+
+    public function toInt(): int
+    {
+        return (int) $this->toDenominated(0);
     }
 }
