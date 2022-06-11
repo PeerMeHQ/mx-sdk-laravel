@@ -3,7 +3,6 @@
 namespace Superciety\ElrondSdk\Api\Entities;
 
 use Carbon\Carbon;
-use Illuminate\Support\Str;
 use Superciety\ElrondSdk\Api\ApiTransformable;
 
 final class Transaction
@@ -39,5 +38,29 @@ final class Transaction
             'data' => isset($res['data']) ? base64_decode($res['data']) : null,
             'timestamp' => isset($res['timestamp']) ? Carbon::createFromTimestampUTC($res['timestamp']) : null,
         ]);
+    }
+
+    public static function fromGatewayTransaction(GatewayTransaction $gwTx): Transaction
+    {
+        return new static(
+            txHash: $gwTx->hash,
+            gasLimit: $gwTx->gasLimit,
+            gasPrice: $gwTx->gasPrice,
+            gasUsed: null,
+            miniBlockHash: $gwTx->miniblockHash,
+            nonce: $gwTx->nonce,
+            receiver: $gwTx->receiver,
+            receiverShard: $gwTx->destinationShard,
+            sender: $gwTx->sender,
+            senderShard: $gwTx->sourceShard,
+            signature: $gwTx->signature,
+            status: $gwTx->status,
+            value: $gwTx->value,
+            fee: null,
+            timestamp: null,
+            data: $gwTx->data,
+            tokenIdentifier: null,
+            tokenValue: null,
+        );
     }
 }
