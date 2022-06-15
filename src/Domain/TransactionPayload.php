@@ -25,7 +25,7 @@ final class TransactionPayload
     public static function superToContractTransfer(int $superAmount, string $functionName, array $args): TransactionPayload
     {
         $data = collect(['ESDTTransfer'])
-            ->push(Encoder::toHex(Token::super()->identifier))
+            ->push(Encoder::toHex(SuperPayment::getSuperTokenIdentifier()))
             ->push(Encoder::toHex($superAmount))
             ->push(Encoder::toHex($functionName))
             ->push(...collect($args)->map(fn ($arg) => Encoder::toHex($arg))->all())
@@ -65,7 +65,7 @@ final class TransactionPayload
             ->push(Encoder::toHex($collection))
             ->push(Encoder::toHex($quantity))
             ->push(Encoder::toHex($name))
-            ->push(Encoder::toHex($royalties * 100, 2))
+            ->push(Encoder::toHex($royalties * 100))
             ->push(Encoder::toHex($hash))
             ->push(static::serializeNftAttributes($attributes))
             ->push(...collect($uris)
