@@ -71,3 +71,24 @@ it('getCollection - gets collection owned by the user and given id', function ()
 
     assertMatchesResponseSnapshot($actual);
 });
+
+
+it('getRolesCollections - gets role collections owned by the user', function () {
+    fakeApiRequestWithResponse('/accounts/erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc/roles/collections', 'accounts/role-collections.json');
+
+    $actual = Elrond::api()
+        ->accounts()
+        ->getRolesCollections('erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc');
+
+    assertMatchesResponseSnapshot($actual);
+});
+
+it('getRolesCollection - gets collection owned by the user and given id', function () {
+    fakeApiRequestWithResponse('/accounts/erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc/roles/collections/SING-3c59b4', 'accounts/role-collection.json');
+
+    $actual = Elrond::api()
+        ->accounts()
+        ->getRolesCollection('erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc', 'SING-3c59b4');
+
+    assertMatchesResponseSnapshot($actual);
+});

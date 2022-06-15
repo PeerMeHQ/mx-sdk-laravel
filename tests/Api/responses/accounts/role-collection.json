@@ -1,0 +1,18 @@
+{
+    "collection": "SING-3c59b4",
+    "type": "SemiFungibleESDT",
+    "name": "Sing",
+    "ticker": "SING-3c59b4",
+    "owner": "erd1ymq0d2ttkmsjxy5gftrlqyn2ank6lurs3f7pjdc9psszpfm2n74st6m63c",
+    "timestamp": 1654859520,
+    "canFreeze": false,
+    "canWipe": false,
+    "canPause": false,
+    "canTransferNftCreateRole": false,
+    "canCreate": false,
+    "canBurn": false,
+    "canAddQuantity": false,
+    "canUpdateAttributes": false,
+    "canAddUri": false,
+    "canTransferRole": false
+}

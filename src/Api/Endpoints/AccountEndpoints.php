@@ -7,6 +7,7 @@ use Illuminate\Support\Collection;
 use Superciety\ElrondSdk\Api\EndpointBase;
 use Superciety\ElrondSdk\Api\Entities\Nft;
 use Superciety\ElrondSdk\Api\Entities\Account;
+use Superciety\ElrondSdk\Api\Entities\NftCollectionRole;
 use Superciety\ElrondSdk\Api\Entities\NftCollectionAccount;
 use Superciety\ElrondSdk\Api\Entities\TokenDetailedWithBalance;
 
@@ -56,6 +57,20 @@ class AccountEndpoints extends EndpointBase
     {
         return NftCollectionAccount::fromApiResponse(
             $this->request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}/collections/{$collection}", $params)
+        );
+    }
+
+    public function getRolesCollections(string $address, array $params = []): Collection
+    {
+        return NftCollectionRole::fromApiResponseMany(
+            $this->request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}/roles/collections", $params)
+        );
+    }
+
+    public function getRolesCollection(string $address, string $collection, array $params = []): NftCollectionRole
+    {
+        return NftCollectionRole::fromApiResponse(
+            $this->request('GET', "{$this->getApiBaseUrl()}/accounts/{$address}/roles/collections/{$collection}", $params)
         );
     }
 }
