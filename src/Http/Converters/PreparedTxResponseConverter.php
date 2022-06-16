@@ -11,7 +11,7 @@ class PreparedTxResponseConverter
         return [
             'sender' => request()->user()?->address,
             'receiver' => $tx->receiver,
-            'value' => $tx->value->amount,
+            'value' => (string) $tx->value->amountAsBigInteger,
             'data' => $tx->data->toBase64(),
             'gasLimit' => $tx->gasLimit,
             'chainID' => $tx->getChainId(),
