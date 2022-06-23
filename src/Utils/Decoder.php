@@ -2,6 +2,8 @@
 
 namespace Superciety\ElrondSdk\Utils;
 
+use Brick\Math\BigInteger;
+
 class Decoder
 {
     public static function fromBase64Int(string $value): int
@@ -9,11 +11,12 @@ class Decoder
         return hexdec(bin2hex(base64_decode($value)));
     }
 
-    public static function fromBase64BigUint(string $value): string
+    public static function fromBase64BigUint(string $value): BigInteger
     {
-        $decoded = base64_decode($value);
+        $decodedHex = bin2hex(base64_decode($value));
+        $decodedBig = static::bchexdec($decodedHex);
 
-        return static::bchexdec(bin2hex($decoded));
+        return BigInteger::of($decodedBig);
     }
 
     public static function fromBase64U32(string $value): int
