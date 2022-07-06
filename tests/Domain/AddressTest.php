@@ -31,3 +31,5 @@ it('isContractAddress - returns false for normal addresses', fn ($bech32) => exp
         'erd1ff377y7qdldtsahvt28ec45zkyu0pepuup33adhr8wr2yuelwv7qpevs9e',
         'erd1vup7q384decm8l8mu4ehz75c5mfs089nd32fteru95tm8d0a8dqs8g0yst',
     ]);
+
+it('zero - returns a zero address', fn () => expect(Address::zero()->bech32())->toBe('erd1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6gq4hu'));

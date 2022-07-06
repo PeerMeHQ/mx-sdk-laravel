@@ -43,6 +43,11 @@ class Address
         return new Address(bin2hex(base64_decode($value)));
     }
 
+    public static function zero(): Address
+    {
+        return new Address(str_repeat('0', 64));
+    }
+
     public function hex(): string
     {
         return $this->valueHex;
