@@ -65,4 +65,9 @@ class Address
     {
         return str_starts_with($this->valueHex, self::SMART_CONTRACT_HEX_PUBKEY_PREFIX);
     }
+
+    public function isZero(): bool
+    {
+        return $this->valueHex === Address::zero()->valueHex;
+    }
 }
