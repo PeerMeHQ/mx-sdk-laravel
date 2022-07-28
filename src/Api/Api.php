@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Superciety\ElrondSdk\Api\Endpoints\AccountEndpoints;
 use Superciety\ElrondSdk\Api\Endpoints\BlockEndpoints;
 use Superciety\ElrondSdk\Api\Endpoints\CollectionEndpoints;
+use Superciety\ElrondSdk\Api\Endpoints\MexEndpoints;
 use Superciety\ElrondSdk\Api\Endpoints\NetworkEndpoints;
 use Superciety\ElrondSdk\Api\Endpoints\NftEndpoints;
 use Superciety\ElrondSdk\Api\Endpoints\TokenEndpoints;
@@ -41,6 +42,11 @@ final class Api
     public function collections(): CollectionEndpoints
     {
         return new CollectionEndpoints($this->cacheTtl);
+    }
+
+    public function mex(): MexEndpoints
+    {
+        return new MexEndpoints($this->cacheTtl);
     }
 
     public function nfts(): NftEndpoints

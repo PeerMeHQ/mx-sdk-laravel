@@ -23,13 +23,3 @@ it('gets constants', function () {
 
     assertMatchesResponseSnapshot($actual);
 });
-
-it('gets mex pairs', function () {
-    fakeApiRequestWithResponse('/mex-pairs', 'network/mex-pairs.json');
-
-    $actual = Elrond::api()
-        ->network()
-        ->getMexPairs();
-
-    assertMatchesResponseSnapshot($actual);
-});
