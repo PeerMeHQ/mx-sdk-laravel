@@ -2,6 +2,7 @@
 
 namespace Superciety\ElrondSdk\Api\Entities;
 
+use Brick\Math\BigInteger;
 use Superciety\ElrondSdk\Domain\Address;
 use Superciety\ElrondSdk\Api\ApiTransformable;
 
@@ -11,7 +12,7 @@ final class TokenAccount
 
     public function __construct(
         public Address $address,
-        public string $balance,
+        public BigInteger $balance,
     ) {
     }
 
@@ -19,6 +20,7 @@ final class TokenAccount
     {
         return new static(...static::filterUnallowedProperties(array_merge($res, [
             'address' => Address::fromBech32($res['address']),
+            'balance' => BigInteger::of($res['balance'] ?? 0),
         ])));
     }
 }
