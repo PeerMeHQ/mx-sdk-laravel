@@ -35,4 +35,12 @@ class Formatter
 
         return $num;
     }
+
+    public static function trimHash(string $hash, int $keep = 10): string
+    {
+        $start = substr($hash, 0, $keep);
+        $end = substr($hash, -$keep);
+
+        return "{$start}...{$end}";
+    }
 }
