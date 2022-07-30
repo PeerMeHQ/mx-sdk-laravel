@@ -2,7 +2,7 @@
 
 namespace Superciety\ElrondSdk\Domain;
 
-use Elliptic\EdDSA;
+use Superciety\ElrondSdk\Domain\Interfaces\ISignable;
 
 class UserSigner
 {
@@ -16,8 +16,16 @@ class UserSigner
         return new UserSigner(UserSecretKey::fromPem($text, $index));
     }
 
-    public function sign(string $message): string
+    public function sign(string|ISignable $signable): Signature
     {
-        return $this->secretKey->sign($message);
+        if ($signable instanceof Transaction) {
+            $sigHex = $this->secretKey->sign($signable->serializeForSigning());
+            $signature = new Signature($sigHex);
+            $signable->applySignature($signature);
+
+            return $signature;
+        }
+
+        return new Signature($this->secretKey->sign($signable));
     }
 }
