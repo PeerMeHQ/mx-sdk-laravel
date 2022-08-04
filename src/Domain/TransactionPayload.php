@@ -16,10 +16,11 @@ final class TransactionPayload
     {
         $encodedArgs = collect($args)
             ->map(fn ($arg) => Encoder::toHex($arg))
-            ->filter()
-            ->join('@');
+            ->filter();
 
-        return new TransactionPayload("{$func}@{$encodedArgs}");
+        return $encodedArgs->isNotEmpty()
+            ? new TransactionPayload("{$func}@{$encodedArgs->join('@')}")
+            : new TransactionPayload($func);
     }
 
     public static function superToContractTransfer(int $superAmount, string $functionName, array $args): TransactionPayload
