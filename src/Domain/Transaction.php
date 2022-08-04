@@ -18,8 +18,8 @@ class Transaction implements ISignable
         public BigInteger $value,
         public Address $sender,
         public Address $receiver,
-        public int $gasPrice = self::MIN_GAS_PRICE,
         public int $gasLimit,
+        public int $gasPrice = self::MIN_GAS_PRICE,
         public ?TransactionPayload $data = null,
         public string $chainID = '1',
         public int $version = self::VERSION_DEFAULT,
@@ -29,12 +29,18 @@ class Transaction implements ISignable
 
     public function serializeForSigning(): string
     {
-        return bin2hex(json_encode($this->toArray()));
+        $plain = collect($this->toArray())
+            ->reject(fn ($field) => $field === null)
+            ->toArray();
+
+        unset($plain['signature']);
+
+        return bin2hex(json_encode($plain));
     }
 
     public function toArray(): array
     {
-        return collect([
+        return [
             'nonce' => $this->nonce,
             'value' => (string) $this->value,
             'receiver' => $this->receiver->bech32(),
@@ -46,9 +52,7 @@ class Transaction implements ISignable
             'version' => $this->version,
             'options' => $this->options === 0 ? null : $this->options,
             'signature' => $this->signature?->hex(),
-        ])
-            ->reject(fn ($field) => $field === null)
-            ->toArray();
+        ];
     }
 
     public function applySignature(Signature $signature): void

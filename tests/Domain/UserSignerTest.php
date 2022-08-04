@@ -15,6 +15,6 @@ it('sign - signs a message using pem', function () {
 
     $actual = $subject->sign($message);
 
-    expect($actual)
+    expect($actual->hex())
         ->toBe('84F5F14B50A0FB4301030E731EEC1804334B5ECAC6C9CAE946218B462A02AA64A825D7B561D7FCD323CECFAE2DD24040C134C6008747A36061A47CE69DE4F50B');
 });
