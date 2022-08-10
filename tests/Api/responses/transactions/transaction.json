@@ -1,22 +1,22 @@
 {
-    "txHash": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
-    "gasLimit": 11020500,
+    "txHash": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+    "gasLimit": 50000000,
     "gasPrice": 1000000000,
-    "gasUsed": 7761788,
-    "miniBlockHash": "32bf59979bbee9cb8854f39fdb3b9df82e64d59aa307beed6e5cac6ff75b0c34",
-    "nonce": 872,
-    "receiver": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+    "gasUsed": 26252569,
+    "miniBlockHash": "8ac2d66ee782ad6d6661dd1a88fa882fab1d515e988030002011ae2820caef66",
+    "nonce": 1222,
+    "receiver": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
     "receiverShard": 1,
-    "round": 1051405,
-    "sender": "erd1l90wgf4qqqjgutxqu5v3nadpxlh23vt2dhvsp5qptqttheaq67rshxfly3",
+    "round": 1927924,
+    "sender": "erd1jd2g479fz8s0rc3pqnw3df8f406auyaf2r48z69ecwlc32ftg72sczxdcy",
     "senderShard": 1,
-    "signature": "6c20eb9a7b1fb711cf7fae17ae2508baee5049c15a74de4901a3333e579efa3e3bb1a93cf586192b9143a0f09ff277c31052afbca6d95ad7c0beb7e3f6ab250b",
+    "signature": "7c6109f9f003ae1a22e5763d9c349839d98901401b27aea3955b39d4c287219503b0025ad5f72b4ba5b5f182eca44a4d9c55352640f5c46405b6f3d7b4c5af0c",
     "status": "success",
     "value": "0",
-    "fee": "330562880000000",
-    "timestamp": 1654860030,
-    "data": "RVNEVFRyYW5zZmVyQDQ0NDE0MzQ0NDE0ZjJkMzczMDM5MzE2MzY0QDA0ZTI2MzgwYTEzNmIyMDAwMEA3MDcyNmY3MDZmNzM2NUA0YzY1Njc2NTZlNjQ2MTcyNzkyMDQ0NzI2MTY3NmY2ZTIwMmQyMDZlNmY3NDIwNzk2NTc0MjA3MzY1NjU2ZUA=",
-    "function": "propose",
+    "fee": "622390690000000",
+    "timestamp": 1660119144,
+    "data": "RVNEVFRyYW5zZmVyQDUyNDk0NDQ1MmQzNjY1MzQ2MzM0MzlAMGRlMGI2YjNhNzY0MDAwMEA2MjZmNmY3Mzc0NTc2OTc0Njg1Mzc3NjE3MEAwMDAwMDAwMDAwMDAwMDAwMDUwMGQ0NDlkMzljM2IzYjZkYzI2YmRkZWNjNTRiOTU5MjM4ZDk2MGNiOWU1Nzg3QDAwMDAwMDAwMDAwMDAwMDAwNTAwYzlmNjU3N2IwYzU2NmNkYzI4ZTBhNzZmNmUxNGQxYmUwNzk0MDAzMzdjZWI=",
+    "function": "boostWithSwap",
     "action": {
         "category": "esdtNft",
         "name": "transfer",
@@ -25,160 +25,426 @@
             "transfers": [
                 {
                     "type": "FungibleESDT",
-                    "name": "DACDAO",
-                    "ticker": "DACDAO-7091cd",
-                    "token": "DACDAO-7091cd",
+                    "name": "holoride",
+                    "ticker": "RIDE",
+                    "svgUrl": "https://devnet-media.elrond.com/tokens/asset/RIDE-6e4c49/logo.svg",
+                    "token": "RIDE-6e4c49",
                     "decimals": 18,
-                    "value": "90100000000000000000"
+                    "value": "1000000000000000000"
                 }
             ],
-            "receiver": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
-            "functionName": "propose",
+            "receiver": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+            "functionName": "boostWithSwap",
             "functionArgs": [
-                "4c6567656e6461727920447261676f6e202d206e6f7420796574207365656e",
-                ""
+                "00000000000000000500d449d39c3b3b6dc26bddecc54b959238d960cb9e5787",
+                "00000000000000000500c9f6577b0c566cdc28e0a76f6e14d1be079400337ceb"
             ]
         }
     },
     "results": [
         {
-            "hash": "b61a6787c50083bf3a831a91d11e077eba8c738fbefeca15e4e82e31926c196c",
-            "timestamp": 1654860030,
-            "nonce": 0,
-            "gasLimit": 10565000,
-            "gasPrice": 1000000000,
-            "value": "0",
-            "sender": "erd1l90wgf4qqqjgutxqu5v3nadpxlh23vt2dhvsp5qptqttheaq67rshxfly3",
-            "receiver": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
-            "data": "cHJvcG9zZUA0YzY1Njc2NTZlNjQ2MTcyNzkyMDQ0NzI2MTY3NmY2ZTIwMmQyMDZlNmY3NDIwNzk2NTc0MjA3MzY1NjU2ZUA=",
-            "prevTxHash": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
-            "originalTxHash": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
-            "callType": "0"
-        },
-        {
-            "hash": "ac24c03951850cac14e64812279343c8202dbfb943434f4a8105ac9772a63a4a",
-            "timestamp": 1654860030,
-            "nonce": 873,
-            "gasLimit": 0,
-            "gasPrice": 1000000000,
-            "value": "32587120000000",
-            "sender": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
-            "receiver": "erd1l90wgf4qqqjgutxqu5v3nadpxlh23vt2dhvsp5qptqttheaq67rshxfly3",
-            "data": "QDZmNmJAMDNlMw==",
-            "prevTxHash": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
-            "originalTxHash": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
-            "callType": "0"
-        },
-        {
-            "hash": "1b6df9db65dadcedd7e42a99914b854547d69b6683e4afa201523d93983cfcdd",
-            "timestamp": 1654860030,
+            "hash": "238fdd718a82db5168d3bb1329ec5095567fe3b52563c8abfa9d11bf6da8734c",
+            "timestamp": 1660119144,
             "nonce": 0,
             "gasLimit": 0,
             "gasPrice": 1000000000,
             "value": "0",
-            "sender": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
-            "receiver": "erd1l90wgf4qqqjgutxqu5v3nadpxlh23vt2dhvsp5qptqttheaq67rshxfly3",
-            "data": "RVNEVE5GVFRyYW5zZmVyQDQ0NDE0MzQ0NDE0ZjU2NGY1NDQ1MmQ2MjYzMzAzMzM2NjJAMDYxOEAwMUBmOTVlZTQyNmEwMDAyNDhlMmNjMGU1MTkxOWY1YTEzN2VlYThiMTZhNmRkOTAwZDAwMTU4MTZiYmU3YTBkNzg3",
-            "prevTxHash": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
-            "originalTxHash": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
+            "sender": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+            "receiver": "erd1qqqqqqqqqqqqqpgqf0032tth9vsh77knj5n4yd4r570tsr640n4s0m3n78",
+            "receiverAssets": {
+                "name": "Maiar Exchange: DSUPER/WEGLD Liquidity Pool",
+                "tags": ["mex", "liquiditypool"]
+            },
+            "data": "RVNEVFRyYW5zZmVyQDU3NDU0NzRjNDQyZDY0Mzc2MzM2NjI2MkAyODJmN2ZkNTg0NDc2NUA3Mzc3NjE3MDU0NmY2YjY1NmU3MzQ2Njk3ODY1NjQ0OTZlNzA3NTc0QDQ0NTM1NTUwNDU1MjJkMzk2MTY2Mzg2NDY2QDAx",
+            "prevTxHash": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "originalTxHash": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "callType": "0"
+        },
+        {
+            "hash": "22afec86e1116e1c54eaece1efa25941cbd99f42ee73712254d67138cdbfb075",
+            "timestamp": 1660119144,
+            "nonce": 1,
+            "gasLimit": 0,
+            "gasPrice": 1000000000,
+            "value": "0",
+            "sender": "erd1qqqqqqqqqqqqqpgqf0032tth9vsh77knj5n4yd4r570tsr640n4s0m3n78",
+            "receiver": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+            "senderAssets": {
+                "name": "Maiar Exchange: DSUPER/WEGLD Liquidity Pool",
+                "tags": ["mex", "liquiditypool"]
+            },
+            "data": "RVNEVFRyYW5zZmVyQDQ0NTM1NTUwNDU1MjJkMzk2MTY2Mzg2NDY2QDBiOWE2YWYwMDVjODMyYWQ1Nw==",
+            "prevTxHash": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "originalTxHash": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "callType": "0"
+        },
+        {
+            "hash": "728e541eb3e897712e723958160862fcdb6ec329a85c86ef23d03bf414ac54e7",
+            "timestamp": 1660119144,
+            "nonce": 0,
+            "gasLimit": 0,
+            "gasPrice": 1000000000,
+            "value": "0",
+            "sender": "erd1qqqqqqqqqqqqqpgqe8m9w7cv2ekdc28q5ahku9x3hcregqpn0n4sum0e3u",
+            "receiver": "erd1qqqqqqqqqqqqqpgquu5rsa4ee6l4azz6vdu4hjp8z4p6tt8m0n4suht3dy",
+            "senderAssets": {
+                "name": "Maiar Exchange: RIDE/WEGLD Liquidity Pool",
+                "tags": ["mex", "liquiditypool"]
+            },
+            "receiverAssets": {
+                "name": "Maiar Exchange: MEX/WEGLD Liquidity Pool",
+                "tags": ["mex", "liquiditypool"]
+            },
+            "data": "RVNEVFRyYW5zZmVyQDU3NDU0NzRjNDQyZDY0Mzc2MzM2NjI2MkAwNTI4YzJmZTE0NWVANzM3NzYxNzA0ZTZmNDY2NTY1NDE2ZTY0NDY2ZjcyNzc2MTcyNjRANGQ0NTU4MmQ2NDYzMzIzODM5NjNAMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
+            "prevTxHash": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "originalTxHash": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "callType": "0"
+        },
+        {
+            "hash": "c20506eac94752643cd996d523cc3a4213bf55ecd33c241a971abd17af5a5de7",
+            "timestamp": 1660119144,
+            "nonce": 1223,
+            "gasLimit": 0,
+            "gasPrice": 1000000000,
+            "value": "237474310000000",
+            "sender": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+            "receiver": "erd1jd2g479fz8s0rc3pqnw3df8f406auyaf2r48z69ecwlc32ftg72sczxdcy",
+            "data": "QDZmNmI=",
+            "prevTxHash": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "originalTxHash": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "callType": "0"
+        },
+        {
+            "hash": "1141bbbcabb5af0d265f508913a88d03cf34e3d6f0e3728cd0b165fbd72369e1",
+            "timestamp": 1660119144,
+            "nonce": 0,
+            "gasLimit": 49436500,
+            "gasPrice": 1000000000,
+            "value": "0",
+            "sender": "erd1jd2g479fz8s0rc3pqnw3df8f406auyaf2r48z69ecwlc32ftg72sczxdcy",
+            "receiver": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+            "data": "Ym9vc3RXaXRoU3dhcEAwMDAwMDAwMDAwMDAwMDAwMDUwMGQ0NDlkMzljM2IzYjZkYzI2YmRkZWNjNTRiOTU5MjM4ZDk2MGNiOWU1Nzg3QDAwMDAwMDAwMDAwMDAwMDAwNTAwYzlmNjU3N2IwYzU2NmNkYzI4ZTBhNzZmNmUxNGQxYmUwNzk0MDAzMzdjZWI=",
+            "prevTxHash": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "originalTxHash": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "callType": "0"
+        },
+        {
+            "hash": "aa2dd07baae0092d1f944fa7135975e300c5623b1d76be823fb58f02d4a2a7b2",
+            "timestamp": 1660119144,
+            "nonce": 0,
+            "gasLimit": 0,
+            "gasPrice": 1000000000,
+            "value": "0",
+            "sender": "erd1qqqqqqqqqqqqqpgqe8m9w7cv2ekdc28q5ahku9x3hcregqpn0n4sum0e3u",
+            "receiver": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+            "senderAssets": {
+                "name": "Maiar Exchange: RIDE/WEGLD Liquidity Pool",
+                "tags": ["mex", "liquiditypool"]
+            },
+            "data": "RVNEVFRyYW5zZmVyQDU3NDU0NzRjNDQyZDY0Mzc2MzM2NjI2MkAyODJmN2ZkNTg0NDc2NQ==",
+            "prevTxHash": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "originalTxHash": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "callType": "0"
+        },
+        {
+            "hash": "7582d662798f27c3424f7f1028b2f6edda09010d6ca1b44332f6034c9dcb842d",
+            "timestamp": 1660119144,
+            "nonce": 0,
+            "gasLimit": 0,
+            "gasPrice": 1000000000,
+            "value": "0",
+            "sender": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+            "receiver": "erd1qqqqqqqqqqqqqpgqe8m9w7cv2ekdc28q5ahku9x3hcregqpn0n4sum0e3u",
+            "receiverAssets": {
+                "name": "Maiar Exchange: RIDE/WEGLD Liquidity Pool",
+                "tags": ["mex", "liquiditypool"]
+            },
+            "data": "RVNEVFRyYW5zZmVyQDUyNDk0NDQ1MmQzNjY1MzQ2MzM0MzlAMGRlMGI2YjNhNzY0MDAwMEA3Mzc3NjE3MDU0NmY2YjY1NmU3MzQ2Njk3ODY1NjQ0OTZlNzA3NTc0QDU3NDU0NzRjNDQyZDY0Mzc2MzM2NjI2MkAwMQ==",
+            "prevTxHash": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "originalTxHash": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
             "callType": "0"
         }
     ],
-    "price": 61.09,
+    "price": 62.05,
     "logs": {
-        "address": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+        "id": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+        "address": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
         "events": [
             {
-                "address": "erd1l90wgf4qqqjgutxqu5v3nadpxlh23vt2dhvsp5qptqttheaq67rshxfly3",
+                "address": "erd1jd2g479fz8s0rc3pqnw3df8f406auyaf2r48z69ecwlc32ftg72sczxdcy",
                 "identifier": "ESDTTransfer",
                 "topics": [
-                    "REFDREFPLTcwOTFjZA==",
+                    "UklERS02ZTRjNDk=",
                     "",
-                    "BOJjgKE2sgAA",
-                    "AAAAAAAAAAAFAILYk8NQK1Gaa91B0LM3oDa7X6+BV4c="
+                    "DeC2s6dkAAA=",
+                    "AAAAAAAAAAAFALh+gF8hPjoQlH9nj9dB/xlZpajAV4c="
                 ],
                 "order": 0
             },
             {
-                "address": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
-                "identifier": "ESDTNFTCreate",
+                "address": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+                "identifier": "ESDTTransfer",
                 "topics": [
-                    "REFDREFPVk9URS1iYzAzNmI=",
-                    "Bhg=",
-                    "AQ==",
-                    "CAESAgAB"
+                    "UklERS02ZTRjNDk=",
+                    "",
+                    "DeC2s6dkAAA=",
+                    "AAAAAAAAAAAFAMn2V3sMVmzcKOCnb24U0b4HlAAzfOs="
                 ],
                 "order": 1
             },
             {
-                "address": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
-                "identifier": "ESDTNFTTransfer",
+                "address": "erd1qqqqqqqqqqqqqpgqe8m9w7cv2ekdc28q5ahku9x3hcregqpn0n4sum0e3u",
+                "identifier": "ESDTTransfer",
                 "topics": [
-                    "REFDREFPVk9URS1iYzAzNmI=",
-                    "Bhg=",
-                    "AQ==",
-                    "+V7kJqAAJI4swOUZGfWhN+6osWpt2QDQAVgWu+eg14c="
+                    "V0VHTEQtZDdjNmJi",
+                    "",
+                    "BSjC/hRe",
+                    "AAAAAAAAAAAFAOcoOHa5zr9eiFpjeVvIJxVDpaz7fOs="
                 ],
-                "order": 2
+                "order": 2,
+                "addressAssets": {
+                    "name": "Maiar Exchange: RIDE/WEGLD Liquidity Pool",
+                    "tags": ["mex", "liquiditypool"]
+                }
             },
             {
-                "address": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
-                "identifier": "propose",
-                "topics": [
-                    "cHJvcG9zZQ==",
-                    "+V7kJqAAJI4swOUZGfWhN+6osWpt2QDQAVgWu+eg14c=",
-                    "AAAAAAAAA+P5XuQmoAAkjizA5RkZ9aE37qixam3ZANABWBa756DXhwAAAB9MZWdlbmRhcnkgRHJhZ29uIC0gbm90IHlldCBzZWVuAAAAAAAAAABioyj+AAAAAGKken4AAAAAAAAAAAkE4mOAoTayAAAAAAAA",
-                    "AAAAAA1EQUNEQU8tNzA5MWNkAAAAAAAAAAAAAAAJBOJjgKE2sgAA",
-                    "BOJjgKE2sgAA",
-                    "YqMo/g==",
-                    "EAMY"
-                ],
-                "order": 3
+                "address": "erd1qqqqqqqqqqqqqpgquu5rsa4ee6l4azz6vdu4hjp8z4p6tt8m0n4suht3dy",
+                "identifier": "ESDTLocalBurn",
+                "topics": ["TUVYLWRjMjg5Yw==", "", "RuEoGsfCop4="],
+                "order": 3,
+                "addressAssets": {
+                    "name": "Maiar Exchange: MEX/WEGLD Liquidity Pool",
+                    "tags": ["mex", "liquiditypool"]
+                }
             },
             {
-                "address": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
+                "address": "erd1qqqqqqqqqqqqqpgquu5rsa4ee6l4azz6vdu4hjp8z4p6tt8m0n4suht3dy",
+                "identifier": "swapNoFeeAndForward",
+                "topics": [
+                    "c3dhcF9ub19mZWVfYW5kX2ZvcndhcmQ=",
+                    "TUVYLWRjMjg5Yw==",
+                    "AAAAAAAAAAAFAMn2V3sMVmzcKOCnb24U0b4HlAAzfOs=",
+                    "BkU="
+                ],
+                "data": "AAAAAAAAAAAFAMn2V3sMVmzcKOCnb24U0b4HlAAzfOsAAAAMV0VHTEQtZDdjNmJiAAAABgUowv4UXgAAAApNRVgtZGMyODljAAAACEbhKBrHwqKeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB1WpAAAAAAAAAZFAAAAAGLzaGg=",
+                "order": 4,
+                "addressAssets": {
+                    "name": "Maiar Exchange: MEX/WEGLD Liquidity Pool",
+                    "tags": ["mex", "liquiditypool"]
+                }
+            },
+            {
+                "address": "erd1qqqqqqqqqqqqqpgqe8m9w7cv2ekdc28q5ahku9x3hcregqpn0n4sum0e3u",
+                "identifier": "ESDTTransfer",
+                "topics": [
+                    "V0VHTEQtZDdjNmJi",
+                    "",
+                    "KC9/1YRHZQ==",
+                    "AAAAAAAAAAAFALh+gF8hPjoQlH9nj9dB/xlZpajAV4c="
+                ],
+                "order": 5,
+                "addressAssets": {
+                    "name": "Maiar Exchange: RIDE/WEGLD Liquidity Pool",
+                    "tags": ["mex", "liquiditypool"]
+                }
+            },
+            {
+                "address": "erd1qqqqqqqqqqqqqpgqe8m9w7cv2ekdc28q5ahku9x3hcregqpn0n4sum0e3u",
+                "identifier": "swapTokensFixedInput",
+                "topics": [
+                    "c3dhcA==",
+                    "UklERS02ZTRjNDk=",
+                    "V0VHTEQtZDdjNmJi",
+                    "AAAAAAAAAAAFALh+gF8hPjoQlH9nj9dB/xlZpajAV4c=",
+                    "BkU="
+                ],
+                "data": "AAAAAAAAAAAFALh+gF8hPjoQlH9nj9dB/xlZpajAV4cAAAALUklERS02ZTRjNDkAAAAIDeC2s6dkAAAAAAAMV0VHTEQtZDdjNmJiAAAABygvf9WER2UAAAAHAca/UmNAAAAAAAsCH+3FzY1pm3Yn0gAAAAoGK8dtOy9k77W8AAAAAAAdVqQAAAAAAAAGRQAAAABi82ho",
+                "order": 6,
+                "addressAssets": {
+                    "name": "Maiar Exchange: RIDE/WEGLD Liquidity Pool",
+                    "tags": ["mex", "liquiditypool"]
+                }
+            },
+            {
+                "address": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+                "identifier": "ESDTTransfer",
+                "topics": [
+                    "V0VHTEQtZDdjNmJi",
+                    "",
+                    "KC9/1YRHZQ==",
+                    "AAAAAAAAAAAFAEvfFS13KyF/etOVJ1I2o6eeuA9VfOs="
+                ],
+                "order": 7
+            },
+            {
+                "address": "erd1qqqqqqqqqqqqqpgqf0032tth9vsh77knj5n4yd4r570tsr640n4s0m3n78",
+                "identifier": "ESDTTransfer",
+                "topics": [
+                    "RFNVUEVSLTlhZjhkZg==",
+                    "",
+                    "C5pq8AXIMq1X",
+                    "AAAAAAAAAAAFALh+gF8hPjoQlH9nj9dB/xlZpajAV4c="
+                ],
+                "order": 8,
+                "addressAssets": {
+                    "name": "Maiar Exchange: DSUPER/WEGLD Liquidity Pool",
+                    "tags": ["mex", "liquiditypool"]
+                }
+            },
+            {
+                "address": "erd1qqqqqqqqqqqqqpgqf0032tth9vsh77knj5n4yd4r570tsr640n4s0m3n78",
+                "identifier": "swapTokensFixedInput",
+                "topics": [
+                    "c3dhcA==",
+                    "V0VHTEQtZDdjNmJi",
+                    "RFNVUEVSLTlhZjhkZg==",
+                    "AAAAAAAAAAAFALh+gF8hPjoQlH9nj9dB/xlZpajAV4c=",
+                    "BkU="
+                ],
+                "data": "AAAAAAAAAAAFALh+gF8hPjoQlH9nj9dB/xlZpajAV4cAAAAMV0VHTEQtZDdjNmJiAAAABygvf9WER2UAAAANRFNVUEVSLTlhZjhkZgAAAAkLmmrwBcgyrVcAAAAAAAAACQLIZmMKRoMadgAAAArORa+TY6N0VwucAAAAAAAdVqQAAAAAAAAGRQAAAABi82ho",
+                "order": 9,
+                "addressAssets": {
+                    "name": "Maiar Exchange: DSUPER/WEGLD Liquidity Pool",
+                    "tags": ["mex", "liquiditypool"]
+                }
+            },
+            {
+                "address": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+                "identifier": "boostWithSwap",
+                "topics": [
+                    "Ym9vc3Q=",
+                    "k1SK+KkR4PHiIQTdFqTpq/XeE6lQ6nFoucO/iKkrR5U=",
+                    "AAAAAAAAAAAFANRJ05w7O23Ca93sxUuVkjjZYMueV4c=",
+                    "C5pq8AXIMq1X"
+                ],
+                "order": 10
+            },
+            {
+                "address": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
                 "identifier": "completedTxEvent",
-                "topics": ["eiXg9FOjz+XgW5f2yOFgAouYu0H6D5Ms/4N9nx/K1QA="],
-                "order": 4
+                "topics": ["AblMs28Ce6uTkUFJccf+s0h1XFP46ifxnBj7gts16n0="],
+                "order": 11
             }
         ]
     },
     "operations": [
         {
-            "id": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
+            "id": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
             "action": "transfer",
             "type": "esdt",
             "esdtType": "FungibleESDT",
-            "identifier": "DACDAO-7091cd",
-            "name": "DACDAO",
-            "sender": "erd1l90wgf4qqqjgutxqu5v3nadpxlh23vt2dhvsp5qptqttheaq67rshxfly3",
-            "receiver": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
-            "value": "90100000000000000000",
-            "decimals": 18
+            "identifier": "RIDE-6e4c49",
+            "name": "holoride",
+            "sender": "erd1jd2g479fz8s0rc3pqnw3df8f406auyaf2r48z69ecwlc32ftg72sczxdcy",
+            "receiver": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+            "value": "1000000000000000000",
+            "decimals": 18,
+            "svgUrl": "https://devnet-media.elrond.com/tokens/asset/RIDE-6e4c49/logo.svg"
         },
         {
-            "id": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
-            "action": "create",
-            "type": "nft",
-            "esdtType": "NonFungibleESDT",
-            "collection": "DACDAOVOTE-bc036b",
-            "identifier": "DACDAOVOTE-bc036b-0618",
-            "name": "DACDAOVOTE",
-            "sender": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
-            "receiver": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
-            "value": "1"
-        },
-        {
-            "id": "7a25e0f453a3cfe5e05b97f6c8e160028b98bb41fa0f932cff837d9f1fcad500",
+            "id": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
             "action": "transfer",
-            "type": "nft",
-            "esdtType": "NonFungibleESDT",
-            "collection": "DACDAOVOTE-bc036b",
-            "identifier": "DACDAOVOTE-bc036b-0618",
-            "name": "DACDAOVOTE",
-            "sender": "erd1qqqqqqqqqqqqqpgqstvf8s6s9dge567ag8gtxdaqx6a4ltup27rsuzj3ql",
-            "receiver": "erd1l90wgf4qqqjgutxqu5v3nadpxlh23vt2dhvsp5qptqttheaq67rshxfly3",
-            "value": "1"
+            "type": "esdt",
+            "esdtType": "FungibleESDT",
+            "identifier": "RIDE-6e4c49",
+            "name": "holoride",
+            "sender": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+            "receiver": "erd1qqqqqqqqqqqqqpgqe8m9w7cv2ekdc28q5ahku9x3hcregqpn0n4sum0e3u",
+            "value": "1000000000000000000",
+            "decimals": 18,
+            "svgUrl": "https://devnet-media.elrond.com/tokens/asset/RIDE-6e4c49/logo.svg",
+            "receiverAssets": {
+                "name": "Maiar Exchange: RIDE/WEGLD Liquidity Pool",
+                "tags": ["mex", "liquiditypool"]
+            }
+        },
+        {
+            "id": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "action": "transfer",
+            "type": "esdt",
+            "esdtType": "FungibleESDT",
+            "identifier": "WEGLD-d7c6bb",
+            "name": "WrappedEGLD",
+            "sender": "erd1qqqqqqqqqqqqqpgqe8m9w7cv2ekdc28q5ahku9x3hcregqpn0n4sum0e3u",
+            "receiver": "erd1qqqqqqqqqqqqqpgquu5rsa4ee6l4azz6vdu4hjp8z4p6tt8m0n4suht3dy",
+            "value": "5672628261982",
+            "decimals": 18,
+            "svgUrl": "https://devnet-media.elrond.com/tokens/asset/WEGLD-d7c6bb/logo.svg",
+            "senderAssets": {
+                "name": "Maiar Exchange: RIDE/WEGLD Liquidity Pool",
+                "tags": ["mex", "liquiditypool"]
+            },
+            "receiverAssets": {
+                "name": "Maiar Exchange: MEX/WEGLD Liquidity Pool",
+                "tags": ["mex", "liquiditypool"]
+            }
+        },
+        {
+            "id": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "action": "localBurn",
+            "type": "esdt",
+            "esdtType": "FungibleESDT",
+            "identifier": "MEX-dc289c",
+            "name": "MEX",
+            "sender": "erd1qqqqqqqqqqqqqpgquu5rsa4ee6l4azz6vdu4hjp8z4p6tt8m0n4suht3dy",
+            "receiver": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+            "value": "5107407547900535454",
+            "decimals": 18,
+            "svgUrl": "https://devnet-media.elrond.com/tokens/asset/MEX-dc289c/logo.svg",
+            "senderAssets": {
+                "name": "Maiar Exchange: MEX/WEGLD Liquidity Pool",
+                "tags": ["mex", "liquiditypool"]
+            }
+        },
+        {
+            "id": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "action": "transfer",
+            "type": "esdt",
+            "esdtType": "FungibleESDT",
+            "identifier": "WEGLD-d7c6bb",
+            "name": "WrappedEGLD",
+            "sender": "erd1qqqqqqqqqqqqqpgqe8m9w7cv2ekdc28q5ahku9x3hcregqpn0n4sum0e3u",
+            "receiver": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+            "value": "11311225157994341",
+            "decimals": 18,
+            "svgUrl": "https://devnet-media.elrond.com/tokens/asset/WEGLD-d7c6bb/logo.svg",
+            "senderAssets": {
+                "name": "Maiar Exchange: RIDE/WEGLD Liquidity Pool",
+                "tags": ["mex", "liquiditypool"]
+            }
+        },
+        {
+            "id": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "action": "transfer",
+            "type": "esdt",
+            "esdtType": "FungibleESDT",
+            "identifier": "WEGLD-d7c6bb",
+            "name": "WrappedEGLD",
+            "sender": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+            "receiver": "erd1qqqqqqqqqqqqqpgqf0032tth9vsh77knj5n4yd4r570tsr640n4s0m3n78",
+            "value": "11311225157994341",
+            "decimals": 18,
+            "svgUrl": "https://devnet-media.elrond.com/tokens/asset/WEGLD-d7c6bb/logo.svg",
+            "receiverAssets": {
+                "name": "Maiar Exchange: DSUPER/WEGLD Liquidity Pool",
+                "tags": ["mex", "liquiditypool"]
+            }
+        },
+        {
+            "id": "01b94cb36f027bab9391414971c7feb348755c53f8ea27f19c18fb82db35ea7d",
+            "action": "transfer",
+            "type": "esdt",
+            "esdtType": "FungibleESDT",
+            "identifier": "DSUPER-9af8df",
+            "name": "DSUPER",
+            "sender": "erd1qqqqqqqqqqqqqpgqf0032tth9vsh77knj5n4yd4r570tsr640n4s0m3n78",
+            "receiver": "erd1qqqqqqqqqqqqqpgqhplgqhep8capp9rlv78aws0lr9v6t2xq27rsrkg59x",
+            "value": "214041154547801566551",
+            "decimals": 18,
+            "senderAssets": {
+                "name": "Maiar Exchange: DSUPER/WEGLD Liquidity Pool",
+                "tags": ["mex", "liquiditypool"]
+            }
         }
     ]
 }

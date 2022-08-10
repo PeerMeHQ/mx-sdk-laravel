@@ -32,6 +32,7 @@ final class TransactionDetailed
         public ?string $tokenIdentifier = null,
         public ?string $tokenValue = null,
         public Collection $results = new Collection,
+        public ?TransactionLog $logs = null,
     ) {
     }
 
@@ -41,6 +42,7 @@ final class TransactionDetailed
             'data' => isset($res['data']) ? base64_decode($res['data']) : null,
             'timestamp' => isset($res['timestamp']) ? Carbon::createFromTimestampUTC($res['timestamp']) : null,
             'results' => isset($res['results']) ? SmartContractResult::fromApiResponseMany($res['results']) : collect(),
+            'logs' => isset($res['logs']) ? TransactionLog::fromApiResponse($res['logs']) : null,
         ]);
     }
 }
