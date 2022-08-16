@@ -36,7 +36,7 @@ final class Nft
     public function getTags(): array
     {
         if (!empty($this->tags)) {
-            return $this->tags;
+            return array_filter($this->tags);
         }
 
         preg_match('/tags:(?<tags>[\w\s\,]*)/', base64_decode($this->attributes), $matches);
