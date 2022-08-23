@@ -1,0 +1,60 @@
+[
+    {
+        "identifier": "VNFT-507997-02",
+        "collection": "VNFT-507997",
+        "timestamp": 1658758230,
+        "attributes": "dGFnczo7bWV0YWRhdGE6UW1SY1A5NGtYcjV6WmpSR3ZpN21KNnVuN0xweFVoWVZSNFI0UnBpY3h6Z1lrdA==",
+        "nonce": 2,
+        "type": "NonFungibleESDT",
+        "name": "Vote2",
+        "creator": "erd1lrkkzpcmnzfe2ydrw6l8el3d3mkz5lwyct65nhjn4ss0vx2aqhuq0qxcd6",
+        "royalties": 25,
+        "uris": [
+            "aHR0cHM6Ly9pcGZzLmlvL2lwZnMvUW1jNjZHV1dqNFJ3WTRQY1ZuaXFoMTV4ZHVwanJLdTVhTmFxN056TEo4elNQQQ=="
+        ],
+        "url": "https://devnet-media.elrond.com/nfts/asset/Qmc66GWWj4RwY4PcVniqh15xdupjrKu5aNaq7NzLJ8zSPA",
+        "media": [
+            {
+                "url": "https://devnet-media.elrond.com/nfts/asset/Qmc66GWWj4RwY4PcVniqh15xdupjrKu5aNaq7NzLJ8zSPA",
+                "originalUrl": "https://ipfs.io/ipfs/Qmc66GWWj4RwY4PcVniqh15xdupjrKu5aNaq7NzLJ8zSPA",
+                "thumbnailUrl": "https://devnet-media.elrond.com/nfts/thumbnail/VNFT-507997-498061bd",
+                "fileType": "image/jpeg",
+                "fileSize": 290055
+            }
+        ],
+        "isWhitelistedStorage": true,
+        "metadata": {},
+        "owner": "erd1jd2g479fz8s0rc3pqnw3df8f406auyaf2r48z69ecwlc32ftg72sczxdcy",
+        "ticker": "VNFT-507997",
+        "isNsfw": false
+    },
+    {
+        "identifier": "VNFT-507997-01",
+        "collection": "VNFT-507997",
+        "timestamp": 1658758176,
+        "attributes": "dGFnczo7bWV0YWRhdGE6UW1SY1A5NGtYcjV6WmpSR3ZpN21KNnVuN0xweFVoWVZSNFI0UnBpY3h6Z1lrdA==",
+        "nonce": 1,
+        "type": "NonFungibleESDT",
+        "name": "Vote1",
+        "creator": "erd1lrkkzpcmnzfe2ydrw6l8el3d3mkz5lwyct65nhjn4ss0vx2aqhuq0qxcd6",
+        "royalties": 25,
+        "uris": [
+            "aHR0cHM6Ly9pcGZzLmlvL2lwZnMvUW1lWTE0cXNoNEZGcE5NU1Q5bkpXTjlYTjdaaXp4OVVvR1p5VFJIWWFFNFNRcQ=="
+        ],
+        "url": "https://devnet-media.elrond.com/nfts/asset/QmeY14qsh4FFpNMST9nJWN9XN7Zizx9UoGZyTRHYaE4SQq",
+        "media": [
+            {
+                "url": "https://devnet-media.elrond.com/nfts/asset/QmeY14qsh4FFpNMST9nJWN9XN7Zizx9UoGZyTRHYaE4SQq",
+                "originalUrl": "https://ipfs.io/ipfs/QmeY14qsh4FFpNMST9nJWN9XN7Zizx9UoGZyTRHYaE4SQq",
+                "thumbnailUrl": "https://devnet-media.elrond.com/nfts/thumbnail/VNFT-507997-a9f0a75c",
+                "fileType": "image/jpeg",
+                "fileSize": 366253
+            }
+        ],
+        "isWhitelistedStorage": true,
+        "metadata": {},
+        "owner": "erd1jd2g479fz8s0rc3pqnw3df8f406auyaf2r48z69ecwlc32ftg72sczxdcy",
+        "ticker": "VNFT-507997",
+        "isNsfw": false
+    }
+]

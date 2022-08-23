@@ -14,3 +14,13 @@ it('gets a collection by id', function () {
 
     expect($actual)->toBeInstanceOf(NftCollection::class);
 });
+
+it('gets nfts', function () {
+    fakeApiRequestWithResponse('/collections/VNFT-507997/nfts', 'collections/nfts.json');
+
+    $actual = Elrond::api()
+        ->collections()
+        ->getNftsById('VNFT-507997');
+
+    assertMatchesResponseSnapshot($actual);
+});
