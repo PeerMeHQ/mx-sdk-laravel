@@ -4,6 +4,7 @@ namespace Superciety\ElrondSdk\Api\Entities;
 
 use Illuminate\Support\Str;
 use Superciety\ElrondSdk\Api\ApiTransformable;
+use Superciety\ElrondSdk\Domain\Address;
 
 final class Nft
 {
@@ -26,7 +27,7 @@ final class Nft
         public ?string $url = null,
         public ?string $ticker = null,
         public ?string $thumbnailUrl = null,
-        public ?string $owner = null,
+        public ?Address $owner = null,
         public ?int $supply = null,
         public array $tags = [],
         public ?string $description = null,
@@ -58,6 +59,7 @@ final class Nft
     {
         return array_merge($res, [
             'description' => $res['metadata']['description'] ?? null,
+            'owner' => isset($res['owner']) ? Address::fromBech32($res['owner']) : null,
         ]);
     }
 }
