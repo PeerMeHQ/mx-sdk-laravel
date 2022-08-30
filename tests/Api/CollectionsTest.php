@@ -24,3 +24,13 @@ it('gets nfts', function () {
 
     assertMatchesResponseSnapshot($actual);
 });
+
+it('gets accounts', function () {
+    fakeApiRequestWithResponse('/collections/VNFT-507997/accounts', 'collections/accounts.json');
+
+    $actual = Elrond::api()
+        ->collections()
+        ->getAccounts('VNFT-507997');
+
+    assertMatchesResponseSnapshot($actual);
+});
