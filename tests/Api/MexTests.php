@@ -11,3 +11,13 @@ it('gets mex pairs', function () {
 
     assertMatchesResponseSnapshot($actual);
 });
+
+it('gets mex tokens', function () {
+    fakeApiRequestWithResponse('/mex/tokens', 'mex/tokens.json');
+
+    $actual = Elrond::api()
+        ->mex()
+        ->getTokens();
+
+    assertMatchesResponseSnapshot($actual);
+});
