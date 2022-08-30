@@ -16,11 +16,11 @@ final class TokenAccount
     ) {
     }
 
-    public static function fromApiResponse(array $res): static
+    public static function transformResponse(array $res): array
     {
-        return new static(...static::filterUnallowedProperties(array_merge($res, [
+        return array_merge($res, [
             'address' => Address::fromBech32($res['address']),
             'balance' => BigInteger::of($res['balance'] ?? 0),
-        ])));
+        ]);
     }
 }

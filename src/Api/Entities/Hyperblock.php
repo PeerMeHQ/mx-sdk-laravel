@@ -29,12 +29,12 @@ final class Hyperblock
     ) {
     }
 
-    public static function fromApiResponse(array $res): static
+    public static function transformResponse(array $res): array
     {
-        return new static(...static::filterUnallowedProperties(array_merge($res, [
+        return array_merge($res, [
             'shardBlocks' => ShardBlock::fromApiResponseMany($res['shardBlocks'] ?? []),
             'transactions' => GatewayTransaction::fromApiResponseMany($res['transactions'] ?? [])
                 ->map(fn (GatewayTransaction $gwTx) => Transaction::fromGatewayTransaction($gwTx)),
-        ])));
+        ]);
     }
 }
