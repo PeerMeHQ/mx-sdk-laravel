@@ -6,11 +6,17 @@ use Illuminate\Support\Collection;
 
 trait ApiTransformable
 {
+    public array $rawResponse = [];
+
     public static function fromApiResponse(array $res): static
     {
-        return new static(...static::filterUnallowedProperties(
+        $entity = new static(...static::filterUnallowedProperties(
             static::transformResponse($res)
         ));
+
+        $entity->rawResponse = $res;
+
+        return $entity;
     }
 
     public static function fromApiResponseMany(array $res): Collection
