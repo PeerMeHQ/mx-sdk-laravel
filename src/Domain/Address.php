@@ -75,4 +75,9 @@ class Address
     {
         return $this->valueHex === $address->hex();
     }
+
+    public function __toString()
+    {
+        return $this->bech32();
+    }
 }
