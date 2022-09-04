@@ -6,6 +6,7 @@ use Brick\Math\BigInteger;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Superciety\ElrondSdk\Api\ApiTransformable;
+use Superciety\ElrondSdk\Domain\Address;
 
 final class TransactionDetailed
 {
@@ -14,8 +15,8 @@ final class TransactionDetailed
     public function __construct(
         public string $txHash,
         public int $nonce,
-        public string $receiver,
-        public string $sender,
+        public Address $receiver,
+        public Address $sender,
         public string $status,
         public BigInteger $value,
         public ?int $gasLimit = null,
@@ -41,6 +42,8 @@ final class TransactionDetailed
     {
         return array_merge($res, [
             'value' => isset($res['value']) ? BigInteger::of($res['value']) : BigInteger::zero(),
+            'sender' => isset($res['sender']) ? Address::fromBech32($res['sender']) : null,
+            'receiver' => isset($res['receiver']) ? Address::fromBech32($res['receiver']) : null,
             'data' => isset($res['data']) ? base64_decode($res['data']) : null,
             'timestamp' => isset($res['timestamp']) ? Carbon::createFromTimestampUTC($res['timestamp']) : null,
             'results' => isset($res['results']) ? SmartContractResult::fromApiResponseMany($res['results']) : collect(),
