@@ -35,3 +35,13 @@ it('isContractAddress - returns false for normal addresses', fn ($bech32) => exp
 it('zero - returns a zero address', fn () => expect(Address::zero()->bech32())->toBe('erd1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6gq4hu'));
 
 it('isZero - returns true for a zero address', fn () => expect(Address::zero()->isZero())->toBeTrue());
+
+it('is - correctly compares with given address', function () {
+    $subject = Address::fromBech32('erd1qqqqqqqqqqqqqpgqmuk0q2saj0mgutxm4teywre6dl8wqf58xamqdrukln');
+
+    expect($subject->is(Address::fromBech32('erd1ff377y7qdldtsahvt28ec45zkyu0pepuup33adhr8wr2yuelwv7qpevs9e')))
+        ->toBeFalse();
+
+    expect($subject->is(Address::fromBech32('erd1qqqqqqqqqqqqqpgqmuk0q2saj0mgutxm4teywre6dl8wqf58xamqdrukln')))
+        ->toBeTrue();
+});

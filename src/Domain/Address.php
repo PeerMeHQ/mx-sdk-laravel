@@ -70,4 +70,9 @@ class Address
     {
         return $this->valueHex === Address::zero()->valueHex;
     }
+
+    public function is(Address $address): bool
+    {
+        return $this->valueHex === $address->hex();
+    }
 }
