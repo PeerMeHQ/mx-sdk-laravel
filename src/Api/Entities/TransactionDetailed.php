@@ -33,6 +33,7 @@ final class TransactionDetailed
         public ?string $tokenValue = null,
         public Collection $results = new Collection,
         public ?TransactionLog $logs = null,
+        public Collection $operations =  new Collection,
     ) {
     }
 
@@ -44,6 +45,7 @@ final class TransactionDetailed
             'timestamp' => isset($res['timestamp']) ? Carbon::createFromTimestampUTC($res['timestamp']) : null,
             'results' => isset($res['results']) ? SmartContractResult::fromApiResponseMany($res['results']) : collect(),
             'logs' => isset($res['logs']) ? TransactionLog::fromApiResponse($res['logs']) : null,
+            'operations' => isset($res['operations']) ? TransactionOperation::fromApiResponseMany($res['operations']) : collect(),
         ]);
     }
 }
