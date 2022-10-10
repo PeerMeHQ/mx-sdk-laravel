@@ -47,7 +47,7 @@ final class TransactionDetailed
             'data' => isset($res['data']) ? base64_decode($res['data']) : null,
             'timestamp' => isset($res['timestamp']) ? Carbon::createFromTimestampUTC($res['timestamp']) : null,
             'results' => isset($res['results']) ? SmartContractResult::fromApiResponseMany($res['results']) : collect(),
-            'logs' => isset($res['logs']) ? TransactionLog::fromApiResponse($res['logs']) : null,
+            'logs' => isset($res['logs']) && isset($res['logs']['id']) ? TransactionLog::fromApiResponse($res['logs']) : null,
             'operations' => isset($res['operations']) ? TransactionOperation::fromApiResponseMany($res['operations']) : collect(),
         ]);
     }
