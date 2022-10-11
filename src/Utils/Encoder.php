@@ -16,7 +16,7 @@ class Encoder
         }
 
         if ($value instanceof BigInteger) {
-            return bin2hex($value->toBytes());
+            return bin2hex($value->toBytes(signed: false));
         }
 
         if ($value instanceof Address) {
