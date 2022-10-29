@@ -25,9 +25,11 @@ final class TransactionPayload
 
     public static function superToContractTransfer(int $superAmount, string $functionName, array $args): TransactionPayload
     {
+        $payment = SuperPayment::fromAmount($superAmount);
+
         $data = collect(['ESDTTransfer'])
-            ->push(Encoder::toHex(SuperPayment::getSuperTokenIdentifier()))
-            ->push(Encoder::toHex($superAmount))
+            ->push(Encoder::toHex($payment->tokenIdentifier))
+            ->push(Encoder::toHex($payment->amountAsBigInteger))
             ->push(Encoder::toHex($functionName))
             ->push(...collect($args)->map(fn ($arg) => Encoder::toHex($arg))->all())
             ->filter()
