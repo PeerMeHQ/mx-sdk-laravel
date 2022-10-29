@@ -22,6 +22,8 @@ return [
          * - devnet: https://devnet-api.elrond.com
          */
         'api' => env('ELROND_URL_API', 'https://api.elrond.com'),
+
+        'explorer' => env('ELROND_URL_EXPLORER', 'https://explorer.elrond.com'),
     ],
 
     'prepared-txs' => [
