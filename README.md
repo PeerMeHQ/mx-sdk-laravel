@@ -1,6 +1,6 @@
-# Elrond SDK for Laravel
+# MultiversX SDK for Laravel
 
-Elrond SDK for Laravel (written in PHP).
+MultiversX SDK for Laravel (written in PHP).
 
 ## Installation
 

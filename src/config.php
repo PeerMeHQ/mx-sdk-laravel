@@ -3,7 +3,7 @@
 return [
 
     /**
-     * the elrond blockchain network you want to interact with:
+     * The MultiversX blockchain network you want to interact with:
      * - 1 for mainnet
      * - T for testnet
      * - D for devnet
@@ -13,9 +13,9 @@ return [
     'urls' => [
 
         /**
-         * the base url of on elrond api — not proxy from a gateway.
-         * feel free to host your own api for absolute control, or
-         * fall back to the one provided by elrond.
+         * The base url of the MultiversX API (not proxy).
+         * Feel free to host your own api for absolute control, or
+         * Fall back to the one provided by MultiversX.
          * e.g:
          * - mainnet: https://api.elrond.com
          * - testnet: https://testnet-api.elrond.com
