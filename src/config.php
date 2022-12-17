@@ -26,11 +26,6 @@ return [
         'explorer' => env('ELROND_URL_EXPLORER', 'https://explorer.elrond.com'),
     ],
 
-    'prepared-txs' => [
-        'issue-nft-collection' => \Superciety\ElrondSdk\PreparedTxs\IssueNftCollectionTxBuilder::class,
-        'set-nft-collection-roles' => \Superciety\ElrondSdk\PreparedTxs\SetNftCollectionRolesTxBuilder::class,
-    ],
-
     'vm_queries' => [
         // ...
     ],

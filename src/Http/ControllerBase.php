@@ -4,11 +4,9 @@ namespace Superciety\ElrondSdk\Http;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Response;
-use Superciety\ElrondSdk\Domain\PreparedTx;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Superciety\ElrondSdk\Http\Converters\PreparedTxResponseConverter;
 
 class ControllerBase extends Controller
 {
@@ -68,11 +66,6 @@ class ControllerBase extends Controller
     public function internalServerError($message = [])
     {
         return $this->setStatusCode(500)->respond($message);
-    }
-
-    public function preparedTx(PreparedTx $tx)
-    {
-        return $this->ok(PreparedTxResponseConverter::single($tx));
     }
 
     public function respond($response = [], bool $isData = true)
