@@ -26,10 +26,6 @@ return [
         'explorer' => env('ELROND_URL_EXPLORER', 'https://explorer.elrond.com'),
     ],
 
-    'vm_queries' => [
-        // ...
-    ],
-
     'ipfs' => [
 
         'provider' => \Superciety\ElrondSdk\Ipfs\PinataProvider::class,
