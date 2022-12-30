@@ -1,10 +1,10 @@
 <?php
 
-namespace Superciety\ElrondSdk\Http\Converters;
+namespace Peerme\Multiversx\Http\Converters;
 
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Utils\Formatter;
-use Superciety\ElrondSdk\Api\Entities\Transaction;
+use Peerme\Multiversx\Utils\Formatter;
+use Peerme\Multiversx\Api\Entities\Transaction;
 
 /**
  * find the corresponding typescript representation in our frontend core package:

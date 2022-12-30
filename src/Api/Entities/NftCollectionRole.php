@@ -1,10 +1,10 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Entities;
+namespace Peerme\Multiversx\Api\Entities;
 
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Domain\Address;
-use Superciety\ElrondSdk\Api\ApiTransformable;
+use Peerme\Multiversx\Domain\Address;
+use Peerme\Multiversx\Api\ApiTransformable;
 
 final class NftCollectionRole
 {
@@ -20,7 +20,7 @@ final class NftCollectionRole
         public bool $canWipe = false,
         public bool $canPause = false,
         public bool $canTransferNftCreateRole = false,
-        /** @var \Superciety\ElrondSdk\Api\Entities\CollectionRoles */
+        /** @var \Peerme\Multiversx\Api\Entities\CollectionRoles */
         public Collection $roles = new Collection,
         public bool $canCreate = false,
         public bool $canBurn = false,

@@ -1,9 +1,9 @@
 <?php
 
-namespace Superciety\ElrondSdk\Http\Converters;
+namespace Peerme\Multiversx\Http\Converters;
 
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Api\Entities\Nft;
+use Peerme\Multiversx\Api\Entities\Nft;
 
 /**
  * find the corresponding typescript representation in our frontend core package:

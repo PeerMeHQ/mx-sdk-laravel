@@ -28,7 +28,7 @@ return [
 
     'ipfs' => [
 
-        'provider' => \Superciety\ElrondSdk\Ipfs\PinataProvider::class,
+        'provider' => \Peerme\Multiversx\Ipfs\PinataProvider::class,
 
         'providers' => [
 

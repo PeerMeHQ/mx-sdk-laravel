@@ -1,12 +1,12 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Endpoints;
+namespace Peerme\Multiversx\Api\Endpoints;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Entities\MexPair;
-use Superciety\ElrondSdk\Api\Entities\MexToken;
+use Peerme\Multiversx\Api\EndpointBase;
+use Peerme\Multiversx\Api\Entities\MexPair;
+use Peerme\Multiversx\Api\Entities\MexToken;
 
 class MexEndpoints extends EndpointBase
 {

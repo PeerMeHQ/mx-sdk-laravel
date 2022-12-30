@@ -1,8 +1,8 @@
 <?php
 
-namespace Superciety\ElrondSdk;
+namespace Peerme\Multiversx;
 
-use Superciety\ElrondSdk\Domain\TokenPayment;
+use Peerme\Multiversx\Domain\TokenPayment;
 use Illuminate\Validation\ValidationException;
 
 it('requireAccountTokenOwnershipOrThrow - it passes if account holds a minimum amount of specified token', function () {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Superciety\ElrondSdk\Domain;
+namespace Peerme\Multiversx\Domain;
 
 use Brick\Math\BigInteger;
-use Superciety\ElrondSdk\Domain\Interfaces\ISignable;
+use Peerme\Multiversx\Domain\Interfaces\ISignable;
 
 class Transaction implements ISignable
 {

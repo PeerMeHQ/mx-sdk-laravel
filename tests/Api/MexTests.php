@@ -1,6 +1,6 @@
 <?php
 
-use Superciety\ElrondSdk\Elrond;
+use Peerme\Multiversx\Elrond;
 
 it('gets mex pairs', function () {
     fakeApiRequestWithResponse('/mex/pairs', 'mex/pairs.json');

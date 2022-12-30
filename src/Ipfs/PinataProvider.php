@@ -1,6 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk\Ipfs;
+namespace Peerme\Multiversx\Ipfs;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\PendingRequest;

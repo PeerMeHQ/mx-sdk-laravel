@@ -1,9 +1,9 @@
 <?php
 
-namespace Superciety\ElrondSdk\Utils;
+namespace Peerme\Multiversx\Utils;
 
 use Brick\Math\BigInteger;
-use Superciety\ElrondSdk\Domain\Address;
+use Peerme\Multiversx\Domain\Address;
 
 class Encoder
 {

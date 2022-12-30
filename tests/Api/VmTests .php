@@ -1,6 +1,6 @@
 <?php
 
-use Superciety\ElrondSdk\Elrond;
+use Peerme\Multiversx\Elrond;
 
 it('queries a multiresult smart contract view successfully', function () {
     fakeApiRequestWithResponse('/vm-values/query*', 'vm/ok-multiresult2.json');

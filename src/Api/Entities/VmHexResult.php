@@ -1,6 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Entities;
+namespace Peerme\Multiversx\Api\Entities;
 
 final class VmHexResult extends VmResultBase
 {

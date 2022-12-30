@@ -1,7 +1,7 @@
 <?php
 
-use Superciety\ElrondSdk\Elrond;
-use Superciety\ElrondSdk\Api\Entities\NftCollection;
+use Peerme\Multiversx\Elrond;
+use Peerme\Multiversx\Api\Entities\NftCollection;
 
 it('gets a collection by id', function () {
     fakeApiRequestWithResponse('/collections/VNFT-507997', 'collections/collection.json');

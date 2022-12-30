@@ -1,6 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk;
+namespace Peerme\Multiversx;
 
 final class Constants
 {

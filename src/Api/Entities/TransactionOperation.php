@@ -1,10 +1,10 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Entities;
+namespace Peerme\Multiversx\Api\Entities;
 
 use Brick\Math\BigInteger;
-use Superciety\ElrondSdk\Api\ApiTransformable;
-use Superciety\ElrondSdk\Domain\Address;
+use Peerme\Multiversx\Api\ApiTransformable;
+use Peerme\Multiversx\Domain\Address;
 
 final class TransactionOperation
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk\Tests;
+namespace Peerme\Multiversx\Tests;
 
 use Illuminate\Support\Facades\Config;
 use Spatie\Snapshots\MatchesSnapshots;
@@ -13,7 +13,7 @@ class TestCase extends TestbenchCase
     protected function getPackageProviders($app)
     {
         return [
-            \Superciety\ElrondSdk\ServiceProvider::class,
+            \Peerme\Multiversx\ServiceProvider::class,
         ];
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-use Superciety\ElrondSdk\Domain\UserSecretKey;
+use Peerme\Multiversx\Domain\UserSecretKey;
 
 it('fromPem - parses a user secret key from pem', function () {
     $alicePem = "-----BEGIN PRIVATE KEY for erd1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th-----

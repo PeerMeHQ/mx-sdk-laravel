@@ -1,6 +1,6 @@
 <?php
 
-use Superciety\ElrondSdk\Api\Entities\Nft;
+use Peerme\Multiversx\Api\Entities\Nft;
 
 it('getTags - returns all tags given in attributes', function () {
     $nft = makeTestNftWithHumanReadableAttributes(base64_encode('tags:tag1,tag2,tag3;metadata:xxxx_ipfs_content_iD_xxxx'));

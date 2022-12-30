@@ -1,8 +1,8 @@
 <?php
 
 use Brick\Math\BigInteger;
-use Superciety\ElrondSdk\Domain\Address;
-use Superciety\ElrondSdk\Utils\Encoder;
+use Peerme\Multiversx\Domain\Address;
+use Peerme\Multiversx\Utils\Encoder;
 
 it('toHex - encodes strings into hex', fn () => expect(Encoder::toHex('anything'))->toBe('616e797468696e67'));
 

@@ -1,6 +1,6 @@
 <?php
 
-use Superciety\ElrondSdk\Elrond;
+use Peerme\Multiversx\Elrond;
 
 it('getById - gets the token', function () {
     fakeApiRequestWithResponse('/tokens/SUPER-764d8d', 'tokens/token.json');

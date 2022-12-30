@@ -1,8 +1,8 @@
 <?php
 
-namespace Superciety\ElrondSdk\Domain\Interfaces;
+namespace Peerme\Multiversx\Domain\Interfaces;
 
-use Superciety\ElrondSdk\Domain\Signature;
+use Peerme\Multiversx\Domain\Signature;
 
 interface ISignable
 {

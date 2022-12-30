@@ -1,6 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk\Rules;
+namespace Peerme\Multiversx\Rules;
 
 use Illuminate\Contracts\Validation\InvokableRule;
 

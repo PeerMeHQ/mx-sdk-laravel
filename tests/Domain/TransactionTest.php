@@ -1,10 +1,10 @@
 <?php
 
 use Brick\Math\BigInteger;
-use Superciety\ElrondSdk\Domain\Address;
-use Superciety\ElrondSdk\Domain\Transaction;
-use Superciety\ElrondSdk\Domain\TransactionPayload;
-use Superciety\ElrondSdk\Domain\UserSigner;
+use Peerme\Multiversx\Domain\Address;
+use Peerme\Multiversx\Domain\Transaction;
+use Peerme\Multiversx\Domain\TransactionPayload;
+use Peerme\Multiversx\Domain\UserSigner;
 
 const AliceAddress = 'erd1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th';
 const BobAddress = 'erd1spyavw0956vq68xj8y4tenjpq2wd5a9p2c6j8gsz7ztyrnpxrruqzu66jx';

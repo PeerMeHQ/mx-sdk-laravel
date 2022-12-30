@@ -1,9 +1,9 @@
 <?php
 
-namespace Superciety\ElrondSdk\Domain;
+namespace Peerme\Multiversx\Domain;
 
 use Elliptic\EdDSA;
-use Superciety\ElrondSdk\Domain\Interfaces\IVerifiable;
+use Peerme\Multiversx\Domain\Interfaces\IVerifiable;
 
 class UserVerifier
 {

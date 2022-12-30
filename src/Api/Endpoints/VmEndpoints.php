@@ -1,14 +1,14 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Endpoints;
+namespace Peerme\Multiversx\Api\Endpoints;
 
 use Carbon\Carbon;
-use Superciety\ElrondSdk\Utils\Encoder;
-use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Entities\VmHexResult;
-use Superciety\ElrondSdk\Api\Entities\VmIntResult;
-use Superciety\ElrondSdk\Api\Entities\VmQueryResult;
-use Superciety\ElrondSdk\Api\Entities\VmStringResult;
+use Peerme\Multiversx\Utils\Encoder;
+use Peerme\Multiversx\Api\EndpointBase;
+use Peerme\Multiversx\Api\Entities\VmHexResult;
+use Peerme\Multiversx\Api\Entities\VmIntResult;
+use Peerme\Multiversx\Api\Entities\VmQueryResult;
+use Peerme\Multiversx\Api\Entities\VmStringResult;
 
 class VmEndpoints extends EndpointBase
 {

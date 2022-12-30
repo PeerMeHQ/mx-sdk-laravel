@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Http;
-use Superciety\ElrondSdk\Tests\TestCase;
-use Superciety\ElrondSdk\Tests\ResponseSnapshotDriver;
+use Peerme\Multiversx\Tests\TestCase;
+use Peerme\Multiversx\Tests\ResponseSnapshotDriver;
 
 uses(TestCase::class)->in(__DIR__);
 

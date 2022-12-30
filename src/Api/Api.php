@@ -1,17 +1,17 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api;
+namespace Peerme\Multiversx\Api;
 
 use Carbon\Carbon;
-use Superciety\ElrondSdk\Api\Endpoints\AccountEndpoints;
-use Superciety\ElrondSdk\Api\Endpoints\BlockEndpoints;
-use Superciety\ElrondSdk\Api\Endpoints\CollectionEndpoints;
-use Superciety\ElrondSdk\Api\Endpoints\MexEndpoints;
-use Superciety\ElrondSdk\Api\Endpoints\NetworkEndpoints;
-use Superciety\ElrondSdk\Api\Endpoints\NftEndpoints;
-use Superciety\ElrondSdk\Api\Endpoints\TokenEndpoints;
-use Superciety\ElrondSdk\Api\Endpoints\TransactionEndpoints;
-use Superciety\ElrondSdk\Api\Endpoints\VmEndpoints;
+use Peerme\Multiversx\Api\Endpoints\AccountEndpoints;
+use Peerme\Multiversx\Api\Endpoints\BlockEndpoints;
+use Peerme\Multiversx\Api\Endpoints\CollectionEndpoints;
+use Peerme\Multiversx\Api\Endpoints\MexEndpoints;
+use Peerme\Multiversx\Api\Endpoints\NetworkEndpoints;
+use Peerme\Multiversx\Api\Endpoints\NftEndpoints;
+use Peerme\Multiversx\Api\Endpoints\TokenEndpoints;
+use Peerme\Multiversx\Api\Endpoints\TransactionEndpoints;
+use Peerme\Multiversx\Api\Endpoints\VmEndpoints;
 
 final class Api
 {

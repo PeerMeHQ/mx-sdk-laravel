@@ -1,7 +1,7 @@
 <?php
 
 
-use Superciety\ElrondSdk\Elrond;
+use Peerme\Multiversx\Elrond;
 
 it('gets blocks', function () {
     fakeApiRequestWithResponse('/blocks', 'blocks/blocks.json');

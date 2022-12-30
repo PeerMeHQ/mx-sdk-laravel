@@ -1,11 +1,11 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Entities;
+namespace Peerme\Multiversx\Api\Entities;
 
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Api\ApiTransformable;
-use Superciety\ElrondSdk\Api\Entities\TransactionLogEvent;
-use Superciety\ElrondSdk\Domain\Address;
+use Peerme\Multiversx\Api\ApiTransformable;
+use Peerme\Multiversx\Api\Entities\TransactionLogEvent;
+use Peerme\Multiversx\Domain\Address;
 
 final class TransactionLog
 {

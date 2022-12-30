@@ -1,12 +1,12 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Endpoints;
+namespace Peerme\Multiversx\Api\Endpoints;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Entities\Block;
-use Superciety\ElrondSdk\Api\Entities\Hyperblock;
+use Peerme\Multiversx\Api\EndpointBase;
+use Peerme\Multiversx\Api\Entities\Block;
+use Peerme\Multiversx\Api\Entities\Hyperblock;
 
 final class BlockEndpoints extends EndpointBase
 {

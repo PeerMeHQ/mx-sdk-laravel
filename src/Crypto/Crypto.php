@@ -1,11 +1,11 @@
 <?php
 
-namespace Superciety\ElrondSdk\Crypto;
+namespace Peerme\Multiversx\Crypto;
 
-use Superciety\ElrondSdk\Domain\Address;
-use Superciety\ElrondSdk\Domain\Signature;
-use Superciety\ElrondSdk\Domain\UserVerifier;
-use Superciety\ElrondSdk\Domain\SignableMessage;
+use Peerme\Multiversx\Domain\Address;
+use Peerme\Multiversx\Domain\Signature;
+use Peerme\Multiversx\Domain\UserVerifier;
+use Peerme\Multiversx\Domain\SignableMessage;
 
 final class Crypto
 {

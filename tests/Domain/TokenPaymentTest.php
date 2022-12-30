@@ -1,6 +1,6 @@
 <?php
 
-use Superciety\ElrondSdk\Domain\TokenPayment;
+use Peerme\Multiversx\Domain\TokenPayment;
 
 it('has the desired precision given an integer', fn () => expect((string) TokenPayment::egldFromAmount(12)->amountAsBigInteger)->toBe('12000000000000000000'));
 

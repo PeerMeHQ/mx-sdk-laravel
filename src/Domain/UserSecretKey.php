@@ -1,6 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk\Domain;
+namespace Peerme\Multiversx\Domain;
 
 use Exception;
 use Elliptic\EdDSA;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Superciety\ElrondSdk\Http\Converters;
+namespace Peerme\Multiversx\Http\Converters;
 
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Api\Entities\NftCollectionRole;
+use Peerme\Multiversx\Api\Entities\NftCollectionRole;
 
 class NftCollectionRoleResponseConverter
 {

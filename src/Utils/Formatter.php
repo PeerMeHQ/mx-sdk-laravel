@@ -1,6 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk\Utils;
+namespace Peerme\Multiversx\Utils;
 
 use Carbon\Carbon;
 

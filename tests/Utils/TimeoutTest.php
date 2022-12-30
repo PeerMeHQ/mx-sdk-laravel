@@ -1,6 +1,6 @@
 <?php
 
-use Superciety\ElrondSdk\Utils\Timeout;
+use Peerme\Multiversx\Utils\Timeout;
 use function Spatie\PestPluginTestTime\testTime;
 
 it('executes the action on first run', function () {

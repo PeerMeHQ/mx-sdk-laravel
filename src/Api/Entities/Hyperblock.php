@@ -1,10 +1,10 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Entities;
+namespace Peerme\Multiversx\Api\Entities;
 
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Api\ApiTransformable;
-use Superciety\ElrondSdk\Api\Entities\Transaction;
+use Peerme\Multiversx\Api\ApiTransformable;
+use Peerme\Multiversx\Api\Entities\Transaction;
 
 final class Hyperblock
 {

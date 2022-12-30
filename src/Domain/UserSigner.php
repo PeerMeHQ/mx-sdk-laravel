@@ -1,8 +1,8 @@
 <?php
 
-namespace Superciety\ElrondSdk\Domain;
+namespace Peerme\Multiversx\Domain;
 
-use Superciety\ElrondSdk\Domain\Interfaces\ISignable;
+use Peerme\Multiversx\Domain\Interfaces\ISignable;
 
 class UserSigner
 {

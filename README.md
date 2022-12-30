@@ -7,7 +7,7 @@ MultiversX SDK for Laravel (written in PHP).
 You can install the package via composer:
 
 ```bash
-composer require superciety/elrond-sdk-laravel
+composer require peerme/mx-sdk-laravel
 ```
 
 ## Usage

@@ -1,11 +1,11 @@
 {
-    "name": "superciety/elrond-sdk-laravel",
-    "description": "Elrond SDK for Laravel (written in PHP).",
+    "name": "peerme/mx-sdk-laravel",
+    "description": "MultiversX SDK for Laravel (written in PHP).",
     "keywords": [
-        "superciety",
+        "multiversx",
         "laravel"
     ],
-    "homepage": "https://github.com/superciety/elrond-sdk-laravel",
+    "homepage": "https://github.com/peermehq/mx-sdk-laravel",
     "license": "MIT",
     "authors": [
         {
@@ -35,12 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Superciety\\ElrondSdk\\": "src"
+            "Peerme\\Multiversx\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Superciety\\ElrondSdk\\Tests\\": "tests"
+            "Peerme\\Multiversx\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -58,14 +58,14 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Superciety\\ElrondSdk\\ServiceProvider"
+                "Peerme\\Multiversx\\ServiceProvider"
             ]
         }
     },
     "funding": [
         {
             "type": "github",
-            "url": "https://github.com/sponsors/superciety"
+            "url": "https://github.com/sponsors/peermehq"
         }
     ]
 }

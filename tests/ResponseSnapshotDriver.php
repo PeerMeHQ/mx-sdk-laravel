@@ -1,6 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk\Tests;
+namespace Peerme\Multiversx\Tests;
 
 use Spatie\Snapshots\Driver;
 use PHPUnit\Framework\Assert;

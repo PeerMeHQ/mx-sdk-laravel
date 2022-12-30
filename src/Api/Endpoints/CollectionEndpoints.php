@@ -1,13 +1,13 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Endpoints;
+namespace Peerme\Multiversx\Api\Endpoints;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Entities\CollectionAccount;
-use Superciety\ElrondSdk\Api\Entities\Nft;
-use Superciety\ElrondSdk\Api\Entities\NftCollection;
+use Peerme\Multiversx\Api\EndpointBase;
+use Peerme\Multiversx\Api\Entities\CollectionAccount;
+use Peerme\Multiversx\Api\Entities\Nft;
+use Peerme\Multiversx\Api\Entities\NftCollection;
 
 class CollectionEndpoints extends EndpointBase
 {

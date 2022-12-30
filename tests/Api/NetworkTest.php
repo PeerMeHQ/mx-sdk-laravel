@@ -1,8 +1,8 @@
 <?php
 
-namespace Superciety\ElrondSdk\Tests;
+namespace Peerme\Multiversx\Tests;
 
-use Superciety\ElrondSdk\Elrond;
+use Peerme\Multiversx\Elrond;
 
 it('gets economics', function () {
     fakeApiRequestWithResponse('/economics', 'network/economics.json');

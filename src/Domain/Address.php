@@ -1,6 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk\Domain;
+namespace Peerme\Multiversx\Domain;
 
 use InvalidArgumentException;
 use function BitWasp\Bech32\decode;

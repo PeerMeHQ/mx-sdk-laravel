@@ -1,15 +1,15 @@
 <?php
 
-namespace Superciety\ElrondSdk;
+namespace Peerme\Multiversx;
 
-use Superciety\ElrondSdk\Api\Api;
+use Peerme\Multiversx\Api\Api;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
-use Superciety\ElrondSdk\Crypto\Crypto;
-use Superciety\ElrondSdk\Ipfs\IProvider;
+use Peerme\Multiversx\Crypto\Crypto;
+use Peerme\Multiversx\Ipfs\IProvider;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Validation\ValidationException;
-use Superciety\ElrondSdk\Domain\TokenPayment;
+use Peerme\Multiversx\Domain\TokenPayment;
 
 final class Elrond
 {
@@ -61,7 +61,7 @@ final class Elrond
 
     public static function fakeApiResponseWith(array $responses): void
     {
-        $libTestResponsesDir = 'vendor/superciety/elrond-sdk-laravel/tests/Api/responses';
+        $libTestResponsesDir = 'vendor/peerme/mx-sdk-laravel/tests/Api/responses';
 
         $getResponse = fn ($data) => is_string($data) && str_ends_with($data, '.json')
             ? json_decode(file_get_contents(str_starts_with($data, '/') ? $data : base_path("{$libTestResponsesDir}/{$data}")), true)

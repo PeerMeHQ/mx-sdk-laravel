@@ -1,6 +1,6 @@
 <?php
 
-use Superciety\ElrondSdk\Utils\Decoder;
+use Peerme\Multiversx\Utils\Decoder;
 
 it('fromBase64Int - decodes base64 encoded integers', fn ($base64, $dec) => expect(Decoder::fromBase64Int($base64))->toBe($dec))
     ->with([

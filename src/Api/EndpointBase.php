@@ -1,6 +1,6 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api;
+namespace Peerme\Multiversx\Api;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;

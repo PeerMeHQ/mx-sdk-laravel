@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
-use Superciety\ElrondSdk\Domain\TransactionPayload;
+use Peerme\Multiversx\Domain\TransactionPayload;
 
 it('contractCall - builds a contract call payload', function () {
     $actual = TransactionPayload::contractCall('doTest', [

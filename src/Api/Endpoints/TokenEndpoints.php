@@ -1,14 +1,14 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Endpoints;
+namespace Peerme\Multiversx\Api\Endpoints;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Entities\Transaction;
-use Superciety\ElrondSdk\Api\Entities\TokenAccount;
-use Superciety\ElrondSdk\Api\Entities\TokenDetailed;
-use Superciety\ElrondSdk\Api\Entities\TokenAddressRoles;
+use Peerme\Multiversx\Api\EndpointBase;
+use Peerme\Multiversx\Api\Entities\Transaction;
+use Peerme\Multiversx\Api\Entities\TokenAccount;
+use Peerme\Multiversx\Api\Entities\TokenDetailed;
+use Peerme\Multiversx\Api\Entities\TokenAddressRoles;
 
 class TokenEndpoints extends EndpointBase
 {

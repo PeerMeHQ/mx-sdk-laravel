@@ -1,7 +1,7 @@
 <?php
 
-use Superciety\ElrondSdk\Elrond;
-use Superciety\ElrondSdk\Api\Entities\Nft;
+use Peerme\Multiversx\Elrond;
+use Peerme\Multiversx\Api\Entities\Nft;
 
 it('gets an nft by id', function () {
     fakeApiRequestWithResponse('/nfts/MARSHM1-021222-74', 'nfts/nft.json');

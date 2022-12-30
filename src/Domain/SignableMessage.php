@@ -1,9 +1,9 @@
 <?php
 
-namespace Superciety\ElrondSdk\Domain;
+namespace Peerme\Multiversx\Domain;
 
 use kornrunner\Keccak;
-use Superciety\ElrondSdk\Domain\Interfaces\IVerifiable;
+use Peerme\Multiversx\Domain\Interfaces\IVerifiable;
 
 final class SignableMessage implements IVerifiable
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Entities;
+namespace Peerme\Multiversx\Api\Entities;
 
-use Superciety\ElrondSdk\Domain\Address;
-use Superciety\ElrondSdk\Api\ApiTransformable;
+use Peerme\Multiversx\Domain\Address;
+use Peerme\Multiversx\Api\ApiTransformable;
 
 final class TokenAddressRoles
 {

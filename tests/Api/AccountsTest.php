@@ -1,8 +1,8 @@
 <?php
 
 use Brick\Math\BigInteger;
-use Superciety\ElrondSdk\Elrond;
-use Superciety\ElrondSdk\Api\Entities\Nft;
+use Peerme\Multiversx\Elrond;
+use Peerme\Multiversx\Api\Entities\Nft;
 
 it('getByAddress - gets an account by address', function () {
     fakeApiRequestWithResponse('/accounts/erd1660va6y429mxz4dkgek0ssny8tccaaaaaaaaaabbbbbbbbbbcccccccccc', 'accounts/account.json');

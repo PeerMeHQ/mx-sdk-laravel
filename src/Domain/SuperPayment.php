@@ -1,11 +1,11 @@
 <?php
 
-namespace Superciety\ElrondSdk\Domain;
+namespace Peerme\Multiversx\Domain;
 
 use Exception;
 use Brick\Math\BigDecimal;
 use Brick\Math\BigInteger;
-use Superciety\ElrondSdk\Domain\TokenPayment;
+use Peerme\Multiversx\Domain\TokenPayment;
 
 class SuperPayment extends TokenPayment
 {

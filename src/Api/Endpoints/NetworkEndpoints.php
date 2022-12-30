@@ -1,11 +1,11 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Endpoints;
+namespace Peerme\Multiversx\Api\Endpoints;
 
 use Carbon\Carbon;
-use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Entities\Economics;
-use Superciety\ElrondSdk\Api\Entities\NetworkConstants;
+use Peerme\Multiversx\Api\EndpointBase;
+use Peerme\Multiversx\Api\Entities\Economics;
+use Peerme\Multiversx\Api\Entities\NetworkConstants;
 
 final class NetworkEndpoints extends EndpointBase
 {

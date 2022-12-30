@@ -1,6 +1,6 @@
 <?php
 
-use Superciety\ElrondSdk\Domain\Address;
+use Peerme\Multiversx\Domain\Address;
 
 it('creates an address from bech32', fn ($bech32, $expectedHex) => expect(Address::fromBech32($bech32)->hex())->toBe($expectedHex))
     ->with([

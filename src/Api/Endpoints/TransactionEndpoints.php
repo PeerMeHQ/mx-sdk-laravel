@@ -1,12 +1,12 @@
 <?php
 
-namespace Superciety\ElrondSdk\Api\Endpoints;
+namespace Peerme\Multiversx\Api\Endpoints;
 
 use Carbon\Carbon;
-use Superciety\ElrondSdk\Api\EndpointBase;
-use Superciety\ElrondSdk\Api\Entities\TransactionDetailed;
-use Superciety\ElrondSdk\Api\Entities\TransactionSendResult;
-use Superciety\ElrondSdk\Domain\Transaction;
+use Peerme\Multiversx\Api\EndpointBase;
+use Peerme\Multiversx\Api\Entities\TransactionDetailed;
+use Peerme\Multiversx\Api\Entities\TransactionSendResult;
+use Peerme\Multiversx\Domain\Transaction;
 
 class TransactionEndpoints extends EndpointBase
 {

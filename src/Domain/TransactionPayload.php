@@ -1,9 +1,9 @@
 <?php
 
-namespace Superciety\ElrondSdk\Domain;
+namespace Peerme\Multiversx\Domain;
 
-use Superciety\ElrondSdk\Utils\Encoder;
-use Superciety\ElrondSdk\Domain\Address;
+use Peerme\Multiversx\Utils\Encoder;
+use Peerme\Multiversx\Domain\Address;
 
 final class TransactionPayload
 {
