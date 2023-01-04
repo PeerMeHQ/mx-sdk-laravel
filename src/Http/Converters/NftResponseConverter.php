@@ -1,9 +1,9 @@
 <?php
 
-namespace Peerme\Multiversx\Http\Converters;
+namespace Peerme\MxLaravel\Http\Converters;
 
 use Illuminate\Support\Collection;
-use Peerme\Multiversx\Api\Entities\Nft;
+use Peerme\Mx\Api\Entities\Nft;
 
 /**
  * find the corresponding typescript representation in our frontend core package:

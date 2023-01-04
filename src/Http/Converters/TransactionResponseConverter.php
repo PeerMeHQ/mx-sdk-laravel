@@ -1,10 +1,10 @@
 <?php
 
-namespace Peerme\Multiversx\Http\Converters;
+namespace Peerme\MxLaravel\Http\Converters;
 
 use Illuminate\Support\Collection;
-use Peerme\Multiversx\Utils\Formatter;
-use Peerme\Multiversx\Api\Entities\Transaction;
+use Peerme\Mx\Utils\Formatter;
+use Peerme\Mx\Api\Entities\Transaction;
 
 /**
  * find the corresponding typescript representation in our frontend core package:

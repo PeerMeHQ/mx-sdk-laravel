@@ -1,6 +1,6 @@
 <?php
 
-namespace Peerme\Multiversx\Utils;
+namespace Peerme\MxLaravel\Utils;
 
 use Carbon\Carbon;
 use Illuminate\Support\Str;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Peerme\Multiversx\Http\Converters;
+namespace Peerme\MxLaravel\Http\Converters;
 
 use Illuminate\Support\Collection;
-use Peerme\Multiversx\Api\Entities\NftCollectionRole;
+use Peerme\Mx\Api\Entities\NftCollectionRole;
 
 class NftCollectionRoleResponseConverter
 {

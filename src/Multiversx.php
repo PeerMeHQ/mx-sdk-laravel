@@ -1,76 +1,41 @@
 <?php
 
-namespace Peerme\Multiversx;
+namespace Peerme\MxLaravel;
 
-use Peerme\Multiversx\Api\Api;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Http;
-use Peerme\Multiversx\Crypto\Crypto;
-use Peerme\Multiversx\Ipfs\IProvider;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Client\RequestException;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
-use Peerme\Multiversx\Domain\TokenPayment;
+use Peerme\Mx\Multiversx as MultiversxBase;
+use Peerme\Mx\TokenPayment;
+use Peerme\MxProviders\Api\ApiNetworkProvider;
+use Peerme\MxProviders\ClientFactory;
+use Peerme\MxProviders\NetworkProvider;
 
-final class Elrond
+class Multiversx extends MultiversxBase
 {
-    public static function api(): Api
+    public static function api(?ClientInterface $httpClient = null): ApiNetworkProvider
     {
-        return new Api();
+        return NetworkProvider::api(config('multiversx.urls.api'), $httpClient);
     }
 
-    public static function crypto(): Crypto
+    public static function createMockedHttpClientWithResponse(array|string|int $value): ClientInterface
     {
-        return new Crypto();
-    }
+        $libTestResponsesDir = 'vendor/peerme/mx-sdk-php-network-providers/tests/Api/responses';
 
-    public static function ipfs(): IProvider
-    {
-        return new (config('elrond.ipfs.provider'));
-    }
+        $resolveFilePath = fn (string $value) => file_get_contents(str_starts_with($value, '/')
+            ? $value
+            : base_path("{$libTestResponsesDir}/{$value}"));
 
-    public static function constants(): Constants
-    {
-        return new Constants();
-    }
+        $contents = is_string($value) && str_ends_with($value, '.json')
+            ? json_decode($resolveFilePath($value), true)
+            : $value;
 
-    public static function requireAccountTokenOwnershipOrThrow(string $address, TokenPayment $minValue): void
-    {
-        try {
-            $hasSufficientBalance = static::api()
-                ->cacheFor(now()->addSeconds(30))
-                ->accounts()
-                ->getToken($address, $minValue->tokenIdentifier)
-                ->balance
-                ->isGreaterThanOrEqualTo($minValue->amountAsBigInteger);
+        $expectedResponse = new Response(200, [], $contents);
+        $transactions = [];
 
-            if ($hasSufficientBalance) {
-                return;
-            }
-        } catch (RequestException $e) {
-            if ($e->getCode() === 400) {
-                return;
-            }
-
-            Log::error("there might be something wrong with the account token guard: {$e->getMessage()}", $e->getTrace());
-        }
-
-        throw ValidationException::withMessages([
-            'balance' => ["You must hold at least {$minValue->toDenominated()} {$minValue->tokenIdentifier} tokens"],
-        ]);
-    }
-
-    public static function fakeApiResponseWith(array $responses): void
-    {
-        $libTestResponsesDir = 'vendor/peerme/mx-sdk-laravel/tests/Api/responses';
-
-        $getResponse = fn ($data) => is_string($data) && str_ends_with($data, '.json')
-            ? json_decode(file_get_contents(str_starts_with($data, '/') ? $data : base_path("{$libTestResponsesDir}/{$data}")), true)
-            : $data;
-
-        Http::fake(collect($responses)
-            ->mapWithKeys(fn ($resData, $resEndpoint) => [
-                $resEndpoint => Http::response($getResponse($resData))
-            ])
-            ->all());
+        return ClientFactory::mock($expectedResponse, $transactions);
     }
 }

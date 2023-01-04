@@ -1,7 +1,7 @@
 <?php
 
-use Peerme\Multiversx\Utils\Timeout;
 use function Spatie\PestPluginTestTime\testTime;
+use Peerme\MxLaravel\Utils\Timeout;
 
 it('executes the action on first run', function () {
     expect(Timeout::for('testaction', now()->addHour(), fn () => 0))
