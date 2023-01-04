@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "peerme/mx-sdk-php-network-providers": "^1.0.0",
         "illuminate/contracts": "^9.18.0",
         "illuminate/support": "^9.18.0"
