@@ -1,1 +1,0 @@
-O:50:"Superciety\ElrondSdk\Api\Entities\NetworkConstants":6:{s:7:"chainId";s:1:"1";s:14:"gasPerDataByte";i:1500;s:11:"minGasLimit";i:50000;s:11:"minGasPrice";i:1000000000;s:21:"minTransactionVersion";i:1;s:11:"rawResponse";a:5:{s:7:"chainId";s:1:"1";s:14:"gasPerDataByte";i:1500;s:11:"minGasLimit";i:50000;s:11:"minGasPrice";i:1000000000;s:21:"minTransactionVersion";i:1;}}

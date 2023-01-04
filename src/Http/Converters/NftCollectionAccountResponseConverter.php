@@ -1,9 +1,9 @@
 <?php
 
-namespace Superciety\ElrondSdk\Http\Converters;
+namespace Peerme\MxLaravel\Http\Converters;
 
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Api\Entities\NftCollectionAccount;
+use Peerme\Mx\Api\Entities\NftCollectionAccount;
 
 class NftCollectionAccountResponseConverter
 {

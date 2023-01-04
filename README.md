@@ -2,17 +2,25 @@
 
 MultiversX SDK for Laravel (written in PHP).
 
+This SDK is a wrapper around the native [mx-sdk-php](#) to enable out-of-the-box support for [Laravel](https://laravel.com/) applications.
+
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require superciety/elrond-sdk-laravel
+composer require peerme/mx-sdk-laravel
+```
+
+And publish the config file `config/multiversx.php` via
+
+```bash
+php artisan vendor:publish --provider="Peerme\Mx\ServiceProvider" --tag="config"
 ```
 
 ## Usage
 
-TODO: add docs
+TODO: add docs (constants, api, ipfs, utils, verify login)
 
 ## Testing
 

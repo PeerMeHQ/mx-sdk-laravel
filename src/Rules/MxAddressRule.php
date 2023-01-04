@@ -1,10 +1,10 @@
 <?php
 
-namespace Superciety\ElrondSdk\Rules;
+namespace Peerme\MxLaravel\Rules;
 
 use Illuminate\Contracts\Validation\InvokableRule;
 
-class ElrondAddressRule implements InvokableRule
+class MxAddressRule implements InvokableRule
 {
     const Regex = '/erd1[a-z0-9]{58}/';
 

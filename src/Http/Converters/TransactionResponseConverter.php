@@ -1,10 +1,10 @@
 <?php
 
-namespace Superciety\ElrondSdk\Http\Converters;
+namespace Peerme\MxLaravel\Http\Converters;
 
 use Illuminate\Support\Collection;
-use Superciety\ElrondSdk\Utils\Formatter;
-use Superciety\ElrondSdk\Api\Entities\Transaction;
+use Peerme\Mx\Utils\Formatter;
+use Peerme\Mx\Api\Entities\Transaction;
 
 /**
  * find the corresponding typescript representation in our frontend core package:
