@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9dc8daddd755a4ea855559a6bb3fe409",
+    "content-hash": "cb4ded13f6338ac645616e4aef966490",
     "packages": [
         {
             "name": "bitwasp/bech32",
@@ -2107,11 +2107,17 @@
         },
         {
             "name": "peerme/mx-sdk-php-network-providers",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "../peerme--mx-sdk-php-network-providers",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Superciety/mx-sdk-php-network-providers.git",
                 "reference": "0def289415d5e80ab20296d3986d6a4b0b2d1a12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Superciety/mx-sdk-php-network-providers/zipball/0def289415d5e80ab20296d3986d6a4b0b2d1a12",
+                "reference": "0def289415d5e80ab20296d3986d6a4b0b2d1a12",
+                "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^7.5",
@@ -2128,19 +2134,7 @@
                     "Peerme\\MxProviders\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Peerme\\MxProviders\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/pest"
-                ],
-                "test-coverage": [
-                    "vendor/bin/phpunit --coverage-html coverage"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2152,16 +2146,17 @@
                 }
             ],
             "description": "Network Provider API components (compatible with mx-sdk-php).",
+            "support": {
+                "issues": "https://github.com/Superciety/mx-sdk-php-network-providers/issues",
+                "source": "https://github.com/Superciety/mx-sdk-php-network-providers/tree/v1.0.0"
+            },
             "funding": [
                 {
-                    "type": "github",
-                    "url": "https://github.com/sponsors/peermehq"
+                    "url": "https://github.com/sponsors/peermehq",
+                    "type": "github"
                 }
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2023-01-04T21:13:18+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -8788,9 +8783,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "peerme/mx-sdk-php-network-providers": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
