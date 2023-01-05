@@ -19,7 +19,7 @@ return [
          * - Testnet: https://testnet-api.elrond.com
          * - Devnet: https://devnet-api.elrond.com
          */
-        'api' => env('MULTIVERSX_URL_API', 'https://api.elrond.com'),
+        'api' => env('MULTIVERSX_URL_API', 'https://api.multiversx.com'),
 
         'explorer' => env('MULTIVERSX_URL_EXPLORER', 'https://explorer.elrond.com'),
     ],
