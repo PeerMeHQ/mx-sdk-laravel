@@ -10,7 +10,7 @@ class ServiceProvider extends ServiceProviderBase
     {
         $this->publishes([
             __DIR__.'/config.php' => config_path('multiversx.php'),
-        ]);
+        ], 'config');
     }
 
     public function register()
