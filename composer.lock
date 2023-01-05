@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7de3771949010a9a7d0b2afa3dfe9584",
+    "content-hash": "a174ee9dfbd9842e6507af0cd88926ed",
     "packages": [
         {
             "name": "bitwasp/bech32",
@@ -986,6 +986,90 @@
                 }
             ],
             "time": "2022-10-26T14:07:24+00:00"
+        },
+        {
+            "name": "kevinrob/guzzle-cache-middleware",
+            "version": "v4.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kevinrob/guzzle-cache-middleware.git",
+                "reference": "24b93edc942f2eaaeb17f7ae0d6db0f77f4ed4ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kevinrob/guzzle-cache-middleware/zipball/24b93edc942f2eaaeb17f7ae0d6db0f77f4ed4ea",
+                "reference": "24b93edc942f2eaaeb17f7ae0d6db0f77f4ed4ea",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0 || ^7.0",
+                "guzzlehttp/psr7": "^1.7.0 || ^2.0.0",
+                "php": ">=7.2.0"
+            },
+            "require-dev": {
+                "cache/array-adapter": "^0.4 || ^0.5 || ^1.0",
+                "cache/simple-cache-bridge": "^0.1 || ^1.0",
+                "doctrine/cache": "^1.10",
+                "illuminate/cache": "^5.0",
+                "league/flysystem": "^1.0",
+                "phpunit/phpunit": "^8.5.15 || ^9.5",
+                "psr/cache": "^1.0",
+                "symfony/cache": "^4.4 || ^5.0",
+                "symfony/phpunit-bridge": "^4.4 || ^5.0"
+            },
+            "suggest": {
+                "doctrine/cache": "This library has a lot of ready-to-use cache storage (to be used with Kevinrob\\GuzzleCache\\Storage\\DoctrineCacheStorage). Use only versions >=1.4.0 < 2.0.0",
+                "guzzlehttp/guzzle": "For using this library. It was created for Guzzle6 (but you can use it with any PSR-7 HTTP client).",
+                "laravel/framework": "To be used with Kevinrob\\GuzzleCache\\Storage\\LaravelCacheStorage",
+                "league/flysystem": "To be used with Kevinrob\\GuzzleCache\\Storage\\FlysystemStorage",
+                "psr/cache": "To be used with Kevinrob\\GuzzleCache\\Storage\\Psr6CacheStorage",
+                "psr/simple-cache": "To be used with Kevinrob\\GuzzleCache\\Storage\\Psr16CacheStorage"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kevinrob\\GuzzleCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Robatel",
+                    "email": "kevinrob2@gmail.com",
+                    "homepage": "https://github.com/Kevinrob"
+                }
+            ],
+            "description": "A HTTP/1.1 Cache for Guzzle 6. It's a simple Middleware to be added in the HandlerStack. (RFC 7234)",
+            "homepage": "https://github.com/Kevinrob/guzzle-cache-middleware",
+            "keywords": [
+                "Etag",
+                "Flysystem",
+                "Guzzle",
+                "cache",
+                "cache-control",
+                "doctrine",
+                "expiration",
+                "guzzle6",
+                "handler",
+                "http",
+                "http 1.1",
+                "middleware",
+                "performance",
+                "php",
+                "promise",
+                "psr6",
+                "psr7",
+                "rfc7234",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/Kevinrob/guzzle-cache-middleware/issues",
+                "source": "https://github.com/Kevinrob/guzzle-cache-middleware/tree/v4.0.2"
+            },
+            "time": "2022-10-02T13:13:18+00:00"
         },
         {
             "name": "kornrunner/keccak",
@@ -2056,24 +2140,24 @@
         },
         {
             "name": "peerme/mx-sdk-php",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Superciety/mx-sdk-php.git",
-                "reference": "0f7246b29bf462d88c251a281098583d073f0bf6"
+                "reference": "7369fab68d8d461a544f34ae0b0221e037c04b0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Superciety/mx-sdk-php/zipball/0f7246b29bf462d88c251a281098583d073f0bf6",
-                "reference": "0f7246b29bf462d88c251a281098583d073f0bf6",
+                "url": "https://api.github.com/repos/Superciety/mx-sdk-php/zipball/7369fab68d8d461a544f34ae0b0221e037c04b0d",
+                "reference": "7369fab68d8d461a544f34ae0b0221e037c04b0d",
                 "shasum": ""
             },
             "require": {
                 "bitwasp/bech32": "^0.0.1",
                 "brick/math": "^0.10.2",
-                "guzzlehttp/guzzle": "^7.5",
                 "illuminate/collections": "^9.46",
                 "kornrunner/keccak": "^1.1",
+                "php": "^8.1",
                 "simplito/elliptic-php": "^1.0"
             },
             "require-dev": {
@@ -2086,6 +2170,9 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
                     "name": "Micha Vie",
@@ -2093,9 +2180,10 @@
                     "homepage": "https://michavie.com"
                 }
             ],
+            "description": "MultiversX SDK written in PHP.",
             "support": {
                 "issues": "https://github.com/Superciety/mx-sdk-php/issues",
-                "source": "https://github.com/Superciety/mx-sdk-php/tree/v1.0.0"
+                "source": "https://github.com/Superciety/mx-sdk-php/tree/v1.0.1"
             },
             "funding": [
                 {
@@ -2103,26 +2191,27 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-04T16:11:12+00:00"
+            "time": "2023-01-04T22:39:47+00:00"
         },
         {
             "name": "peerme/mx-sdk-php-network-providers",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Superciety/mx-sdk-php-network-providers.git",
-                "reference": "0def289415d5e80ab20296d3986d6a4b0b2d1a12"
+                "reference": "9fe694f8c02d0db2cb037adbbc64fbbd4dd8bfa7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Superciety/mx-sdk-php-network-providers/zipball/0def289415d5e80ab20296d3986d6a4b0b2d1a12",
-                "reference": "0def289415d5e80ab20296d3986d6a4b0b2d1a12",
+                "url": "https://api.github.com/repos/Superciety/mx-sdk-php-network-providers/zipball/9fe694f8c02d0db2cb037adbbc64fbbd4dd8bfa7",
+                "reference": "9fe694f8c02d0db2cb037adbbc64fbbd4dd8bfa7",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^7.5",
                 "nesbot/carbon": "^2.64",
-                "peerme/mx-sdk-php": "^1.0"
+                "peerme/mx-sdk-php": "^1.0",
+                "php": "^8.1"
             },
             "require-dev": {
                 "pestphp/pest": "^1.22",
@@ -2148,7 +2237,7 @@
             "description": "Network Provider API components (compatible with mx-sdk-php).",
             "support": {
                 "issues": "https://github.com/Superciety/mx-sdk-php-network-providers/issues",
-                "source": "https://github.com/Superciety/mx-sdk-php-network-providers/tree/v1.0.0"
+                "source": "https://github.com/Superciety/mx-sdk-php-network-providers/tree/v1.0.1"
             },
             "funding": [
                 {
@@ -2156,7 +2245,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-04T21:13:18+00:00"
+            "time": "2023-01-05T15:08:24+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -8787,7 +8876,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0"
+        "php": "^8.1"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
