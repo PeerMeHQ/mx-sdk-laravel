@@ -15,7 +15,7 @@ composer require peerme/mx-sdk-laravel
 And publish the config file `config/multiversx.php` via
 
 ```bash
-php artisan vendor:publish --provider="Peerme\Mx\ServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Peerme\MxLaravel\ServiceProvider" --tag="config"
 ```
 
 ## Usage
