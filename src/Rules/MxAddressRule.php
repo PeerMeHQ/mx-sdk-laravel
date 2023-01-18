@@ -19,7 +19,7 @@ class MxAddressRule implements InvokableRule
     public function __invoke($attribute, $value, $fail)
     {
         if (! preg_match_all(self::Regex, $value)) {
-            $fail('The :attribute must be a valid Elrond address.');
+            $fail('The :attribute must be a valid MultiversX address.');
         }
     }
 }
