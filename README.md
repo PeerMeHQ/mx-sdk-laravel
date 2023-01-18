@@ -4,8 +4,6 @@
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/PeerMeHQ/mx-sdk-laravel/tests.yml?branch=main&label=Tests)](https://github.com/PeerMeHQ/mx-sdk-laravel/actions?query=workflow%3ATests+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/PeerMe/mx-sdk-laravel.svg?style=flat-square)](https://packagist.org/packages/PeerMe/mx-sdk-laravel)
 
-MultiversX SDK for Laravel (written in PHP).
-
 This SDK is a wrapper around the native [mx-sdk-php](https://github.com/PeerMeHQ/mx-sdk-php) to enable out-of-the-box support for [Laravel](https://laravel.com/) applications.
 
 Additionally, it comes with pre-configured MultiversX API [Network Providers](https://github.com/PeerMeHQ/mx-sdk-php-network-providers) including caching mechanisms using the default Laravel cache driver.
