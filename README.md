@@ -52,6 +52,17 @@ $api = Multiversx::api();
 // or retrieve cached responses subsequently for 1 hour
 $api = Multiversx::apiWithCache(expiresAt: now()->addHour());
 ```
+### Validation Rules
+
+This package exposes the following Laravel [Validation Rules](https://laravel.com/docs/9.x/validation#available-validation-rules).
+
+`MxAddressRule` – to validate a given address format:
+
+```php
+[
+    'address' => ['required', new MxAddressRule],
+]
+```
 
 ## Testing
 
