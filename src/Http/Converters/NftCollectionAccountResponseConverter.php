@@ -3,7 +3,7 @@
 namespace Peerme\MxLaravel\Http\Converters;
 
 use Illuminate\Support\Collection;
-use Peerme\Mx\Api\Entities\NftCollectionAccount;
+use Peerme\MxProviders\Entities\NftCollectionAccount;
 
 class NftCollectionAccountResponseConverter
 {

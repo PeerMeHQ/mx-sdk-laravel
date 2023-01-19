@@ -3,12 +3,8 @@
 namespace Peerme\MxLaravel\Http\Converters;
 
 use Illuminate\Support\Collection;
-use Peerme\Mx\Api\Entities\Nft;
+use Peerme\MxProviders\Entities\Nft;
 
-/**
- * find the corresponding typescript representation in our frontend core package:
- * https://github.com/Superciety/pwa-core-library
- */
 final class NftResponseConverter
 {
     public static function single(Nft $nft): array

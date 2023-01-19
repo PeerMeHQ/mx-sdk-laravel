@@ -3,7 +3,7 @@
 namespace Peerme\MxLaravel\Http\Converters;
 
 use Illuminate\Support\Collection;
-use Peerme\Mx\Api\Entities\NftCollectionRole;
+use Peerme\MxProviders\Entities\NftCollectionRole;
 
 class NftCollectionRoleResponseConverter
 {
