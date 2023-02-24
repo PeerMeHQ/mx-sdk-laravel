@@ -3,6 +3,7 @@
 namespace Peerme\MxLaravel;
 
 use Carbon\Carbon;
+use Exception;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
@@ -11,6 +12,8 @@ use Kevinrob\GuzzleCache\CacheMiddleware;
 use Kevinrob\GuzzleCache\Storage\LaravelCacheStorage;
 use Kevinrob\GuzzleCache\Strategy\GreedyCacheStrategy;
 use Peerme\Mx\Multiversx as MultiversxBase;
+use Peerme\MxLaravel\Auth\NativeAuthServer;
+use Peerme\MxLaravel\Auth\NativeAuthValidateResult;
 use Peerme\MxProviders\Api\ApiNetworkProvider;
 use Peerme\MxProviders\ClientFactory;
 use Peerme\MxProviders\NetworkProvider;
@@ -18,6 +21,18 @@ use Peerme\MxProviders\NetworkProvider;
 class Multiversx extends MultiversxBase
 {
     private const HttpClientContainerAbstract = 'mx_http_client';
+
+    public function verifyNativeAuthToken(string $accessToken): NativeAuthValidateResult
+    {
+        $nativeAuth = new NativeAuthServer(
+            apiUrl: config('multiversx.native_auth.api_url') ?? throw new Exception('missing native auth config: api_url'),
+            acceptedOrigins: config('multiversx.native_auth.accepted_origins') ?? throw new Exception('missing native auth config: accepted_origins'),
+            maxExpirySeconds: config('multiversx.native_auth.max_expiry_seconds') ?? throw new Exception('missing native auth config: max_expiry_seconds'),
+            skipLegacyValidation: config('multiversx.native_auth.skip_legacy_validation') ?? throw new Exception('missing native auth config: skip_legacy_validation'),
+        );
+
+        return $nativeAuth->validate($accessToken);
+    }
 
     public static function api(?ClientInterface $httpClient = null): ApiNetworkProvider
     {

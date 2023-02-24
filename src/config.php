@@ -23,4 +23,16 @@ return [
 
         'explorer' => env('MULTIVERSX_URL_EXPLORER', 'https://explorer.elrond.com'),
     ],
+
+    'native_auth' => [
+        'api_url' => env('MULTIVERSX_NATIVEAUTH_APIURL', 'https://api.multiversx.com'),
+
+        'accepted_origins' => [
+            'https://api.multiversx.com',
+        ],
+
+        'max_expiry_seconds' => 86400,
+
+        'skip_legacy_validation' => false,
+    ],
 ];
