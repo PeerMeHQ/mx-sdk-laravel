@@ -22,7 +22,7 @@ class Multiversx extends MultiversxBase
 {
     private const HttpClientContainerAbstract = 'mx_http_client';
 
-    public function verifyNativeAuthToken(string $accessToken): NativeAuthValidateResult
+    public static function verifyNativeAuthToken(string $accessToken): NativeAuthValidateResult
     {
         $nativeAuth = new NativeAuthServer(
             apiUrl: config('multiversx.native_auth.api_url') ?? throw new Exception('missing native auth config: api_url'),
