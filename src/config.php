@@ -10,6 +10,8 @@ return [
      */
     'chain_id' => env('MULTIVERSX_CHAIN_ID', '1'),
 
+    'block_time' => env('MULTIVERSX_BLOCK_TIME', 6),
+
     'urls' => [
 
         /**
