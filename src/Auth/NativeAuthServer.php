@@ -53,7 +53,7 @@ class NativeAuthServer
 
         $hasAcceptedOrigins = count($this->acceptedOrigins) > 0;
         $isInvalidOrigin = !in_array($decoded->origin, $this->acceptedOrigins) && !in_array('https://' . $decoded->origin, $this->acceptedOrigins);
-        throw_if($hasAcceptedOrigins && $isInvalidOrigin, InvalidArgumentException::class, 'invalid origin');
+        throw_if($hasAcceptedOrigins && $isInvalidOrigin, InvalidArgumentException::class, "invalid origin: {$decoded->origin}");
 
         // TODO: implement block timestamp & ttl verification:
         // https://github.com/multiversx/mx-sdk-js-native-auth-server/blob/5707b04c3d1e40088a1cbe12c3b51fdd6a8ada90/src/native.auth.server.ts#L98

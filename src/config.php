@@ -27,8 +27,6 @@ return [
     ],
 
     'native_auth' => [
-        'api_url' => env('MULTIVERSX_NATIVEAUTH_APIURL', 'https://api.multiversx.com'),
-
         'accepted_origins' => [
             'https://api.multiversx.com',
         ],

@@ -25,7 +25,7 @@ class Multiversx extends MultiversxBase
     public static function verifyNativeAuthToken(string $accessToken): NativeAuthValidateResult
     {
         $nativeAuth = new NativeAuthServer(
-            apiUrl: config('multiversx.native_auth.api_url') ?? throw new Exception('missing native auth config: api_url'),
+            apiUrl: config('multiversx.urls.api') ?? throw new Exception('missing config: urls.api'),
             acceptedOrigins: config('multiversx.native_auth.accepted_origins') ?? throw new Exception('missing native auth config: accepted_origins'),
             maxExpirySeconds: config('multiversx.native_auth.max_expiry_seconds') ?? throw new Exception('missing native auth config: max_expiry_seconds'),
             skipLegacyValidation: config('multiversx.native_auth.skip_legacy_validation') ?? throw new Exception('missing native auth config: skip_legacy_validation'),
