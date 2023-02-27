@@ -1,18 +1,44 @@
 <?php
 
+use Peerme\Mx\Address;
+use Peerme\Mx\SignableMessage;
+use Peerme\Mx\Signature;
+use Peerme\Mx\UserSigner;
 use Peerme\MxLaravel\Auth\NativeAuthDecoded;
 use Peerme\MxLaravel\Auth\NativeAuthServer;
+use Peerme\MxLaravel\Exceptions\NativeAuthInvalidSignatureException;
+use Peerme\MxLaravel\Exceptions\NativeAuthOriginNotAcceptedException;
+use Peerme\MxLaravel\Exceptions\NativeAuthTokenExpiredException;
 
 beforeEach(function () {
-    $this->address = 'erd1kc7v0lhqu0sclywkgeg4um8ea5nvch9psf2lf8t96j3w622qss8sav2zl8';
-    $this->signature = '1f384391dd1d17dfb75307fff47bcce05aa1a2a2034089d4ea0c54757895c63520169cc5d6eb4414a1b77abfd185655c13bb5a4233eecf258b64ed05dde36c0d';
-    $this->blockHash = '591a3cf6fc0d083179f18640e7c63e2b6a0711f95b9d67910bc525139fce106d';
-    $this->ttl = 86_400;
-    $this->accessToken = 'ZXJkMWtjN3YwbGhxdTBzY2x5d2tnZWc0dW04ZWE1bnZjaDlwc2YybGY4dDk2ajN3NjIycXNzOHNhdjJ6bDg.ZUdWNFkyaGhibWRsTG1OdmJRLjU5MWEzY2Y2ZmMwZDA4MzE3OWYxODY0MGU3YzYzZTJiNmEwNzExZjk1YjlkNjc5MTBiYzUyNTEzOWZjZTEwNmQuODY0MDAuZXlKMGFXMWxjM1JoYlhBaU9qRTJOemN5T0RBeU16Wjk.1f384391dd1d17dfb75307fff47bcce05aa1a2a2034089d4ea0c54757895c63520169cc5d6eb4414a1b77abfd185655c13bb5a4233eecf258b64ed05dde36c0d';
+    $alicePem = "-----BEGIN PRIVATE KEY for erd1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th-----
+    NDEzZjQyNTc1ZjdmMjZmYWQzMzE3YTc3ODc3MTIxMmZkYjgwMjQ1ODUwOTgxZTQ4
+    YjU4YTRmMjVlMzQ0ZThmOTAxMzk0NzJlZmY2ODg2NzcxYTk4MmYzMDgzZGE1ZDQy
+    MWYyNGMyOTE4MWU2Mzg4ODIyOGRjODFjYTYwZDY5ZTE=
+    -----END PRIVATE KEY for erd1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th-----";
+
+    $signer = UserSigner::fromPem($alicePem);
+    $address = 'erd1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th';
+    $blockHash = '591a3cf6fc0d083179f18640e7c63e2b6a0711f95b9d67910bc525139fce106d';
+    $ttl = 86_400;
+    $origin = 'api.multiversx.com';
+    $init = rtrim(base64_encode($origin), '=') . '.' . $blockHash . '.' . $ttl . '.' . 'e30';
+
+    $signature = $signer->sign((new SignableMessage(
+        message: $address.$init,
+        signature: new Signature(''),
+        address: Address::zero(),
+    ))->serializeForSigning())->hex();
+
+    $this->address = $address;
+    $this->signature = $signature;
+    $this->blockHash = $blockHash;
+    $this->ttl = $ttl;
+    $this->accessToken = rtrim(base64_encode($this->address), '=') . '.' . rtrim(base64_encode($init), '=') . '.' . $signature;
     $this->blockTimestamp = 1671009408;
-    $this->origin = 'xexchange.com';
+    $this->origin = $origin;
     $this->nativeServerConfig = [
-        'acceptedOrigins' => ['https://xexchange.com'],
+        'acceptedOrigins' => [$origin],
         'maxExpirySeconds' => 86_400,
         'apiUrl' => 'https://api.multiversx.com',
     ];
@@ -39,14 +65,14 @@ it('validates an access token', function () {
     expect($actual->address)->toBe($this->address);
 });
 
-it('throws if invalid signature in access token', function () {
+it('throws when invalid signature in access token', function () {
     $subject = new NativeAuthServer(...$this->nativeServerConfig);
 
     $subject->validate($this->accessToken.'abcdef');
 })
-    ->expectExceptionMessage('invalid signature');
+    ->expectException(NativeAuthInvalidSignatureException::class);
 
-it('throws if invalid origin', function () {
+it('throws when invalid origin', function () {
     $subject = new NativeAuthServer(...[
         ...$this->nativeServerConfig,
         'acceptedOrigins' => ['other-origin'],
@@ -54,4 +80,14 @@ it('throws if invalid origin', function () {
 
     $subject->validate($this->accessToken);
 })
-    ->expectExceptionMessage('invalid origin');
+    ->expectException(NativeAuthOriginNotAcceptedException::class);
+
+it('throws when extra info timestamp exceeds ttl', function () {
+    $subject = new NativeAuthServer(...[
+        ...$this->nativeServerConfig,
+        'acceptedOrigins' => ['localhost'],
+    ]);
+
+    $subject->validate('ZXJkMXdqeXRmbjZ6aHFmY3NlanZod3Y3cTR1c2F6czVyeWMzajhoYzc4ZmxkZ2pueWN0OHdlanFrYXN1bmM.Ykc5allXeG9iM04wLjE4YmM5ODI0NjFkMWI1M2M4MzdhMjRkZTRiNDYyM2MyYmI4MzU4NjdlYTJlOGRmMTQzNjVjZjQzNmRlZTFiMjMuNjAwLmV5SjBhVzFsYzNSaGJYQWlPakUyTnpNNU56SXpOalI5.f8d651eda06e82a894ff1dc9480a33aa1030b076dfd5983346eec6793381587b88c2daf770a10ac39f9911968c2f1d1304c0c7dd86a82bc79f07e89f873f7e02');
+})
+    ->expectException(NativeAuthTokenExpiredException::class);

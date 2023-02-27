@@ -9,6 +9,10 @@ use Peerme\Mx\Signature;
 use Peerme\Mx\UserVerifier;
 use Peerme\MxLaravel\Auth\NativeAuthDecoded;
 use Peerme\MxLaravel\Auth\NativeAuthValidateResult;
+use Peerme\MxLaravel\Exceptions\NativeAuthInvalidSignatureException;
+use Peerme\MxLaravel\Exceptions\NativeAuthInvalidTokenTtlException;
+use Peerme\MxLaravel\Exceptions\NativeAuthOriginNotAcceptedException;
+use Peerme\MxLaravel\Exceptions\NativeAuthTokenExpiredException;
 
 class NativeAuthServer
 {
@@ -32,7 +36,7 @@ class NativeAuthServer
 
         [$origin, $blockHash, $ttl, $extraInfo] = $bodyComponents;
 
-        $parsedExtraInfo = $extraInfo === '{}' ? '' : json_decode(base64_decode($this->unescape($extraInfo)));
+        $parsedExtraInfo = $extraInfo === '{}' ? null : json_decode(base64_decode($this->unescape($extraInfo)), true);
         $parsedOrigin = base64_decode($this->unescape($origin));
 
         return new NativeAuthDecoded(
@@ -49,14 +53,13 @@ class NativeAuthServer
       public function validate(string $accessToken): NativeAuthValidateResult {
         $decoded = $this->decode($accessToken);
 
-        throw_unless($decoded->ttl <= $this->maxExpirySeconds, InvalidArgumentException::class, 'token expired');
+        throw_unless($decoded->ttl <= $this->maxExpirySeconds, NativeAuthInvalidTokenTtlException::class, $decoded->ttl, $this->maxExpirySeconds);
 
         $hasAcceptedOrigins = count($this->acceptedOrigins) > 0;
         $isInvalidOrigin = !in_array($decoded->origin, $this->acceptedOrigins) && !in_array('https://' . $decoded->origin, $this->acceptedOrigins);
-        throw_if($hasAcceptedOrigins && $isInvalidOrigin, InvalidArgumentException::class, "invalid origin: {$decoded->origin}");
+        throw_if($hasAcceptedOrigins && $isInvalidOrigin, NativeAuthOriginNotAcceptedException::class, $decoded->origin);
 
-        // TODO: implement block timestamp & ttl verification:
-        // https://github.com/multiversx/mx-sdk-js-native-auth-server/blob/5707b04c3d1e40088a1cbe12c3b51fdd6a8ada90/src/native.auth.server.ts#L98
+        $this->ensureNotExpired($decoded);
 
         $verifiable = new SignableMessage(
             message: "{$decoded->address}{$decoded->body}",
@@ -78,7 +81,7 @@ class NativeAuthServer
                 ->verify($verifiable);
         }
 
-        throw_unless($valid, InvalidArgumentException::class, 'invalid signature');
+        throw_unless($valid, NativeAuthInvalidSignatureException::class);
 
         return new NativeAuthValidateResult(
             issued: 1, // TODO implement as part of block timestamp & ttl verification
@@ -89,7 +92,19 @@ class NativeAuthServer
         );
       }
 
-      private function unescape(string $str): string {
+    private function unescape(string $str): string
+    {
         return str_replace(['-', '_'], ['+', '/'], $str);
+    }
+
+    private function ensureNotExpired(NativeAuthDecoded $decoded): void
+    {
+        if (isset($decoded->extraInfo['timestamp'])) {
+            $timestamp = $decoded->extraInfo['timestamp'];
+            $expiry = $timestamp + $decoded->ttl;
+            $now = time();
+
+            throw_if($expiry < $now, NativeAuthTokenExpiredException::class);
+        }
     }
 }
