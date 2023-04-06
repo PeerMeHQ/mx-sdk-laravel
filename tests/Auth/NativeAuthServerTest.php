@@ -11,18 +11,18 @@ use Peerme\MxLaravel\Exceptions\NativeAuthOriginNotAcceptedException;
 use Peerme\MxLaravel\Exceptions\NativeAuthTokenExpiredException;
 
 beforeEach(function () {
-    $alicePem = "-----BEGIN PRIVATE KEY for erd1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th-----
+    $alicePem = '-----BEGIN PRIVATE KEY for erd1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th-----
     NDEzZjQyNTc1ZjdmMjZmYWQzMzE3YTc3ODc3MTIxMmZkYjgwMjQ1ODUwOTgxZTQ4
     YjU4YTRmMjVlMzQ0ZThmOTAxMzk0NzJlZmY2ODg2NzcxYTk4MmYzMDgzZGE1ZDQy
     MWYyNGMyOTE4MWU2Mzg4ODIyOGRjODFjYTYwZDY5ZTE=
-    -----END PRIVATE KEY for erd1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th-----";
+    -----END PRIVATE KEY for erd1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th-----';
 
     $signer = UserSigner::fromPem($alicePem);
     $address = 'erd1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th';
     $blockHash = '591a3cf6fc0d083179f18640e7c63e2b6a0711f95b9d67910bc525139fce106d';
     $ttl = 86_400;
     $origin = 'api.multiversx.com';
-    $init = rtrim(base64_encode($origin), '=') . '.' . $blockHash . '.' . $ttl . '.' . 'e30';
+    $init = rtrim(base64_encode($origin), '=').'.'.$blockHash.'.'.$ttl.'.'.'e30';
 
     $signature = $signer->sign((new SignableMessage(
         message: $address.$init,
@@ -34,7 +34,7 @@ beforeEach(function () {
     $this->signature = $signature;
     $this->blockHash = $blockHash;
     $this->ttl = $ttl;
-    $this->accessToken = rtrim(base64_encode($this->address), '=') . '.' . rtrim(base64_encode($init), '=') . '.' . $signature;
+    $this->accessToken = rtrim(base64_encode($this->address), '=').'.'.rtrim(base64_encode($init), '=').'.'.$signature;
     $this->blockTimestamp = 1671009408;
     $this->origin = $origin;
     $this->nativeServerConfig = [

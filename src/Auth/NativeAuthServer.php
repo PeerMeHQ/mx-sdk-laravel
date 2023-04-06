@@ -7,8 +7,6 @@ use Peerme\Mx\Address;
 use Peerme\Mx\SignableMessage;
 use Peerme\Mx\Signature;
 use Peerme\Mx\UserVerifier;
-use Peerme\MxLaravel\Auth\NativeAuthDecoded;
-use Peerme\MxLaravel\Auth\NativeAuthValidateResult;
 use Peerme\MxLaravel\Exceptions\NativeAuthInvalidSignatureException;
 use Peerme\MxLaravel\Exceptions\NativeAuthInvalidTokenTtlException;
 use Peerme\MxLaravel\Exceptions\NativeAuthOriginNotAcceptedException;
@@ -24,7 +22,8 @@ class NativeAuthServer
     ) {
     }
 
-    public function decode(string $accessToken): NativeAuthDecoded {
+    public function decode(string $accessToken): NativeAuthDecoded
+    {
         $tokenComponents = explode('.', $accessToken);
         throw_unless(count($tokenComponents) === 3, InvalidArgumentException::class, 'invalid token');
 
@@ -50,13 +49,14 @@ class NativeAuthServer
         );
       }
 
-      public function validate(string $accessToken): NativeAuthValidateResult {
+      public function validate(string $accessToken): NativeAuthValidateResult
+      {
         $decoded = $this->decode($accessToken);
 
         throw_unless($decoded->ttl <= $this->maxExpirySeconds, NativeAuthInvalidTokenTtlException::class, $decoded->ttl, $this->maxExpirySeconds);
 
         $hasAcceptedOrigins = count($this->acceptedOrigins) > 0;
-        $isInvalidOrigin = !in_array($decoded->origin, $this->acceptedOrigins) && !in_array('https://' . $decoded->origin, $this->acceptedOrigins);
+        $isInvalidOrigin = ! in_array($decoded->origin, $this->acceptedOrigins) && ! in_array('https://'.$decoded->origin, $this->acceptedOrigins);
         throw_if($hasAcceptedOrigins && $isInvalidOrigin, NativeAuthOriginNotAcceptedException::class, $decoded->origin);
 
         $this->ensureNotExpired($decoded);
@@ -70,7 +70,7 @@ class NativeAuthServer
         $valid = UserVerifier::fromAddress(Address::fromBech32($decoded->address))
             ->verify($verifiable);
 
-        if (!$valid && !$this->skipLegacyValidation) {
+        if (! $valid && ! $this->skipLegacyValidation) {
             $verifiable = new SignableMessage(
                 message: "{$decoded->address}{$decoded->body}{}",
                 signature: new Signature($decoded->signature),

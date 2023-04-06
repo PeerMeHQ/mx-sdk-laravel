@@ -51,7 +51,7 @@ class Multiversx extends MultiversxBase
             $expiresAt->diffInSeconds(now()),
         );
 
-        $stack->push(new CacheMiddleware($cacheStrategy),'cache');
+        $stack->push(new CacheMiddleware($cacheStrategy), 'cache');
 
         $client = ClientFactory::create(config('multiversx.urls.api'), [
             'handler' => $stack,
