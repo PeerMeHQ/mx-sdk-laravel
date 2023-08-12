@@ -34,15 +34,15 @@ class Multiversx extends MultiversxBase
         return $nativeAuth->validate($accessToken);
     }
 
-    public static function api(?ClientInterface $httpClient = null): ApiNetworkProvider
+    public static function api(?ClientInterface $httpClient = null, ?string $apiUrl = null): ApiNetworkProvider
     {
         $injectedClient = app()->bound(static::HttpClientContainerAbstract) ? app(static::HttpClientContainerAbstract) : null;
         $client = $httpClient ?? $injectedClient;
 
-        return NetworkProvider::api(config('multiversx.urls.api'), $client);
+        return NetworkProvider::api($apiUrl ?? config('multiversx.urls.api'), $client);
     }
 
-    public static function apiWithCache(Carbon $expiresAt, ?ClientInterface $httpClient = null): ApiNetworkProvider
+    public static function apiWithCache(Carbon $expiresAt, ?ClientInterface $httpClient = null, ?string $apiUrl = null): ApiNetworkProvider
     {
         $stack = HandlerStack::create();
 
@@ -53,14 +53,14 @@ class Multiversx extends MultiversxBase
 
         $stack->push(new CacheMiddleware($cacheStrategy), 'cache');
 
-        $client = ClientFactory::create(config('multiversx.urls.api'), [
+        $client = ClientFactory::create($apiUrl ?? config('multiversx.urls.api'), [
             'handler' => $stack,
         ]);
 
         $injectedClient = app()->bound(static::HttpClientContainerAbstract) ? app(static::HttpClientContainerAbstract) : null;
         $client = $httpClient ?? $injectedClient;
 
-        return NetworkProvider::api(config('multiversx.urls.api'), $client);
+        return NetworkProvider::api($apiUrl ?? config('multiversx.urls.api'), $client);
     }
 
     public static function createMockedHttpClientWithResponses(array $responses): ClientInterface
