@@ -1,5 +1,5 @@
 <?php
 
-use Peerme\MxLaravel\Tests\TestCase;
+use MultiversX\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

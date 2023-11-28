@@ -1,6 +1,6 @@
 <?php
 
-namespace Peerme\MxLaravel\Tests;
+namespace MultiversX\Tests;
 
 use Orchestra\Testbench\TestCase as TestbenchCase;
 
@@ -9,7 +9,7 @@ class TestCase extends TestbenchCase
     protected function getPackageProviders($app)
     {
         return [
-            \Peerme\MxLaravel\ServiceProvider::class,
+            \MultiversX\ServiceProvider::class,
         ];
     }
 

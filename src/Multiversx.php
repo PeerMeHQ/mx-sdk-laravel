@@ -1,6 +1,6 @@
 <?php
 
-namespace Peerme\MxLaravel;
+namespace MultiversX;
 
 use Carbon\Carbon;
 use Exception;
@@ -12,8 +12,8 @@ use Kevinrob\GuzzleCache\CacheMiddleware;
 use Kevinrob\GuzzleCache\Storage\LaravelCacheStorage;
 use Kevinrob\GuzzleCache\Strategy\GreedyCacheStrategy;
 use Peerme\Mx\Multiversx as MultiversxBase;
-use Peerme\MxLaravel\Auth\NativeAuthServer;
-use Peerme\MxLaravel\Auth\NativeAuthValidateResult;
+use MultiversX\Auth\NativeAuthServer;
+use MultiversX\Auth\NativeAuthValidateResult;
 use Peerme\MxProviders\Api\ApiNetworkProvider;
 use Peerme\MxProviders\ClientFactory;
 use Peerme\MxProviders\NetworkProvider;

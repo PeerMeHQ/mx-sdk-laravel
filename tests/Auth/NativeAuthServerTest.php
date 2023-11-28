@@ -4,11 +4,11 @@ use Peerme\Mx\Address;
 use Peerme\Mx\SignableMessage;
 use Peerme\Mx\Signature;
 use Peerme\Mx\UserSigner;
-use Peerme\MxLaravel\Auth\NativeAuthDecoded;
-use Peerme\MxLaravel\Auth\NativeAuthServer;
-use Peerme\MxLaravel\Exceptions\NativeAuthInvalidSignatureException;
-use Peerme\MxLaravel\Exceptions\NativeAuthOriginNotAcceptedException;
-use Peerme\MxLaravel\Exceptions\NativeAuthTokenExpiredException;
+use MultiversX\Auth\NativeAuthDecoded;
+use MultiversX\Auth\NativeAuthServer;
+use MultiversX\Exceptions\NativeAuthInvalidSignatureException;
+use MultiversX\Exceptions\NativeAuthOriginNotAcceptedException;
+use MultiversX\Exceptions\NativeAuthTokenExpiredException;
 
 beforeEach(function () {
     $alicePem = '-----BEGIN PRIVATE KEY for erd1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th-----

@@ -31,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Peerme\\MxLaravel\\": "src"
+            "MultiversX\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Peerme\\MxLaravel\\Tests\\": "tests"
+            "MultiversX\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -52,7 +52,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Peerme\\MxLaravel\\ServiceProvider"
+                "MultiversX\\ServiceProvider"
             ]
         }
     },

@@ -1,6 +1,6 @@
 <?php
 
-namespace Peerme\MxLaravel\Auth;
+namespace MultiversX\Auth;
 
 class NativeAuthDecoded
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace Peerme\MxLaravel\Auth;
+namespace MultiversX\Auth;
 
 use InvalidArgumentException;
 use Peerme\Mx\Address;
 use Peerme\Mx\SignableMessage;
 use Peerme\Mx\Signature;
 use Peerme\Mx\UserVerifier;
-use Peerme\MxLaravel\Exceptions\NativeAuthInvalidSignatureException;
-use Peerme\MxLaravel\Exceptions\NativeAuthInvalidTokenTtlException;
-use Peerme\MxLaravel\Exceptions\NativeAuthOriginNotAcceptedException;
-use Peerme\MxLaravel\Exceptions\NativeAuthTokenExpiredException;
+use MultiversX\Exceptions\NativeAuthInvalidSignatureException;
+use MultiversX\Exceptions\NativeAuthInvalidTokenTtlException;
+use MultiversX\Exceptions\NativeAuthOriginNotAcceptedException;
+use MultiversX\Exceptions\NativeAuthTokenExpiredException;
 
 class NativeAuthServer
 {

@@ -21,7 +21,7 @@ composer require peerme/mx-sdk-laravel
 And publish the config file `config/multiversx.php` via
 
 ```bash
-php artisan vendor:publish --provider="Peerme\MxLaravel\ServiceProvider" --tag="config"
+php artisan vendor:publish --provider="MultiversX\ServiceProvider" --tag="config"
 ```
 
 ## Usage
@@ -44,7 +44,7 @@ For more details, please refer to their documentation:
 When instantiating the Network Providers, you can decide to optionally cache responses:
 
 ```php
-use Peerme\MxLaravel\Multiversx;
+use MultiversX\Multiversx;
 
 // retrieve fresh responses each time
 $api = Multiversx::api();

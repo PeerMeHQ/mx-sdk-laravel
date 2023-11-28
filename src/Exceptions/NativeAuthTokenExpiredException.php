@@ -1,6 +1,6 @@
 <?php
 
-namespace Peerme\MxLaravel\Exceptions;
+namespace MultiversX\Exceptions;
 
 use Exception;
 
