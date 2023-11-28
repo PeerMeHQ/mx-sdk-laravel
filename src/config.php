@@ -29,6 +29,7 @@ return [
     'native_auth' => [
         'accepted_origins' => [
             'https://api.multiversx.com',
+            'multiversx://xportal',
         ],
 
         'max_expiry_seconds' => 86400,
