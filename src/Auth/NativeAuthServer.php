@@ -47,10 +47,10 @@ class NativeAuthServer
             blockHash: $blockHash,
             body: $parsedBody,
         );
-      }
+    }
 
-      public function validate(string $accessToken): NativeAuthValidateResult
-      {
+    public function validate(string $accessToken): NativeAuthValidateResult
+    {
         $decoded = $this->decode($accessToken);
 
         throw_unless($decoded->ttl <= $this->maxExpirySeconds, NativeAuthInvalidTokenTtlException::class, $decoded->ttl, $this->maxExpirySeconds);
@@ -90,7 +90,7 @@ class NativeAuthServer
             address: $decoded->address,
             extraInfo: $decoded->extraInfo,
         );
-      }
+    }
 
     private function unescape(string $str): string
     {
