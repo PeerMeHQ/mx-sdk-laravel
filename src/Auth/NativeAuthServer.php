@@ -19,7 +19,6 @@ class NativeAuthServer
         public ?string $apiUrl = null,
         public array $acceptedOrigins = [],
         public int $maxExpirySeconds = 86400,
-        public bool $skipLegacyValidation = false,
     ) {
     }
 
@@ -70,17 +69,6 @@ class NativeAuthServer
 
         $valid = UserVerifier::fromAddress(Address::fromBech32($decoded->address))
             ->verify(new Bytes($verifiable->serializeForSigning()), new Bytes($verifiable->signature->hex()), $verifiable->address->getPublicKey());
-
-        if (! $valid && ! $this->skipLegacyValidation) {
-            $verifiable = new SignableMessage(
-                message: "{$decoded->address}{$decoded->body}{}",
-                signature: new Signature($decoded->signature),
-                address: Address::fromBech32($decoded->address),
-            );
-
-            $valid = UserVerifier::fromAddress(Address::fromBech32($decoded->address))
-                ->verify(new Bytes($verifiable->serializeForSigning()), new Bytes($verifiable->signature->hex()), $verifiable->address->getPublicKey());
-        }
 
         throw_unless($valid, NativeAuthInvalidSignatureException::class);
 
