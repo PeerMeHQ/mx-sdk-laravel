@@ -3,14 +3,15 @@
 namespace MultiversX\Auth;
 
 use InvalidArgumentException;
-use Peerme\Mx\Address;
-use Peerme\Mx\SignableMessage;
-use Peerme\Mx\Signature;
-use Peerme\Mx\UserVerifier;
+use MultiversX\Address;
+use MultiversX\Bytes;
 use MultiversX\Exceptions\NativeAuthInvalidSignatureException;
 use MultiversX\Exceptions\NativeAuthInvalidTokenTtlException;
 use MultiversX\Exceptions\NativeAuthOriginNotAcceptedException;
 use MultiversX\Exceptions\NativeAuthTokenExpiredException;
+use MultiversX\SignableMessage;
+use MultiversX\Signature;
+use MultiversX\UserVerifier;
 
 class NativeAuthServer
 {
@@ -68,7 +69,7 @@ class NativeAuthServer
         );
 
         $valid = UserVerifier::fromAddress(Address::fromBech32($decoded->address))
-            ->verify($verifiable);
+            ->verify(new Bytes($verifiable->serializeForSigning()), new Bytes($verifiable->signature->hex()), $verifiable->address->getPublicKey());
 
         if (! $valid && ! $this->skipLegacyValidation) {
             $verifiable = new SignableMessage(
@@ -78,7 +79,7 @@ class NativeAuthServer
             );
 
             $valid = UserVerifier::fromAddress(Address::fromBech32($decoded->address))
-                ->verify($verifiable);
+                ->verify(new Bytes($verifiable->serializeForSigning()), new Bytes($verifiable->signature->hex()), $verifiable->address->getPublicKey());
         }
 
         throw_unless($valid, NativeAuthInvalidSignatureException::class);

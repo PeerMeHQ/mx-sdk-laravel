@@ -11,14 +11,13 @@ use Illuminate\Support\Facades\Cache;
 use Kevinrob\GuzzleCache\CacheMiddleware;
 use Kevinrob\GuzzleCache\Storage\LaravelCacheStorage;
 use Kevinrob\GuzzleCache\Strategy\GreedyCacheStrategy;
-use Peerme\Mx\Multiversx as MultiversxBase;
 use MultiversX\Auth\NativeAuthServer;
 use MultiversX\Auth\NativeAuthValidateResult;
-use Peerme\MxProviders\Api\ApiNetworkProvider;
-use Peerme\MxProviders\ClientFactory;
-use Peerme\MxProviders\NetworkProvider;
+use MultiversX\Http\Api\ApiNetworkProvider;
+use MultiversX\Http\ClientFactory;
+use MultiversX\Http\NetworkProvider;
 
-class Multiversx extends MultiversxBase
+class Multiversx
 {
     private const HttpClientContainerAbstract = 'mx_http_client';
 
