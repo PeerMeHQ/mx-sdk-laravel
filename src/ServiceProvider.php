@@ -1,6 +1,6 @@
 <?php
 
-namespace Peerme\MxLaravel;
+namespace MultiversX;
 
 use Illuminate\Support\ServiceProvider as ServiceProviderBase;
 

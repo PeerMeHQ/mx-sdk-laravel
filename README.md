@@ -21,7 +21,7 @@ composer require peerme/mx-sdk-laravel
 And publish the config file `config/multiversx.php` via
 
 ```bash
-php artisan vendor:publish --provider="Peerme\MxLaravel\ServiceProvider" --tag="config"
+php artisan vendor:publish --provider="MultiversX\ServiceProvider" --tag="config"
 ```
 
 ## Usage
@@ -29,22 +29,24 @@ php artisan vendor:publish --provider="Peerme\MxLaravel\ServiceProvider" --tag="
 Since this package wraps & configures the native packages for Laravel, you can access their utitlies without further configurations.
 
 This includes:
-- User Login Signature Verification
-- MultiversX constants
-- Domain Objects
-- Blockchain-specific constants
-- Other Utitilies & more
+
+-   User Login Signature Verification
+-   MultiversX constants
+-   Domain Objects
+-   Blockchain-specific constants
+-   Other Utitilies & more
 
 For more details, please refer to their documentation:
-- Core: [mx-sdk-php](https://github.com/PeerMeHQ/mx-sdk-php)
-- Network Providers: [mx-sdk-php-network-providers](https://github.com/PeerMeHQ/mx-sdk-php-network-providers)
+
+-   Core: [mx-sdk-php](https://github.com/PeerMeHQ/mx-sdk-php)
+-   Network Providers: [mx-sdk-php-network-providers](https://github.com/PeerMeHQ/mx-sdk-php-network-providers)
 
 ### Calling the API
 
 When instantiating the Network Providers, you can decide to optionally cache responses:
 
 ```php
-use Peerme\MxLaravel\Multiversx;
+use MultiversX\Multiversx;
 
 // retrieve fresh responses each time
 $api = Multiversx::api();
@@ -52,6 +54,7 @@ $api = Multiversx::api();
 // or retrieve cached responses subsequently for 1 hour
 $api = Multiversx::apiWithCache(expiresAt: now()->addHour());
 ```
+
 ### Validation Rules
 
 This package exposes the following Laravel [Validation Rules](https://laravel.com/docs/9.x/validation#available-validation-rules).

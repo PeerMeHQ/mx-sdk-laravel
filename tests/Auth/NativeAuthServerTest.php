@@ -1,14 +1,14 @@
 <?php
 
-use Peerme\Mx\Address;
-use Peerme\Mx\SignableMessage;
-use Peerme\Mx\Signature;
-use Peerme\Mx\UserSigner;
-use Peerme\MxLaravel\Auth\NativeAuthDecoded;
-use Peerme\MxLaravel\Auth\NativeAuthServer;
-use Peerme\MxLaravel\Exceptions\NativeAuthInvalidSignatureException;
-use Peerme\MxLaravel\Exceptions\NativeAuthOriginNotAcceptedException;
-use Peerme\MxLaravel\Exceptions\NativeAuthTokenExpiredException;
+use MultiversX\Address;
+use MultiversX\Auth\NativeAuthDecoded;
+use MultiversX\Auth\NativeAuthServer;
+use MultiversX\Exceptions\NativeAuthInvalidSignatureException;
+use MultiversX\Exceptions\NativeAuthOriginNotAcceptedException;
+use MultiversX\Exceptions\NativeAuthTokenExpiredException;
+use MultiversX\SignableMessage;
+use MultiversX\Signature;
+use MultiversX\UserSigner;
 
 beforeEach(function () {
     $alicePem = '-----BEGIN PRIVATE KEY for erd1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th-----
@@ -68,7 +68,9 @@ it('validates an access token', function () {
 it('throws when invalid signature in access token', function () {
     $subject = new NativeAuthServer(...$this->nativeServerConfig);
 
-    $subject->validate($this->accessToken.'abcdef');
+    $accessTokenWithInvalidSignature = substr_replace($this->accessToken, '0000', -4);
+
+    $subject->validate($accessTokenWithInvalidSignature);
 })
     ->expectException(NativeAuthInvalidSignatureException::class);
 

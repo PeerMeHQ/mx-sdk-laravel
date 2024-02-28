@@ -1,16 +1,17 @@
 <?php
 
-namespace Peerme\MxLaravel\Auth;
+namespace MultiversX\Auth;
 
 use InvalidArgumentException;
-use Peerme\Mx\Address;
-use Peerme\Mx\SignableMessage;
-use Peerme\Mx\Signature;
-use Peerme\Mx\UserVerifier;
-use Peerme\MxLaravel\Exceptions\NativeAuthInvalidSignatureException;
-use Peerme\MxLaravel\Exceptions\NativeAuthInvalidTokenTtlException;
-use Peerme\MxLaravel\Exceptions\NativeAuthOriginNotAcceptedException;
-use Peerme\MxLaravel\Exceptions\NativeAuthTokenExpiredException;
+use MultiversX\Address;
+use MultiversX\Bytes;
+use MultiversX\Exceptions\NativeAuthInvalidSignatureException;
+use MultiversX\Exceptions\NativeAuthInvalidTokenTtlException;
+use MultiversX\Exceptions\NativeAuthOriginNotAcceptedException;
+use MultiversX\Exceptions\NativeAuthTokenExpiredException;
+use MultiversX\SignableMessage;
+use MultiversX\Signature;
+use MultiversX\UserVerifier;
 
 class NativeAuthServer
 {
@@ -18,7 +19,6 @@ class NativeAuthServer
         public ?string $apiUrl = null,
         public array $acceptedOrigins = [],
         public int $maxExpirySeconds = 86400,
-        public bool $skipLegacyValidation = false,
     ) {
     }
 
@@ -47,10 +47,10 @@ class NativeAuthServer
             blockHash: $blockHash,
             body: $parsedBody,
         );
-      }
+    }
 
-      public function validate(string $accessToken): NativeAuthValidateResult
-      {
+    public function validate(string $accessToken): NativeAuthValidateResult
+    {
         $decoded = $this->decode($accessToken);
 
         throw_unless($decoded->ttl <= $this->maxExpirySeconds, NativeAuthInvalidTokenTtlException::class, $decoded->ttl, $this->maxExpirySeconds);
@@ -68,18 +68,7 @@ class NativeAuthServer
         );
 
         $valid = UserVerifier::fromAddress(Address::fromBech32($decoded->address))
-            ->verify($verifiable);
-
-        if (! $valid && ! $this->skipLegacyValidation) {
-            $verifiable = new SignableMessage(
-                message: "{$decoded->address}{$decoded->body}{}",
-                signature: new Signature($decoded->signature),
-                address: Address::fromBech32($decoded->address),
-            );
-
-            $valid = UserVerifier::fromAddress(Address::fromBech32($decoded->address))
-                ->verify($verifiable);
-        }
+            ->verify(new Bytes($verifiable->serializeForSigning()), new Bytes($verifiable->signature->hex()), $verifiable->address->getPublicKey());
 
         throw_unless($valid, NativeAuthInvalidSignatureException::class);
 
@@ -90,7 +79,7 @@ class NativeAuthServer
             address: $decoded->address,
             extraInfo: $decoded->extraInfo,
         );
-      }
+    }
 
     private function unescape(string $str): string
     {

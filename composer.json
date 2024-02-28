@@ -19,8 +19,7 @@
         "illuminate/contracts": "^9.0 || ^10.0",
         "illuminate/support": "^9.0 || ^10.0",
         "kevinrob/guzzle-cache-middleware": "^4.0",
-        "peerme/mx-sdk-php": "^1.1.1",
-        "peerme/mx-sdk-php-network-providers": "^1.4.0"
+        "multiversx/mx-sdk-php": "^0.1"
     },
     "require-dev": {
         "laravel/pint": "^1.8",
@@ -31,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Peerme\\MxLaravel\\": "src"
+            "MultiversX\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Peerme\\MxLaravel\\Tests\\": "tests"
+            "MultiversX\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -52,7 +51,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Peerme\\MxLaravel\\ServiceProvider"
+                "MultiversX\\ServiceProvider"
             ]
         }
     },

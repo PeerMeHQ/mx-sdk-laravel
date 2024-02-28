@@ -1,6 +1,6 @@
 <?php
 
-namespace Peerme\MxLaravel\Rules;
+namespace MultiversX\Rules;
 
 use Illuminate\Contracts\Validation\InvokableRule;
 
