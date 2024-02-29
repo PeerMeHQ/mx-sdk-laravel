@@ -33,5 +33,7 @@ return [
         ],
 
         'max_expiry_seconds' => 86400,
+
+        'skip_legacy_validation' => false,
     ],
 ];

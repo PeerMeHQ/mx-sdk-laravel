@@ -27,6 +27,7 @@ class Multiversx
             apiUrl: config('multiversx.urls.api') ?? throw new Exception('missing config: urls.api'),
             acceptedOrigins: config('multiversx.native_auth.accepted_origins') ?? throw new Exception('missing native auth config: accepted_origins'),
             maxExpirySeconds: config('multiversx.native_auth.max_expiry_seconds') ?? throw new Exception('missing native auth config: max_expiry_seconds'),
+            skipLegacyValidation: config('multiversx.native_auth.skip_legacy_validation') ?? throw new Exception('missing native auth config: skip_legacy_validation'),
         );
 
         return $nativeAuth->validate($accessToken);
