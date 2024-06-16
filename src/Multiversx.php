@@ -33,7 +33,7 @@ class Multiversx
         return $nativeAuth->validate($accessToken);
     }
 
-    public static function api(?ClientInterface $httpClient = null, ?string $apiUrl = null): ApiNetworkProvider
+    public static function api(?string $apiUrl = null, ?ClientInterface $httpClient = null): ApiNetworkProvider
     {
         $injectedClient = app()->bound(static::HttpClientContainerAbstract) ? app(static::HttpClientContainerAbstract) : null;
         $client = $httpClient ?? $injectedClient;
@@ -41,7 +41,7 @@ class Multiversx
         return NetworkProvider::api($apiUrl ?? config('multiversx.urls.api'), $client);
     }
 
-    public static function apiWithCache(Carbon $expiresAt, ?ClientInterface $httpClient = null, ?string $apiUrl = null): ApiNetworkProvider
+    public static function apiWithCache(Carbon $expiresAt, ?string $apiUrl = null, ?ClientInterface $httpClient = null): ApiNetworkProvider
     {
         $stack = HandlerStack::create();
 
