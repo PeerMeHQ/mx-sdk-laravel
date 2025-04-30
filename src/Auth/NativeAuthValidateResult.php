@@ -10,6 +10,5 @@ class NativeAuthValidateResult
         public string $address = '',
         public string $origin = '',
         public mixed $extraInfo = null,
-    ) {
-    }
+    ) {}
 }
