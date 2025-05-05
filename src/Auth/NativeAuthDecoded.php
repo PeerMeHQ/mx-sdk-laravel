@@ -12,6 +12,5 @@ class NativeAuthDecoded
         public string $signature = '',
         public string $blockHash = '',
         public string $body = '',
-    ) {
-    }
+    ) {}
 }

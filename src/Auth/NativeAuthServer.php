@@ -20,8 +20,7 @@ class NativeAuthServer
         public array $acceptedOrigins = [],
         public int $maxExpirySeconds = 86400,
         public bool $skipLegacyValidation = false,
-    ) {
-    }
+    ) {}
 
     public function decode(string $accessToken): NativeAuthDecoded
     {
